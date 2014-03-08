@@ -15,6 +15,7 @@ public class Player : MonoBehaviour {
 	public string craftHpInput;
 	public string craftAtkInput;
 	public string craftRangeInput;
+	public string JumpInput;
 
 	// Attributs
 	private Transform _bunch;
@@ -69,14 +70,12 @@ public class Player : MonoBehaviour {
 		yuni.transform.parent = _enemyBunch;
 		YunittoEnemy yunitto = (YunittoEnemy)yuni.GetComponent<YunittoEnemy>();
 		yunitto.SetStats(hp, atk, range);
-		Debug.Log ("Created an enemy of " + name + " with hp:" + hp + " atk:" + atk + " range:" + range);
 	}
 	public void CreateYunitto(float hp = 0.2f, float atk = 0.4f, float range = 0.4f) {
 		GameObject yuni = (GameObject)Instantiate(unitsGood, new Vector3(-10, transform.position.y, transform.position.z), transform.rotation);
 		yuni.transform.parent = _bunch;
 		Yunitto yunitto = (Yunitto)yuni.GetComponent<Yunitto>();
 		yunitto.SetStats(hp, atk, range);
-		Debug.Log ("Created an ally of " + name + " with hp:" + hp + " atk:" + atk + " range:" + range);
 	}
 	
 	// Accesseurs
@@ -121,6 +120,9 @@ public class Player : MonoBehaviour {
 			}
 			if(Input.GetButtonDown (_player.craftInput)) {
 				_player._state = new CraftingState(_player);
+			}
+			if(Input.GetButtonDown (_player.JumpInput)) {
+				Debug.Log( "Jumped");
 			}
 		}
 	}

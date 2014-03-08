@@ -45,7 +45,11 @@ public class ProjectileCollision : MonoBehaviour {
 		Debug.DrawRay (transform.position,transform.right*direction*range,Color.cyan);
 		if (Physics.Raycast (new Ray (transform.position, transform.right*direction), out hit, range, layerMask)) {
 			target = hit.collider.gameObject;
-			if(direction>=1) {
+			if(target.name == "Base"){
+				Base baseScript =  (Base)target.GetComponent<Base>();
+				baseScript.Hp -= atk;
+			}
+			else if(direction>=1) {
 				YunittoEnemy yuni = (YunittoEnemy)target.GetComponent<YunittoEnemy>();
 				yuni.Hp -= atk;
 				Debug.Log (gameObject + " Did " + atk + " Damage to " + yuni.transform.parent);
