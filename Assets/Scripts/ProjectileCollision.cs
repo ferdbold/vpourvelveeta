@@ -18,7 +18,7 @@ public class ProjectileCollision : MonoBehaviour {
 	LayerMask layerMask;
 	// Use this for initialization
 	void Start () {
-		range = 1f;
+		range = 0.5f;
 
 		shoot_Projectile = (Shoot_Projectile)transform.parent.GetComponent<Shoot_Projectile> ();
 		direction = shoot_Projectile.direction;

@@ -89,6 +89,7 @@ public class Yunitto : MonoBehaviour {
 		onCooldown = true;
 		cooldown = BASE_SPEED;
 	}
+
 	void HitMelee(GameObject target) {
 
 		YunittoEnemy yuni = target.GetComponent<YunittoEnemy> (); //On fait atk dégats a l'ennemi touché
@@ -121,6 +122,20 @@ public class Yunitto : MonoBehaviour {
 			if(isGood) Debug.Log ("Player2's minions Brutally Murdered Player1's army");
 			else Debug.Log ("Player1's minions Brutally Murdered Player2's army");
 		}
-
+	}
+	void AttackPlayer () {
+		if (Physics.Raycast (new Ray(transform.position, new Vector3 (1, 0, 0)),out hit,range,layerMask)) 
+		{
+			if(Mathf.Abs(hit.collider.transform.position.x - transform.position.x) > 2*MIN_RANGE)
+			{
+				projectileManager.CreateProjectile(1,atk,transform.position,isGood);
+			}
+			else 
+			{
+			YunittoEnemy yuni = (YunittoEnemy)hit.collider.gameObject.GetComponent<YunittoEnemy> ();
+			if(yuni != null) yuni.Hp -= atk;
+			}
+		}
+		cooldown -= 0.05f;
 	}
 }

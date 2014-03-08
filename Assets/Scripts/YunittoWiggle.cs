@@ -78,4 +78,5 @@ public class YunittoWiggle : MonoBehaviour {
 		                                      yunittoY, 
 		                                      transform.localPosition.z);
 	}
+
 }
