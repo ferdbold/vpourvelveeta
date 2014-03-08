@@ -10,7 +10,7 @@ public class BunchBehaviour : MonoBehaviour {
 
 	// Attributs publics
 	public GameObject p_yunitto;
-	public float moveSpeed = 2;
+	public float moveSpeed = 5;
 
 	// Attributs
 	private Player _player;

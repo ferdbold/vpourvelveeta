@@ -76,16 +76,16 @@ public class Yunitto : MonoBehaviour {
 	void Start () {
 		weakThreshold = 0.5f;
 		friendlyStatMultiplier = 10f;
-		ManagerObject = GameObject.Find("GameManager");
-		manager = ManagerObject.GetComponent<GameManager>();
+		//ManagerObject = GameObject.Find("GameManager");
+		//manager = ManagerObject.GetComponent<GameManager>();
 
 
 	}
 
 	void Update () {
-		if (Physics.Raycast (new Ray(transform.position, new Vector3 (1, 0, 0)),out hit,(float)range)) {
+		//if (Physics.Raycast (new Ray(transform.position, new Vector3 (1, 0, 0)),out hit,(float)range)) {
 		
-			Shoot();
-		}
+		//	Shoot();
+		//}
 	}
 }
