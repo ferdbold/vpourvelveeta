@@ -145,19 +145,25 @@ public class Yunitto : MonoBehaviour {
 			else Debug.Log ("Player1's minions Brutally Murdered Player2's army");
 		}
 	}
-	void AttackPlayer () {
+	public void AttackPlayer () {
 		if (Physics.Raycast (new Ray(transform.position, new Vector3 (1, 0, 0)),out hit,range,layerMask)) 
 		{
-			if(Mathf.Abs(hit.collider.transform.position.x - transform.position.x) > 2*MIN_RANGE)
+
+			if(Mathf.Abs(hit.collider.transform.position.x - transform.position.x) < 2*MIN_RANGE)
 			{
-				projectileManager.CreateProjectile(1,atk,transform.position,isGood);
-			}
-			else 
-			{
-			YunittoEnemy yuni = (YunittoEnemy)hit.collider.gameObject.GetComponent<YunittoEnemy> ();
-			if(yuni != null) yuni.Hp -= atk;
+				YunittoEnemy yuni = (YunittoEnemy)hit.collider.gameObject.GetComponent<YunittoEnemy> ();
+				if(yuni != null) yuni.Hp -= atk;
+				//projectileManager.CreateProjectile(1,atk,transform.position,isGood);
 			}
 		}
+			else 
+			{
+				Debug.Log("test");
+				projectileManager.CreateProjectile(1,atk,transform.position,isGood);
+			/*YunittoEnemy yuni = (YunittoEnemy)hit.collider.gameObject.GetComponent<YunittoEnemy> ();
+			if(yuni != null) yuni.Hp -= atk;*/
+			}
+		
 		cooldown -= 0.05f;
 	}
 }
