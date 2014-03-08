@@ -30,11 +30,26 @@ public class Player : MonoBehaviour {
 	private Yunitto yunitto;
 	private YunittoEnemy yunittoEnemy;
 
+	private GameObject otherPlayerObj;
+	private Player otherPlayer;
+	public Player OtherPlayer {
+		get{ return otherPlayer;}
+	}
+
 	// Méthodes
 	void Start() {
 		_bunch = transform.Find("Bunch");
 		_enemyBunch = transform.Find("Enemies");
 		_crafting = transform.Find("Crafting");
+		if (name == "P1") {
+			Transform otherPlayerT = transform.parent.transform.Find ("P2");
+			otherPlayerObj = otherPlayerT.gameObject;
+		}
+		else {
+			Transform otherPlayerT = transform.parent.transform.Find ("P1");
+			otherPlayerObj = otherPlayerT.gameObject;
+		}
+		otherPlayer = (Player)otherPlayerObj.GetComponent<Player> ();
 
 		_bunchBehaviour = (BunchBehaviour)_bunch.GetComponent<BunchBehaviour>();
 		_craftingBehaviour = (Crafting)_crafting.GetComponent<Crafting>();
@@ -52,16 +67,16 @@ public class Player : MonoBehaviour {
 	public void CreateEnemyYunitto(float hp = 0.2f, float atk = 0.4f, float range = 0.4f) {
 		GameObject yuni = (GameObject)Instantiate(unitsBad, new Vector3(10, transform.position.y, transform.position.z), transform.rotation);
 		yuni.transform.parent = _enemyBunch;
-		
 		YunittoEnemy yunitto = (YunittoEnemy)yuni.GetComponent<YunittoEnemy>();
 		yunitto.SetStats(hp, atk, range);
+		Debug.Log ("Created an enemy of " + name + " with hp:" + hp + " atk:" + atk + " range:" + range);
 	}
 	public void CreateYunitto(float hp = 0.2f, float atk = 0.4f, float range = 0.4f) {
-		GameObject yuni = (GameObject)Instantiate(unitsGood, new Vector3(0, transform.position.y, transform.position.z), transform.rotation);
+		GameObject yuni = (GameObject)Instantiate(unitsGood, new Vector3(-10, transform.position.y, transform.position.z), transform.rotation);
 		yuni.transform.parent = _bunch;
-		
 		Yunitto yunitto = (Yunitto)yuni.GetComponent<Yunitto>();
 		yunitto.SetStats(hp, atk, range);
+		Debug.Log ("Created an ally of " + name + " with hp:" + hp + " atk:" + atk + " range:" + range);
 	}
 	
 	// Accesseurs
