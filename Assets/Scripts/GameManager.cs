@@ -7,7 +7,13 @@ using UnityEngine;
 using System.Collections;
 
 public class GameManager : MonoBehaviour {
-	
+	private int statMultiplier;
+
+	public int StatMultiplier
+	{
+		get { return statMultiplier;}
+		set { statMultiplier = value;}
+	}
 	// Use this for initialization
 	void Start () {
 		
