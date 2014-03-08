@@ -9,6 +9,9 @@ using System.Collections;
 public class YunittoWiggle : MonoBehaviour {
 
 	// Attributs
+	private float unitRange;
+	private Yunitto yunitto;
+	private YunittoEnemy yunittoEnemy;
 	public float _yVelocity;
 
 	// Attributs publics
@@ -27,6 +30,15 @@ public class YunittoWiggle : MonoBehaviour {
 		jumpHeight = 3;
 		jumpVar = 1.5f;
 		gravity = 0.3f;
+
+		//Obtenir le range de l'unit en tenant compte que sa peut etre un ally ou un enemy
+		if (gameObject.GetComponent<Yunitto> () != null) {
+			yunitto = (Yunitto)gameObject.GetComponent<Yunitto>();
+			unitRange = yunitto.Range;
+		} else {
+			yunittoEnemy = (YunittoEnemy)gameObject.GetComponent<YunittoEnemy>();
+			unitRange = yunittoEnemy.Range;
+		}
 	}
 
 	void Update () {
@@ -36,7 +48,7 @@ public class YunittoWiggle : MonoBehaviour {
 
 	private void Move() {
 		// Biaiser les limites de mouvement pour que le yunitto ne s'éloigne pas trop du bunc
-		float interest = (-transform.localPosition.x/leashLength) * wiggleSpeed;
+		float interest = ((-transform.localPosition.x - (2*unitRange))/leashLength) * wiggleSpeed;
 		float movement = Random.Range(interest-wiggleSpeed, interest+wiggleSpeed) * Time.deltaTime;
 		transform.localPosition = new Vector3(transform.localPosition.x + movement, 
 		                                      transform.localPosition.y, 
