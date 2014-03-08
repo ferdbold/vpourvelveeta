@@ -127,6 +127,7 @@ MonoBehaviour:
   craftHpInput: P1CraftHp
   craftAtkInput: P1CraftAtk
   craftRangeInput: P1CraftRange
+  JumpInput: P1Jump
   unitsGood: {fileID: 100000, guid: f79a14f42d8a240399ea0076ee0efdbe, type: 2}
   unitsBad: {fileID: 100000, guid: 2d7f7b34ca3a447fa96b9513dac60c3d, type: 2}
 --- !u!114 &11400002
@@ -142,6 +143,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   p_yunitto: {fileID: 100000, guid: f79a14f42d8a240399ea0076ee0efdbe, type: 2}
   moveSpeed: 5
+  white: {fileID: 2100000, guid: 22b4a6189b69fe747bfb4b7d27fb8ea8, type: 2}
+  brown: {fileID: 2100000, guid: 6cadedaea292f7a4dbbf0500184a953b, type: 2}
+  red: {fileID: 2100000, guid: 339a8cebe665e7442821eb2433a0086e, type: 2}
+  blue: {fileID: 2100000, guid: ac752c9213c3a834aa7dad91928e8882, type: 2}
+  green: {fileID: 2100000, guid: 11d67273589eec74f9b962d368504473, type: 2}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -153,6 +159,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ac9d4e798050141a92a1eba5c96e26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentTime: 0
+  CurrentNode: 0
+  Tempo: 0
+  HpSuccess: 0
   p_sphere: {fileID: 100000, guid: 3d73a8cdd5f414989bc6b441b0670ceb, type: 2}
   p_anneau: {fileID: 100000, guid: 79c3c52fc6a8d45c39c6a137ea5a7a98, type: 2}
   NodeNumberMax: 3

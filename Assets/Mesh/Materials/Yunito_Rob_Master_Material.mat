@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Yunito_Rob_Material
+  m_Name: Yunito_Rob_Master_Material
   m_Shader: {fileID: 4800000, guid: 7195ae813de9ec44a9066faaf205dcb3, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
@@ -22,16 +22,16 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _Specular
+          name: _SelfIlu
         second:
-          m_Texture: {fileID: 2800000, guid: fd0bf8fcb61b9c44ba39728860a9d75d, type: 3}
+          m_Texture: {fileID: 2800000, guid: 2d8f17c7508f3f747a598d574fa81b3b, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _SelfIlu
+          name: _Specular
         second:
-          m_Texture: {fileID: 2800000, guid: 2d8f17c7508f3f747a598d574fa81b3b, type: 3}
+          m_Texture: {fileID: 2800000, guid: fd0bf8fcb61b9c44ba39728860a9d75d, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats: {}
