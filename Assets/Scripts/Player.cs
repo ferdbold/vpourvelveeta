@@ -16,6 +16,21 @@ public class Player : MonoBehaviour {
 	public string craftAtkInput;
 	public string craftRangeInput;
 
+	public GameObject unitsGood;
+	public GameObject unitsBad;
+	private Yunitto yunitto;
+	private YunittoEnemy yunittoEnemy;
+
+
+	void Start () {
+		yunitto = unitsGood.GetComponent<Yunitto>();
+		yunittoEnemy = unitsBad.GetComponent<YunittoEnemy>();
+		GameObject clone;
+		clone = (GameObject)Instantiate(unitsBad,transform.position,Quaternion.identity);
+		yunittoEnemy = (YunittoEnemy)clone.GetComponent<YunittoEnemy>();
+		yunittoEnemy.SetStats (0.5f, 0.5f, 0f, true);
+
+	}
 	// Update is called once per frame
 	void Update () {
 		
