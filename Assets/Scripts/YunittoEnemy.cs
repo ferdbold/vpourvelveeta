@@ -6,12 +6,16 @@ public class YunittoEnemy : MonoBehaviour {
 	const int MIN_RANGE = 2;
 	const int BASE_ATK = 1;
 	const int BASE_HP = 5;
-	
+	const float BASE_SPEED = 1f;
+
 	private float hp; // vie de l'unité
 	private float atk; // attaque de l'unité
 	private float range; //Portée de tir de l'unité 
+	private float cooldown; //Peut selement attaquer si cette valeur est zero et moins.
 	private int unitType; //Type d'unité (1:HP, 2:ATK, 3:Range, 4:Balanced, 5:Weak)
 	private bool isGood; // Est-ce que l'unité appartient a la faction du haut(good) ou du bas(bad)
+	private bool onCooldown;
+
 	
 	private float weakThreshold; //Si les stats combinées d'un unité est inférieur au threshold, elle est faible.
 
@@ -82,17 +86,22 @@ public class YunittoEnemy : MonoBehaviour {
 	}
 	
 	void Shoot() {
-		Debug.Log ("SHOTS FIRED ENEMY");
 		projectileManager.CreateProjectile(-1,atk,transform.position,isGood);
+		onCooldown = true;
+		cooldown = BASE_SPEED;
+		
 	}
 	void HitMelee(GameObject target) {
-		Debug.Log ("MELEE HIT ENEMY");
 		Yunitto yuni = target.GetComponent<Yunitto> ();
 		yuni.Hp -= atk;
+		onCooldown = true;
+		cooldown = BASE_SPEED;
+		Debug.Log ("enemy melee");
 	}
 	
 	void Awake () {
 		weakThreshold = 0.5f; //si le total est en dessous du threshold. l'unité est faible.
+		onCooldown = false;
 		//Get Objects
 		ManagerObject = GameObject.Find("Game");
 		manager = ManagerObject.GetComponent<GameManager>();
@@ -100,11 +109,15 @@ public class YunittoEnemy : MonoBehaviour {
 	}
 	
 	void Update () {
-		Debug.DrawRay (transform.position, new Vector3 (-range, 0, 0),Color.green);
-		if (Physics.Raycast (new Ray(transform.position, new Vector3 (-1, 0, 0)),out hit,range,layerMask)) {
-			if(Mathf.Abs(hit.collider.transform.position.x - transform.position.x) > MIN_RANGE) Shoot();
-			else HitMelee(hit.collider.gameObject);
-		}
+		if(!onCooldown) {
+			Debug.DrawRay (transform.position, new Vector3 (-range, 0, 0),Color.green);
+			if (Physics.Raycast (new Ray(transform.position, new Vector3 (-1, 0, 0)),out hit,range,layerMask)) {
+				if(Mathf.Abs(hit.collider.transform.position.x - transform.position.x) > MIN_RANGE) Shoot();
+				else HitMelee(hit.collider.gameObject);
+			}
+		} else if(cooldown > 0) {
+			cooldown -= (1*Time.deltaTime);
+		} else onCooldown = false;
 		if (hp <= 0) {
 			Destroy (gameObject);
 			if(isGood) Debug.Log ("Player2's army Brutally Murdered Player1's minions");

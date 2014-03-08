@@ -425,6 +425,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1498246548}
   - 114: {fileID: 1498246546}
+  - 114: {fileID: 1498246547}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -449,6 +450,18 @@ MonoBehaviour:
   - {fileID: 1684541052}
   spawnInterval: 2
   p_yunittoEnemy: {fileID: 100000, guid: 2d7f7b34ca3a447fa96b9513dac60c3d, type: 2}
+--- !u!114 &1498246547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1498246545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58c9f87e0691af0458148e81fd9d5730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 100000, guid: 20e28e05755f6f14b8024d212c318df2, type: 2}
 --- !u!4 &1498246548
 Transform:
   m_ObjectHideFlags: 0
