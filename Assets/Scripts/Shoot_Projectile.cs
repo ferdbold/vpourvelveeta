@@ -7,7 +7,7 @@ public class Shoot_Projectile : MonoBehaviour {
 	public int direction=1; 					//Direction du tir, elle ÉGALE A 1 POUR DES TESTS SEULEMENT
 	public float _distance; 					//Distance entre deux unités
 	public float _angleprojectile; 				//Angle de la de la vitesse du projectile
-	public float _angletir=45.0f;						//Angle du  tir du projectile
+	public float _angletir=45.0f;				//Angle du  tir du projectile
 	public float _xspeed; 						//Variable vitesse verticale du projectile
 	public float _yspeed; 						//Variable vitesse horizontale du projectile
 	public float _speed; 						//Variable vitesse du projectile
@@ -33,8 +33,8 @@ public class Shoot_Projectile : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		_speed = 2.0f + Random.Range (0, 3); 
-		_yspeed = Mathf.Sin (_angletir) * _speed;
+		_speed = 2.0f + Random.Range (0, 3);	 
+		_yspeed = Mathf.Sin (_angletir) * _speed; 
 		_xspeed = Mathf.Cos (_angletir) * _speed * direction;
 
 	}
@@ -44,8 +44,9 @@ public class Shoot_Projectile : MonoBehaviour {
 
 
 		transform.Translate(new Vector3(_xspeed,_yspeed,0.0f)*Time.deltaTime); // Mouvement de l'objet selon un vecteur [x,y]
-		_yspeed  -=  _speedreduction*Time.deltaTime;
-
+		
+		_yspeed  -=  _speedreduction*Time.deltaTime; 						   
+		
 
 	}
 

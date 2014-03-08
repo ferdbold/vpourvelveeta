@@ -56,5 +56,34 @@ public class ProjectileCollision : MonoBehaviour {
 
 			Destroy (gameObject.transform.parent.gameObject);
 		}
+
+
+		if (direction >= 1) //Les boucles suivantes servent a la destruction des projectiles touchant le sol (a un point y donné)
+		{
+			if(isP1)
+			{
+				if(transform.parent.transform.position.y<=1.0f) //La constante est sujet aux changements!
+					Destroy (gameObject.transform.parent.gameObject);
+			}
+			else
+			{
+				if(transform.parent.transform.position.y<=-1.0f)//La constante est sujet aux changements!
+					Destroy (gameObject.transform.parent.gameObject);
+			}
+		}
+		else 
+		{
+			if(isP1)
+			{
+				if(transform.parent.transform.position.y<=-1.0f)//La constante est sujet aux changements!
+					Destroy (gameObject.transform.parent.gameObject);
+			}
+			else
+			{
+				if(transform.parent.transform.position.y<=1.0f)//La constante est sujet aux changements!
+					Destroy (gameObject.transform.parent.gameObject);
+			}
+		}
 	}
+
 }

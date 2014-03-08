@@ -11,6 +11,12 @@ public class BunchBehaviour : MonoBehaviour {
 	// Attributs publics
 	public GameObject p_yunitto;
 	public float moveSpeed = 5;
+	// materiel_couleur
+	public Material white;
+	public Material brown;
+	public Material red;
+	public Material blue;
+	public Material green;
 
 	// Attributs
 	private Player _player;
