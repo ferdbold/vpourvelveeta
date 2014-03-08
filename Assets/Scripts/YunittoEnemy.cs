@@ -85,6 +85,11 @@ public class YunittoEnemy : MonoBehaviour {
 		Debug.Log ("SHOTS FIRED ENEMY");
 		//shoot_Projectile;
 	}
+	void HitMelee(GameObject target) {
+		Debug.Log ("MELEE HIT ENEMY");
+		Yunitto yuni = target.GetComponent<Yunitto> ();
+		yuni.Hp -= atk;
+	}
 	
 	void Awake () {
 		weakThreshold = 0.5f; //si le total est en dessous du threshold. l'unité est faible.
@@ -94,13 +99,15 @@ public class YunittoEnemy : MonoBehaviour {
 	}
 	
 	void Update () {
-		Debug.Log ("atk:" + atk);
-		Debug.Log ("hp:" + hp);
-		Debug.Log ("range:" + range);
-
 		Debug.DrawRay (transform.position, new Vector3 (-range, 0, 0),Color.green);
 		if (Physics.Raycast (new Ray(transform.position, new Vector3 (-1, 0, 0)),out hit,range,layerMask)) {
-			Shoot();
+			if(Mathf.Abs(hit.collider.transform.position.x - transform.position.x) > MIN_RANGE) Shoot();
+			else HitMelee(hit.collider.gameObject);
+		}
+		if (hp <= 0) {
+			Destroy (gameObject);
+			if(isGood) Debug.Log ("Player2's army Brutally Murdered Player1's minions");
+			else Debug.Log ("Player1's army Brutally Murdered Player2's minions");
 		}
 	}
 }
