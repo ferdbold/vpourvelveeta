@@ -1,0 +1,188 @@
+fileFormatVersion: 2
+guid: 48056d06d55d9564ebf5468a65408ccf
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: knob00
+    100002: knob01
+    100004: knob02
+    100006: knob03
+    100008: knob04
+    100010: knob05
+    100012: sk_Robot_bone_center
+    100014: sk_Robot_bone_hanche
+    100016: sk_Robot_bone_Head
+    100018: sk_Robot_bone_L_Bras00
+    100020: sk_Robot_bone_L_Bras01
+    100022: sk_Robot_bone_L_Bras02
+    100024: sk_Robot_bone_L_foot
+    100026: sk_Robot_bone_L_shoulder
+    100028: sk_Robot_bone_R_bras00
+    100030: sk_Robot_bone_R_bras01
+    100032: sk_Robot_bone_R_bras02
+    100034: sk_Robot_bone_R_bras03
+    100036: sk_Robot_bone_R_foot
+    100038: sk_Robot_bone_R_Shoulder
+    100040: sk_Robot_bone_Spine00
+    100042: sk_Robot_bone_Spine01
+    100044: //RootNode
+    100046: Sphere001
+    400000: knob00
+    400002: knob01
+    400004: knob02
+    400006: knob03
+    400008: knob04
+    400010: knob05
+    400012: sk_Robot_bone_center
+    400014: sk_Robot_bone_hanche
+    400016: sk_Robot_bone_Head
+    400018: sk_Robot_bone_L_Bras00
+    400020: sk_Robot_bone_L_Bras01
+    400022: sk_Robot_bone_L_Bras02
+    400024: sk_Robot_bone_L_foot
+    400026: sk_Robot_bone_L_shoulder
+    400028: sk_Robot_bone_R_bras00
+    400030: sk_Robot_bone_R_bras01
+    400032: sk_Robot_bone_R_bras02
+    400034: sk_Robot_bone_R_bras03
+    400036: sk_Robot_bone_R_foot
+    400038: sk_Robot_bone_R_Shoulder
+    400040: sk_Robot_bone_Spine00
+    400042: sk_Robot_bone_Spine01
+    400044: //RootNode
+    400046: Sphere001
+    2300000: sk_Robot_bone_center
+    3300000: sk_Robot_bone_center
+    4300000: Sphere001
+    4300002: sk_Robot_bone_center
+    7400000: Sk_Yunito_Rob_Walk
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Sphere001
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Sk_Yunito_Rob_Walk
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 38
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: sk_Robot_bone_center
+        weight: 1
+      - path: sk_Robot_bone_center/sk_Robot_bone_hanche
+        weight: 1
+      - path: sk_Robot_bone_center/sk_Robot_bone_hanche/knob00
+        weight: 1
+      - path: sk_Robot_bone_center/sk_Robot_bone_hanche/sk_Robot_bone_L_foot
+        weight: 1
+      - path: sk_Robot_bone_center/sk_Robot_bone_hanche/sk_Robot_bone_L_foot/knob02
+        weight: 1
+      - path: sk_Robot_bone_center/sk_Robot_bone_hanche/sk_Robot_bone_R_foot
+        weight: 1
+      - path: sk_Robot_bone_center/sk_Robot_bone_hanche/sk_Robot_bone_R_foot/knob01
+        weight: 1
+      - path: sk_Robot_bone_center/sk_Robot_bone_Spine00
+        weight: 1
+      - path: sk_Robot_bone_center/sk_Robot_bone_Spine00/sk_Robot_bone_Spine01
+        weight: 1
+      - path: sk_Robot_bone_center/sk_Robot_bone_Spine00/sk_Robot_bone_Spine01/sk_Robot_bone_Head
+        weight: 1
+      - path: sk_Robot_bone_center/sk_Robot_bone_Spine00/sk_Robot_bone_Spine01/sk_Robot_bone_Head/knob03
+        weight: 1
+      - path: sk_Robot_bone_center/sk_Robot_bone_Spine00/sk_Robot_bone_Spine01/sk_Robot_bone_Head/sk_Robot_bone_L_shoulder
+        weight: 1
+      - path: sk_Robot_bone_center/sk_Robot_bone_Spine00/sk_Robot_bone_Spine01/sk_Robot_bone_Head/sk_Robot_bone_L_shoulder/sk_Robot_bone_L_Bras00
+        weight: 1
+      - path: sk_Robot_bone_center/sk_Robot_bone_Spine00/sk_Robot_bone_Spine01/sk_Robot_bone_Head/sk_Robot_bone_L_shoulder/sk_Robot_bone_L_Bras00/sk_Robot_bone_L_Bras01
+        weight: 1
+      - path: sk_Robot_bone_center/sk_Robot_bone_Spine00/sk_Robot_bone_Spine01/sk_Robot_bone_Head/sk_Robot_bone_L_shoulder/sk_Robot_bone_L_Bras00/sk_Robot_bone_L_Bras01/sk_Robot_bone_L_Bras02
+        weight: 1
+      - path: sk_Robot_bone_center/sk_Robot_bone_Spine00/sk_Robot_bone_Spine01/sk_Robot_bone_Head/sk_Robot_bone_L_shoulder/sk_Robot_bone_L_Bras00/sk_Robot_bone_L_Bras01/sk_Robot_bone_L_Bras02/knob04
+        weight: 1
+      - path: sk_Robot_bone_center/sk_Robot_bone_Spine00/sk_Robot_bone_Spine01/sk_Robot_bone_Head/sk_Robot_bone_R_Shoulder
+        weight: 1
+      - path: sk_Robot_bone_center/sk_Robot_bone_Spine00/sk_Robot_bone_Spine01/sk_Robot_bone_Head/sk_Robot_bone_R_Shoulder/sk_Robot_bone_R_bras00
+        weight: 1
+      - path: sk_Robot_bone_center/sk_Robot_bone_Spine00/sk_Robot_bone_Spine01/sk_Robot_bone_Head/sk_Robot_bone_R_Shoulder/sk_Robot_bone_R_bras00/sk_Robot_bone_R_bras01
+        weight: 1
+      - path: sk_Robot_bone_center/sk_Robot_bone_Spine00/sk_Robot_bone_Spine01/sk_Robot_bone_Head/sk_Robot_bone_R_Shoulder/sk_Robot_bone_R_bras00/sk_Robot_bone_R_bras01/sk_Robot_bone_R_bras02
+        weight: 1
+      - path: sk_Robot_bone_center/sk_Robot_bone_Spine00/sk_Robot_bone_Spine01/sk_Robot_bone_Head/sk_Robot_bone_R_Shoulder/sk_Robot_bone_R_bras00/sk_Robot_bone_R_bras01/sk_Robot_bone_R_bras02/sk_Robot_bone_R_bras03
+        weight: 1
+      - path: sk_Robot_bone_center/sk_Robot_bone_Spine00/sk_Robot_bone_Spine01/sk_Robot_bone_Head/sk_Robot_bone_R_Shoulder/sk_Robot_bone_R_bras00/sk_Robot_bone_R_bras01/sk_Robot_bone_R_bras02/sk_Robot_bone_R_bras03/knob05
+        weight: 1
+      - path: Sphere001
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
