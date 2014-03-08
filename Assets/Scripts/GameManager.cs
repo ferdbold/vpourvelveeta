@@ -9,7 +9,7 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
 
 	// Attributes
-	private int statMultiplier;
+	private float statMultiplier;
 	private float _timeElapsed;
 	private float _spawnTimeElapsed;
 
@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour {
 	public float spawnInterval = 2F;
 	public GameObject p_yunittoEnemy;
 
-	public int StatMultiplier
+	public float StatMultiplier
 	{
 		get { return statMultiplier;}
 		set { statMultiplier = value;}
@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 		_timeElapsed = 0;
 		_spawnTimeElapsed = 0;
-		statMultiplier = 1;
+		statMultiplier = 0.5f;
 	}
 	
 	void Update () {

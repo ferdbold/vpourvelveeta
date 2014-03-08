@@ -33,11 +33,9 @@ public class Shoot_Projectile : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		_speed = 2.0f + Random.Range (0, 3); 
-		_yspeed = Mathf.Sin (_angletir) * _speed;
+		_speed = 2.0f + Random.Range (0, 3);	 //Détermine la vitesse du tir : elle est égal a une constante de 2.0f + une valeur random entre 0 et 3
+		_yspeed = Mathf.Sin (_angletir) * _speed; 
 		_xspeed = Mathf.Cos (_angletir) * _speed * direction;
-		/*_xspeed  = 5.0f*direction; 				//Envoie le projectile vers la direction droite (positive) ou gauche (négative)
-		_yspeed  = 5.0f; 						//Vitesse initiale de tir en hauteur*/
 
 	}
 	
@@ -46,15 +44,9 @@ public class Shoot_Projectile : MonoBehaviour {
 
 
 		transform.Translate(new Vector3(_xspeed,_yspeed,0.0f)*Time.deltaTime); // Mouvement de l'objet selon un vecteur [x,y]
-		/*_angleprojectile = (Mathf.Atan(_yspeed / _xspeed))*(360.0f/(2.0f*Mathf.PI)) ; //Calcul de l'angle en radian et conversion en degré
-		_angleprojectile -= 100*Time.deltaTime;
-		if (_angleprojectile < 0) 													//Section mise en commentaire car elle cause des problemes au niveau de l'objet
-			{
-				_angleprojectile+=360; 
-			}*/
-		//transform.eulerAngles = new Vector3(0.0f, 0.0f, _angleprojectile);
-		_yspeed  -=  _speedreduction*Time.deltaTime; //La vitesse en y du projectile est soumise a la force de gravité de _speedreduction par seconde
-		//_speed = Mathf.Pow((_xspeed * _xspeed + _yspeed * _yspeed), 0.5f); //USELESS
+		
+		_yspeed  -=  _speedreduction*Time.deltaTime; 						   // Force de gravité y _speedreduction appliqué sur le vecteur y du projectile
+		
 
 	}
 

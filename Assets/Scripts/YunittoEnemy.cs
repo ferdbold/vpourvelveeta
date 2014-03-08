@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class YunittoEnemy : MonoBehaviour {
-	const int MAX_RANGE = 10;
+	const int MAX_RANGE = 5;
 	const float MIN_RANGE = 0.5f;
 	const int BASE_ATK = 1;
 	const int BASE_HP = 5;
@@ -112,7 +112,7 @@ public class YunittoEnemy : MonoBehaviour {
 		if(!onCooldown) {
 			Debug.DrawRay (transform.position, new Vector3 (-range, 0, 0),Color.green);
 			if (Physics.Raycast (new Ray(transform.position, new Vector3 (-1, 0, 0)),out hit,range,layerMask)) {
-				if(Mathf.Abs(hit.collider.transform.position.x - transform.position.x) > MIN_RANGE) Shoot();
+				if(Mathf.Abs(hit.collider.transform.position.x - transform.position.x) > 2*MIN_RANGE) Shoot();
 				else HitMelee(hit.collider.gameObject);
 			}
 		} else if(cooldown > 0) {

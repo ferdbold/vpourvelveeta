@@ -18,7 +18,7 @@ public class ProjectileCollision : MonoBehaviour {
 	LayerMask layerMask;
 	// Use this for initialization
 	void Start () {
-		range = 10f;
+		range = 1f;
 
 		shoot_Projectile = (Shoot_Projectile)transform.parent.GetComponent<Shoot_Projectile> ();
 		direction = shoot_Projectile.direction;
@@ -26,10 +26,10 @@ public class ProjectileCollision : MonoBehaviour {
 		isP1 = shoot_Projectile.IsP1;
 		xSpeed = shoot_Projectile._xspeed;
 		if(isP1) {
-			if(direction>1) layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 8) | (1 << 9) | (1 << 10)); //Si c'est le J1 , On remarque les collisions avec le j2
+			if(direction>=1) layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 8) | (1 << 9) | (1 << 10)); //Si c'est le J1 , On remarque les collisions avec le j2
 			else layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 8) | (1 << 10) | (1 << 11));
 		} else {
-			if(direction>1) layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 8) | (1 << 9) | (1 << 11)); // <-- LAYERS a IGNORER !
+			if(direction>=1) layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 8) | (1 << 9) | (1 << 11)); // <-- LAYERS a IGNORER !
 			else layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 9) | (1 << 10) | (1 << 11));
 		}
 	}
@@ -45,6 +45,15 @@ public class ProjectileCollision : MonoBehaviour {
 		Debug.DrawRay (transform.position,transform.right*direction*range,Color.cyan);
 		if (Physics.Raycast (new Ray (transform.position, transform.right*direction), out hit, range, layerMask)) {
 			target = hit.collider.gameObject;
+			if(direction>=1) {
+				YunittoEnemy yuni = (YunittoEnemy)target.GetComponent<YunittoEnemy>();
+				yuni.Hp -= atk;
+				Debug.Log (gameObject + " Did " + atk + " Damage to " + yuni.transform.parent);
+			} else {
+				Yunitto yuni = (Yunitto)target.GetComponent<Yunitto>();
+				yuni.Hp -= atk;
+			}
+
 			Destroy (gameObject.transform.parent.gameObject);
 		}
 	}
