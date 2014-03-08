@@ -28,7 +28,6 @@ public class Player : MonoBehaviour {
 		GameObject clone;
 		clone = (GameObject)Instantiate(unitsBad,transform.position,Quaternion.identity);
 		yunittoEnemy = (YunittoEnemy)clone.GetComponent<YunittoEnemy>();
-		yunittoEnemy.Start ();
 		yunittoEnemy.SetStats (0.5f, 0.5f, 0f, true);
 
 	}

@@ -77,7 +77,7 @@ public class YunittoEnemy : MonoBehaviour {
 		//shoot_Projectile;
 	}
 	
-	public void Start () {
+	void Awake () {
 		weakThreshold = 0.5f;
 		ManagerObject = GameObject.Find("Game");
 		manager = ManagerObject.GetComponent<GameManager>();

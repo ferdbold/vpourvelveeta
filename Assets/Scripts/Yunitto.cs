@@ -78,12 +78,14 @@ public class Yunitto : MonoBehaviour {
 		Debug.Log ("SHOTS FIRED");
 	}
 
-	void Start () {
+	void Awake () {
 		weakThreshold = 0.5f;
 		friendlyStatMultiplier = 10f;
-		ManagerObject = GameObject.Find("GameManager");
+		ManagerObject = GameObject.Find("Game");
 		manager = ManagerObject.GetComponent<GameManager>();
+		Debug.Log ("MANAGER = " + manager);
 		layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7));
+
 
 	}
 
@@ -92,5 +94,6 @@ public class Yunitto : MonoBehaviour {
 		if (Physics.Raycast (new Ray(transform.position, new Vector3 (1, 0, 0)),out hit,range,layerMask)) {
 			Shoot();
 		}
+
 	}
 }
