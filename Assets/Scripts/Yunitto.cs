@@ -53,6 +53,7 @@ public class Yunitto : MonoBehaviour {
 
 	public void SetStats(float health, float attack, float atk_range){ //Vie,Attaque,Portée, Type d'unité(Good ou Bad), Joueur créant l'unit
 		unitType = setUnitType (health, attack, atk_range); //On choisit le type du joueur selon les stats (TODO : Changé la couleur du modele en fonction de l'unitType
+		setUnitColor (unitType);
 		isGood = (transform.parent.parent.gameObject.name == "P1"); //on vérifie si le parent est P1 ou P2
 		//Stats de base pour le joueur
 		hp = BASE_HP +(health * manager.FriendlyStatMultiplier);
@@ -83,7 +84,28 @@ public class Yunitto : MonoBehaviour {
 		}
 		return 4;
 	}
-
+	void setUnitColor (int uType) {
+		BunchBehaviour bunchBehaviour = (BunchBehaviour)transform.parent.gameObject.GetComponent<BunchBehaviour>();
+		Debug.Log (bunchBehaviour);
+		switch (uType) {
+		case 1:
+			gameObject.renderer.material = (Material)bunchBehaviour.green;
+			break;
+		case 2:
+			gameObject.renderer.material= (Material)bunchBehaviour.red;
+			break;
+		case 3:
+			gameObject.renderer.material = (Material)bunchBehaviour.blue;
+			break;
+		case 4:
+			gameObject.renderer.material= (Material)bunchBehaviour.white;
+			break;
+		case 5:
+			gameObject.renderer.material = (Material)bunchBehaviour.brown;
+			break;
+		}
+	}
+	
 	void Shoot() {
 		projectileManager.CreateProjectile(1,atk,transform.position,isGood); //On indique au projetileManager de créer un projectile (Direction,attaque du projectile,position de la création, a qui appartient le projectile)
 		onCooldown = true;

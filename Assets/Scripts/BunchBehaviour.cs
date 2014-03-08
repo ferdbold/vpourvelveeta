@@ -11,6 +11,12 @@ public class BunchBehaviour : MonoBehaviour {
 	// Attributs publics
 	public GameObject p_yunitto;
 	public float moveSpeed = 5;
+	// materiel_couleur
+	public Material white;
+	public Material brown;
+	public Material red;
+	public Material blue;
+	public Material green;
 
 	// Attributs
 	private Player _player;
@@ -22,10 +28,6 @@ public class BunchBehaviour : MonoBehaviour {
 		// Pour tests seulement
 		this.GenerateTestBunch(1);
 		this.GenerateTestBunch(2);
-	}
-
-	void Update () {
-		Move();
 	}
 
 	private void GenerateTestBunch(int n) {
@@ -42,7 +44,7 @@ public class BunchBehaviour : MonoBehaviour {
 		}
 	}
 
-	private void Move() {
+	public void Move() {
 		float moveAxis = Input.GetAxis(_player.moveInput);
 
 		transform.Translate(moveAxis * Time.deltaTime * moveSpeed, 0F, 0F);

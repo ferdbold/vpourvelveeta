@@ -56,15 +56,9 @@ public class GameManager : MonoBehaviour {
 
 		Debug.Log (players);
 		foreach (Player player in players) {
-			CreateEnemyYunitto(player);
+			player.CreateEnemyYunitto();
 		}
 	}
 
-	public void CreateEnemyYunitto(Player player, float hp = 0.2f, float atk = 0.4f, float range = 0.4f) {
-		GameObject yuni = (GameObject)Instantiate(p_yunittoEnemy, new Vector3(10, player.transform.position.y, player.transform.position.z), transform.rotation);
-		yuni.transform.parent = player.EnemyBunch;
 
-		YunittoEnemy yunitto = (YunittoEnemy)yuni.GetComponent<YunittoEnemy>();
-		yunitto.SetStats(hp, atk, range);
-	}
 }

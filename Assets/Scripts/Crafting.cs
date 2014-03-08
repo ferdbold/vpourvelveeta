@@ -12,7 +12,7 @@ public class Crafting : MonoBehaviour {
 	private float Tempo;
 	private bool KeyTry;
 	private int KeyPressed;
-	private float HpSuccess;
+	public float HpSuccess;
 	private float AtkSuccess;
 	private float RangeSuccess;
 	private int Failure;
@@ -38,31 +38,24 @@ public class Crafting : MonoBehaviour {
 
 	void Update () {
 		if (_isCrafting) {
-			if (Input.GetButtonDown(_player.craftInput)) {
-				QuitCrafting();
-			} else {
-				Anneaux[CurrentNode-1].transform.localScale -= new Vector3(0.015F/Tempo, 0.015F/Tempo, 0);
-				if (CheckKeystroke () && IsInTheZone () && !KeyTry) {
-					Spheres[CurrentNode-1].renderer.material.SetColor ("_Color", ColorSet());
-					if (KeyPressed == 1)
-						HpSuccess++;
-					else if (KeyPressed == 2)
-						AtkSuccess++;
-					else if (KeyPressed == 3)
-						RangeSuccess++;
-					KeyTry = true;
-				} else if (CheckKeystroke () && !IsInTheZone ()&& !KeyTry) {
-					Spheres[CurrentNode-1].renderer.material.SetColor ("_Color", Color.black);
-					Failure++;
+			Anneaux[CurrentNode-1].transform.localScale -= new Vector3(0.015F/Tempo, 0.015F/Tempo, 0);
+			if (CheckKeystroke () && IsInTheZone () && !KeyTry) {
+				Spheres[CurrentNode-1].renderer.material.SetColor ("_Color", ColorSet());
+				if (KeyPressed == 1)
+					HpSuccess++;
+				else if (KeyPressed == 2)
+					AtkSuccess++;
+				else if (KeyPressed == 3)
+					RangeSuccess++;
+				KeyTry = true;
+			} else if (CheckKeystroke () && !IsInTheZone ()&& !KeyTry) {
+				Spheres[CurrentNode-1].renderer.material.SetColor ("_Color", Color.black);
+				Failure++;
 					KeyTry = true;
 				}
 				TimeoutCurrentNode ();
 				CheckCurrentNode ();
 				CurrentTime += Time.deltaTime;
-			}
-		} else if (Input.GetButtonDown(_player.craftInput)) {
-			QuitCrafting();
-			BeginCrafting();
 		}
 	}
 	
@@ -101,7 +94,7 @@ public class Crafting : MonoBehaviour {
 	/// <summary>
 	/// Détruire les éléments inutiles à la fin d'une séance de crafting.
 	/// </summary>
-	private void QuitCrafting() {
+	public void QuitCrafting() {
 		// Détruire les sphères
 		foreach(GameObject sphere in Spheres) {
 			GameObject.Destroy(sphere);
@@ -173,8 +166,10 @@ public class Crafting : MonoBehaviour {
 	}
 
 	void TimeoutCurrentNode(){
-		if ((CurrentTime >= CurrentNode * Tempo + Latency) && !KeyTry)
-						Spheres [CurrentNode - 1].renderer.material.SetColor ("_Color", Color.black);
+		if ((CurrentTime >= CurrentNode * Tempo + Latency) && !KeyTry) {
+			Spheres [CurrentNode - 1].renderer.material.SetColor ("_Color", Color.black);
+			Failure++;
+		}
 	}
 
 }
