@@ -13,14 +13,14 @@ public class BunchBehaviour : MonoBehaviour {
 
 	void Start () {
 		// Pour tests seulement
-		this.generateTestBunch();
+		this.GenerateTestBunch();
 	}
 
 	void Update () {
-
+		Move();
 	}
 
-	void generateTestBunch() {
+	void GenerateTestBunch() {
 		for(int i=0; i<10; i++) {
 			// Random offset
 			Vector3 offset = transform.position;
@@ -28,8 +28,10 @@ public class BunchBehaviour : MonoBehaviour {
 
 			GameObject yuni = (GameObject)Instantiate(p_yunitto, offset, transform.rotation);
 			yuni.transform.parent = transform;
-
-
 		}
+	}
+
+	void Move() {
+
 	}
 }
