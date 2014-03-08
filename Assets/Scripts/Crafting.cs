@@ -7,10 +7,10 @@ public class Crafting : MonoBehaviour {
 	private Player _player;
 	private GameManager _gameManager;
 	private bool _isCrafting;
-	private float CurrentTime;
+	public float CurrentTime;
 	private int NodeNumber;
-	private int CurrentNode;
-	private float Tempo;
+	public int CurrentNode;
+	public float Tempo;
 	private bool KeyTry;
 	private int KeyPressed;
 	public float HpSuccess;
@@ -40,7 +40,9 @@ public class Crafting : MonoBehaviour {
 
 	void Update () {
 		if (_isCrafting) {
-			Anneaux[CurrentNode-1].transform.localScale -= new Vector3(0.015F/Tempo, 0.015F/Tempo, 0);
+			if (CurrentTime >= 0.25f){
+				Anneaux[CurrentNode-1].transform.localScale -= new Vector3((ShrinkSpeed()*Time.deltaTime),(ShrinkSpeed()*Time.deltaTime), 0);
+			} //THIS THIS SHIT
 			if (CheckKeystroke () && IsInTheZone () && !KeyTry) {
 				Spheres[CurrentNode-1].renderer.material.SetColor ("_Color", ColorSet());
 				if (KeyPressed == 1)
@@ -50,7 +52,7 @@ public class Crafting : MonoBehaviour {
 				else if (KeyPressed == 3)
 					RangeSuccess++;
 				KeyTry = true;
-			} else if (CheckKeystroke () && !IsInTheZone ()&& !KeyTry) {
+			} else if (CheckKeystroke () && !IsInTheZone ()&& !KeyTry && !Deadzone()) {
 				Spheres[CurrentNode-1].renderer.material.SetColor ("_Color", Color.black);
 				Failure++;
 					KeyTry = true;
@@ -82,7 +84,7 @@ public class Crafting : MonoBehaviour {
 		}
 
 		// Initialiser les variables
-		CurrentTime = 0.0f;
+		CurrentTime = -0.50f;
 		CurrentNode = 1;
 		HpSuccess = 0.0f;
 		AtkSuccess = 0.0f;
@@ -113,10 +115,9 @@ public class Crafting : MonoBehaviour {
 		float atk = (AtkSuccess / NodeNumber);
 		float range = (RangeSuccess / NodeNumber);
 			_player.CreateYunitto (hp, atk, range);
-		Debug.Log ("NEW UNITS :DDDDD");
 		for (int i=0; i<(int)(_gameManager.EnnemyAmountMultiplier); i++) {
-			_player.CreateEnemyYunitto(hp,atk,range);
-			Debug.Log ("New enemy");
+			_player.OtherPlayer.CreateEnemyYunitto(hp,atk,range);
+
 		}
 	}
 
@@ -180,6 +181,16 @@ public class Crafting : MonoBehaviour {
 			Spheres [CurrentNode - 1].renderer.material.SetColor ("_Color", Color.black);
 			Failure++;
 		}
+	}
+
+	bool Deadzone(){
+		if ((CurrentTime >= CurrentNode * Tempo - (Latency*2)) && (CurrentTime <= CurrentNode * Tempo - (1.3*Latency) ))
+			return true;
+		else
+			return false;
+	}
+	float ShrinkSpeed(){
+		return 0.22f * NodeNumber;
 	}
 
 }

@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour {
 	void Update () {
 		_timeElapsed += Time.deltaTime;
 		_spawnTimeElapsed += Time.deltaTime;
-		ennemyAmountMultiplier = (0.1f * _timeElapsed);
+		ennemyAmountMultiplier = (0.1f * _timeElapsed) + 1;
 
 		// Faire progresser l'intervalle de spawn (plus en plus de spawns)
 		spawnInterval *= 0.9997F;

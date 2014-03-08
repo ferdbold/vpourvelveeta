@@ -95,7 +95,7 @@ public class YunittoWiggle : MonoBehaviour {
 
 	private void Move() {
 		// Biaiser les limites de mouvement pour que le yunitto ne s'éloigne pas trop du bunc
-		float interest = ((-transform.localPosition.x - (unitRange))/leashLength) * wiggleSpeed; //ajouté le unit range pour que les ranges soient plus en arriere.
+		float interest = ((-transform.localPosition.x - (0.6f*unitRange))/leashLength) * wiggleSpeed; //ajouté le unit range pour que les ranges soient plus en arriere.
 		float movement = Random.Range(interest-wiggleSpeed, interest+wiggleSpeed) * Time.deltaTime;
 		transform.localPosition = new Vector3(transform.localPosition.x + movement, 
 		                                      transform.localPosition.y, 
@@ -181,27 +181,6 @@ public class YunittoWiggle : MonoBehaviour {
 		}
 	}
 
-	/*public void SetStats(float health, float attack, float atk_range){ //Vie,Attaque,Portée, Type d'unité(Good ou Bad), Joueur créant l'unit
-		unitType = setUnitType (health, attack, atk_range); //On choisit le type du joueur selon les stats (TODO : Changé la couleur du modele en fonction de l'unitType
-		setUnitColor (unitType);
-		isGood = (transform.parent.parent.gameObject.name == "P1"); //on vérifie si le parent est P1 ou P2
-		//Stats de base pour le joueur
-		hp = BASE_HP +(health * manager.FriendlyStatMultiplier);
-		atk = BASE_ATK +(attack * manager.FriendlyStatMultiplier);
-		range = (atk_range * MAX_RANGE);
-		if(range < MIN_RANGE) range = MIN_RANGE;
-		
-		//On fait les layerMask ici puisque c'est le moment ou on object le joueur a qui appartient l'unité
-		if(isGood) {
-			gameObject.layer = 8; //On le met a la layer P1
-			layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 8) | (1 << 9) | (1 << 10)); //Si c'est le J1 , On remarque les collisions avec le j2
-		}
-		else {
-			gameObject.layer = 9; //On le met a la layer P1
-			layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 9) | (1 << 8) | (1 << 11)); //Si c'est le J2 , On remarque les collisions avec le j1
-		} 
-	}*/
-
 	int setUnitType(float H,float A,float R){ //Vérifie quel valeur est la plus grande parmis hp, Atk et range et renvoit la bon type
 		if (H + A + R < weakThreshold) return 5; //Si les stats de l'unité sont trop faible (le joueur a manqué le CRAFT)
 		if (H > A) {
@@ -262,7 +241,7 @@ public class YunittoWiggle : MonoBehaviour {
 		int direction = 1;
 		if (gameObject.tag == "Minion") direction = -1;
 
-		projectileManager.CreateProjectile(direction,atk,transform.position,isGood); //On indique au projetileManager de créer un projectile (Direction,attaque du projectile,position de la création, a qui appartient le projectile)
+		projectileManager.CreateProjectile(direction,atk,transform.position, (_player.gameObject.name == "P1")); //On indique au projetileManager de créer un projectile (Direction,attaque du projectile,position de la création, a qui appartient le projectile)
 		cooldown = 0;
 	}
 
@@ -307,26 +286,6 @@ public class YunittoWiggle : MonoBehaviour {
 		get { return (cooldown < BASE_SPEED); }
 	}
 
-	// Version allié
-
-
-	/*void Update () {
-		if(!onCooldown) {	
-			Debug.DrawRay (transform.position, new Vector3 (range, 0, 0),Color.red);
-			if (Physics.Raycast (new Ray(transform.position, new Vector3 (1, 0, 0)),out hit,range,layerMask)) {
-				if(Mathf.Abs(hit.collider.transform.position.x - transform.position.x) > 2*MIN_RANGE) Shoot();
-				else HitMelee(hit.collider.gameObject);
-			}
-		} else if(cooldown > 0) {
-			cooldown -= (1*Time.deltaTime);
-		} else onCooldown = false;
-		if (hp <= 0) {
-			Destroy (gameObject);
-			if(isGood) Debug.Log ("Player2's minions Brutally Murdered Player1's army");
-			else Debug.Log ("Player1's minions Brutally Murdered Player2's army");
-		}
-	}*/
-
 	public void AttackPlayer () {
 		if (Physics.Raycast (new Ray(transform.position, new Vector3 (1, 0, 0)),out hit,range,layerMask)) 
 		{
@@ -340,8 +299,7 @@ public class YunittoWiggle : MonoBehaviour {
 		}
 		else 
 		{
-			Debug.Log("test");
-			projectileManager.CreateProjectile(1,atk,transform.position,isGood);
+			projectileManager.CreateProjectile(1,atk,transform.position, (_player.gameObject.name == "P1"));
 			/*YunittoEnemy yuni = (YunittoEnemy)hit.collider.gameObject.GetComponent<YunittoEnemy> ();
 			if(yuni != null) yuni.Hp -= atk;*/
 		}

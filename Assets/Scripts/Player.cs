@@ -30,6 +30,12 @@ public class Player : MonoBehaviour {
 	private Yunitto yunitto;
 	private YunittoEnemy yunittoEnemy;
 
+	private GameObject otherPlayerObj;
+	private Player otherPlayer;
+	public Player OtherPlayer {
+		get{ return otherPlayer;}
+	}
+
 	// Méthodes
 	void Awake() {
 		_bunch = transform.Find("Bunch");
@@ -38,6 +44,15 @@ public class Player : MonoBehaviour {
 
 	void Start() {
 		_crafting = transform.Find("Crafting");
+		if (name == "P1") {
+			Transform otherPlayerT = transform.parent.transform.Find ("P2");
+			otherPlayerObj = otherPlayerT.gameObject;
+		}
+		else {
+			Transform otherPlayerT = transform.parent.transform.Find ("P1");
+			otherPlayerObj = otherPlayerT.gameObject;
+		}
+		otherPlayer = (Player)otherPlayerObj.GetComponent<Player> ();
 
 		_bunchBehaviour = (BunchBehaviour)_bunch.GetComponent<BunchBehaviour>();
 		_craftingBehaviour = (Crafting)_crafting.GetComponent<Crafting>();
@@ -59,15 +74,17 @@ public class Player : MonoBehaviour {
 		YunittoWiggle yunitto = (YunittoWiggle)yuni.GetComponent<YunittoWiggle>();
 		yunitto.Start();
 		yunitto.SetStats(hp, atk, range);
+		//Debug.Log ("Created an enemy of " + name + " with hp:" + hp + " atk:" + atk + " range:" + range);
 	}
 
 	public void CreateYunitto(float hp = 0.2f, float atk = 0.4f, float range = 0.4f) {
-		GameObject yuni = (GameObject)Instantiate(unitsGood, new Vector3(0, transform.position.y, transform.position.z), transform.rotation);
+		GameObject yuni = (GameObject)Instantiate(unitsGood, new Vector3(-10, transform.position.y, transform.position.z), transform.rotation);
 		yuni.transform.parent = _bunch;
 		
 		YunittoWiggle yunitto = (YunittoWiggle)yuni.GetComponent<YunittoWiggle>();
 		yunitto.Start();
 		yunitto.SetStats(hp, atk, range);
+		//Debug.Log ("Created an ally of " + name + " with hp:" + hp + " atk:" + atk + " range:" + range);
 	}
 	
 	// Accesseurs
@@ -103,9 +120,10 @@ public class Player : MonoBehaviour {
 		// Méthodes
 		public override void Update() {
 			_player._bunchBehaviour.Move();
+
 			if(Input.GetButtonDown (_player.attackInput)){
-				Yunitto[] units = (Yunitto[])_player._bunch.GetComponentsInChildren<Yunitto>();
-				foreach (Yunitto unit in units) {
+				YunittoWiggle[] units = (YunittoWiggle[])_player._bunch.GetComponentsInChildren<YunittoWiggle>();
+				foreach (YunittoWiggle unit in units) {
 					unit.AttackPlayer();
 				}
 			
