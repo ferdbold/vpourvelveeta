@@ -7,16 +7,17 @@ public class Crafting : MonoBehaviour {
 	private Player _player;
 	private GameManager _gameManager;
 	private bool _isCrafting;
-	private float CurrentTime;
+	public float CurrentTime;
 	private int NodeNumber;
 	private int CurrentNode;
-	private float Tempo;
+	public float Tempo;
 	private bool KeyTry;
 	private int KeyPressed;
 	private float HpSuccess;
 	private float AtkSuccess;
 	private float RangeSuccess;
 	private int Failure;
+	private bool NextNodeFailure;
 	private GameObject[] Spheres;
 	private GameObject[] Anneaux;
 
@@ -26,8 +27,8 @@ public class Crafting : MonoBehaviour {
 
 	public int NodeNumberMax = 3;
 	public int NodeNumberMin = 8;
-	public float Latency = 0.20F;
-	public float TotalTime = 5.0F;
+	public float Latency = 0.05F;
+	public float TotalTime = 1.5F;
 
 	void Start () {
 		_player = (Player)transform.parent.GetComponent<Player>();
@@ -40,10 +41,10 @@ public class Crafting : MonoBehaviour {
 
 	void Update () {
 		if (_isCrafting) {
-			if (CurrentTime >= 0.20f){
+			if (CurrentTime >= 0.25f){
 				Anneaux[CurrentNode-1].transform.localScale -= new Vector3((ShrinkSpeed()*Time.deltaTime),(ShrinkSpeed()*Time.deltaTime), 0);
-			} //THIS THIS SHIT
-			if (CheckKeystroke () && IsInTheZone () && !KeyTry) {
+			} 
+			if (CheckKeystroke () && IsInTheZone () && !KeyTry && !NextNodeFailure) {
 				Spheres[CurrentNode-1].renderer.material.SetColor ("_Color", ColorSet());
 				if (KeyPressed == 1)
 					HpSuccess++;
@@ -52,11 +53,20 @@ public class Crafting : MonoBehaviour {
 				else if (KeyPressed == 3)
 					RangeSuccess++;
 				KeyTry = true;
-			} else if (CheckKeystroke () && !IsInTheZone ()&& !KeyTry && !Deadzone()) {
+			} else if ((CheckKeystroke () && !IsInTheZone ()&& !KeyTry) || NextNodeFailure) {
 				Spheres[CurrentNode-1].renderer.material.SetColor ("_Color", Color.black);
 				Failure++;
-					KeyTry = true;
-				}
+				KeyTry = true;
+				NextNodeFailure = false;
+			}
+			else if ((CheckKeystroke () && IsInTheZone ()&& KeyTry)) {
+				Spheres[CurrentNode-1].renderer.material.SetColor ("_Color", Color.black);
+				Failure++;
+				KeyTry = true;
+				NextNodeFailure = true;
+			}
+
+
 				TimeoutCurrentNode ();
 				CheckCurrentNode ();
 				CurrentTime += Time.deltaTime;
@@ -84,7 +94,7 @@ public class Crafting : MonoBehaviour {
 		}
 
 		// Initialiser les variables
-		CurrentTime = -0.50f;
+		CurrentTime = 0.0f;
 		CurrentNode = 1;
 		HpSuccess = 0.0f;
 		AtkSuccess = 0.0f;
@@ -183,15 +193,8 @@ public class Crafting : MonoBehaviour {
 			Failure++;
 		}
 	}
-
-	bool Deadzone(){
-		if ((CurrentTime >= CurrentNode * Tempo - (Latency*2)) && (CurrentTime <= CurrentNode * Tempo - (1.3*Latency) ))
-			return true;
-		else
-			return false;
-	}
 	float ShrinkSpeed(){
-		return 0.28f * NodeNumber;
+		return 0.58f * NodeNumber;
 	}
 
 }
