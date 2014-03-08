@@ -16,8 +16,25 @@ public class Player : MonoBehaviour {
 	public string craftAtkInput;
 	public string craftRangeInput;
 
-	// Update is called once per frame
+	// Attributs
+	private Transform _bunch;
+	private Transform _enemyBunch;
+
+	void Start() {
+		_bunch = transform.Find("Bunch");
+		_enemyBunch = transform.Find("Enemies");
+	}
+
 	void Update () {
 		
+	}
+
+	// Accesseurs
+	public Transform Bunch {
+		get { return _bunch; }
+	}
+
+	public Transform EnemyBunch {
+		get { return _enemyBunch; }
 	}
 }

@@ -412,7 +412,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1498246548}
-  - 114: {fileID: 1498246547}
   - 114: {fileID: 1498246546}
   m_Layer: 0
   m_Name: Game
@@ -433,18 +432,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5382a62ac499548d6a8fc551c7cddb0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1498246547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400000, guid: 2d0b0e42176af4ea6bc0558298dcda9f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1498246545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5382a62ac499548d6a8fc551c7cddb0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  players:
+  - {fileID: 1866417861}
+  - {fileID: 1684541050}
 --- !u!4 &1498246548
 Transform:
   m_ObjectHideFlags: 0
@@ -455,9 +445,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1684541051}
-  - {fileID: 1866417862}
   - {fileID: 997768449}
+  - {fileID: 1866417862}
+  - {fileID: 1684541051}
   m_Father: {fileID: 0}
 --- !u!1 &1684541050
 GameObject:
