@@ -10,6 +10,8 @@
 *.suo
 /Library/
 /Temp/
+/Assets/ShaderForge/
+/Assets/ShaderForge.meta
 
 # SourceTree Patch against .gitignore_global on Windows
 !*.exe
