@@ -23,6 +23,7 @@ public class Crafting : MonoBehaviour {
 	// Public attributes
 	public GameObject p_sphere;
 	public GameObject p_anneau;
+	public GameObject Message1;
 
 	public int NodeNumberMax = 3;
 	public int NodeNumberMin = 8;
@@ -44,6 +45,7 @@ public class Crafting : MonoBehaviour {
 				Anneaux[CurrentNode-1].transform.localScale -= new Vector3((ShrinkSpeed()*Time.deltaTime),(ShrinkSpeed()*Time.deltaTime), 0);
 			} //THIS THIS SHIT
 			if (CheckKeystroke () && IsInTheZone () && !KeyTry) {
+				//GameObject.Instantiate(Message1,new Vector3(CurrentNode*Tempo,transform.position.y,transform.position.z),transform.rotation); //AWESOME!
 				Spheres[CurrentNode-1].renderer.material.SetColor ("_Color", ColorSet());
 				if (KeyPressed == 1)
 					HpSuccess++;
