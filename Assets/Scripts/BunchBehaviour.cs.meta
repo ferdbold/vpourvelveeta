@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 0b91ffbc35fd44fba8c3ba725e51de48
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - p_yunitto: {fileID: 100000, guid: f79a14f42d8a240399ea0076ee0efdbe, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
