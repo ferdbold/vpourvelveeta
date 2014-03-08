@@ -109,6 +109,78 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 2d0b0e42176af4ea6bc0558298dcda9f, type: 2}
+      propertyPath: walkInput
+      value: P1Walk
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 2d0b0e42176af4ea6bc0558298dcda9f, type: 2}
+      propertyPath: attackInput
+      value: P1Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 2d0b0e42176af4ea6bc0558298dcda9f, type: 2}
+      propertyPath: craftInput
+      value: P1Craft
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 2d0b0e42176af4ea6bc0558298dcda9f, type: 2}
+      propertyPath: craftHpInput
+      value: P1CraftHp
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 2d0b0e42176af4ea6bc0558298dcda9f, type: 2}
+      propertyPath: craftAtkInput
+      value: P1CraftAtk
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 2d0b0e42176af4ea6bc0558298dcda9f, type: 2}
+      propertyPath: craftRangeInput
+      value: P1CraftRange
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 2d0b0e42176af4ea6bc0558298dcda9f, type: 2}
+      propertyPath: m_Name
+      value: GoodPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 2d0b0e42176af4ea6bc0558298dcda9f, type: 2}
+      propertyPath: m_Name
+      value: BadPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 2d0b0e42176af4ea6bc0558298dcda9f, type: 2}
+      propertyPath: walkInput
+      value: P2Move
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 2d0b0e42176af4ea6bc0558298dcda9f, type: 2}
+      propertyPath: attackInput
+      value: P2Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 2d0b0e42176af4ea6bc0558298dcda9f, type: 2}
+      propertyPath: craftInput
+      value: P2Craft
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 2d0b0e42176af4ea6bc0558298dcda9f, type: 2}
+      propertyPath: craftHpInput
+      value: P2CraftHp
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 2d0b0e42176af4ea6bc0558298dcda9f, type: 2}
+      propertyPath: craftAtkInput
+      value: P2CraftAtk
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 2d0b0e42176af4ea6bc0558298dcda9f, type: 2}
+      propertyPath: craftRangeInput
+      value: P2CraftRange
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 2d0b0e42176af4ea6bc0558298dcda9f, type: 2}
+      propertyPath: m_Name
+      value: Bunch
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 2d0b0e42176af4ea6bc0558298dcda9f, type: 2}
+      propertyPath: m_Name
+      value: Bunch
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 2d0b0e42176af4ea6bc0558298dcda9f, type: 2}
+      propertyPath: moveInput
+      value: P2Move
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 2d0b0e42176af4ea6bc0558298dcda9f, type: 2}
+      propertyPath: moveInput
+      value: P1Move
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d0b0e42176af4ea6bc0558298dcda9f, type: 2}
   m_RootGameObject: {fileID: 1498246545}
@@ -124,7 +196,7 @@ GameObject:
   - 4: {fileID: 729651314}
   - 114: {fileID: 729651315}
   m_Layer: 0
-  m_Name: BadPlayer
+  m_Name: GoodPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,6 +226,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7bc1768f11224befbab9ce96d275f0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveInput: P1Move
+  attackInput: P1Attack
+  craftInput: P1Craft
+  craftHpInput: P1CraftHp
+  craftAtkInput: P1CraftAtk
+  craftRangeInput: P1CraftRange
 --- !u!1 &974850451
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,7 +242,7 @@ GameObject:
   - 4: {fileID: 974850453}
   - 114: {fileID: 974850452}
   m_Layer: 0
-  m_Name: Cursor
+  m_Name: Bunch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -343,7 +421,7 @@ GameObject:
   - 4: {fileID: 1522577900}
   - 114: {fileID: 1522577899}
   m_Layer: 0
-  m_Name: Cursor
+  m_Name: Bunch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -383,7 +461,7 @@ GameObject:
   - 4: {fileID: 1684541051}
   - 114: {fileID: 1684541052}
   m_Layer: 0
-  m_Name: GoodPlayer
+  m_Name: BadPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -413,3 +491,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7bc1768f11224befbab9ce96d275f0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveInput: P2Move
+  attackInput: P2Attack
+  craftInput: P2Craft
+  craftHpInput: P2CraftHp
+  craftAtkInput: P2CraftAtk
+  craftRangeInput: P2CraftRange

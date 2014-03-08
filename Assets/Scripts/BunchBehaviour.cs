@@ -10,8 +10,14 @@ public class BunchBehaviour : MonoBehaviour {
 
 	// Attributs publics
 	public GameObject p_yunitto;
+	public float moveSpeed = 2;
+
+	// Attributs
+	private Player _player;
 
 	void Start () {
+		_player = transform.parent.gameObject.GetComponent<Player>();
+
 		// Pour tests seulement
 		this.GenerateTestBunch();
 	}
@@ -32,6 +38,8 @@ public class BunchBehaviour : MonoBehaviour {
 	}
 
 	void Move() {
+		float moveAxis = Input.GetAxis(_player.moveInput);
 
+		transform.Translate(moveAxis * Time.deltaTime * moveSpeed, 0F, 0F);
 	}
 }
