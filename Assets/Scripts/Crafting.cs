@@ -52,7 +52,7 @@ public class Crafting : MonoBehaviour {
 				else if (KeyPressed == 3)
 					RangeSuccess++;
 				KeyTry = true;
-			} else if (CheckKeystroke () && !IsInTheZone ()&& !KeyTry) {
+			} else if (CheckKeystroke () && !IsInTheZone ()&& !KeyTry && !Deadzone()) {
 				Spheres[CurrentNode-1].renderer.material.SetColor ("_Color", Color.black);
 				Failure++;
 					KeyTry = true;
@@ -182,6 +182,13 @@ public class Crafting : MonoBehaviour {
 			Spheres [CurrentNode - 1].renderer.material.SetColor ("_Color", Color.black);
 			Failure++;
 		}
+	}
+
+	bool Deadzone(){
+		if ((CurrentTime >= CurrentNode * Tempo - (Latency*2)) && (CurrentTime <= CurrentNode * Tempo - (1.3*Latency) ))
+			return true;
+		else
+			return false;
 	}
 	float ShrinkSpeed(){
 		return 0.22f * NodeNumber;
