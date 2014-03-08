@@ -115,10 +115,9 @@ public class Crafting : MonoBehaviour {
 		float atk = (AtkSuccess / NodeNumber);
 		float range = (RangeSuccess / NodeNumber);
 			_player.CreateYunitto (hp, atk, range);
-		Debug.Log ("NEW UNITS :DDDDD");
 		for (int i=0; i<(int)(_gameManager.EnnemyAmountMultiplier); i++) {
-			_player.CreateEnemyYunitto(hp,atk,range);
-			Debug.Log ("New enemy");
+			_player.OtherPlayer.CreateEnemyYunitto(hp,atk,range);
+
 		}
 	}
 
