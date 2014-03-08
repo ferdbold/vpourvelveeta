@@ -5,6 +5,7 @@ public class Crafting : MonoBehaviour {
 
 	// Attributes
 	private Player _player;
+	private GameManager _gameManager;
 	private bool _isCrafting;
 	private float CurrentTime;
 	private int NodeNumber;
@@ -30,6 +31,7 @@ public class Crafting : MonoBehaviour {
 
 	void Start () {
 		_player = (Player)transform.parent.GetComponent<Player>();
+		_gameManager = (GameManager)transform.parent.parent.GetComponent<GameManager>();
 		_isCrafting = false;
 
 		Spheres = new GameObject[0];
@@ -107,7 +109,15 @@ public class Crafting : MonoBehaviour {
 	/// Termine la session en cours de crafting et crée les Yunitto résultants.
 	/// </summary>
 	private void SpawnCraftingResults() {
-		// @TODO
+		float hp = (HpSuccess / NodeNumber);
+		float atk = (AtkSuccess / NodeNumber);
+		float range = (RangeSuccess / NodeNumber);
+			_player.CreateYunitto (hp, atk, range);
+		Debug.Log ("NEW UNITS :DDDDD");
+		for (int i=0; i<(int)(_gameManager.EnnemyAmountMultiplier); i++) {
+			_player.CreateEnemyYunitto(hp,atk,range);
+			Debug.Log ("New enemy");
+		}
 	}
 
 	void SetNodeNumber () {
