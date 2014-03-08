@@ -104,7 +104,7 @@ public class Crafting : MonoBehaviour {
 	}
 
 	/// <summary>
-	/// Termine la session en cours de crafting et crée les Yunitto résultants.
+	/// Crée les Yunitto résultants d'une session de crafting.
 	/// </summary>
 	private void SpawnCraftingResults() {
 		// @TODO
