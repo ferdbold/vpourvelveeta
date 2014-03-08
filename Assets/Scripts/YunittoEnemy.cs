@@ -3,7 +3,7 @@ using System.Collections;
 
 public class YunittoEnemy : MonoBehaviour {
 	const int MAX_RANGE = 10;
-	const int MIN_RANGE = 2;
+	const float MIN_RANGE = 0.5f;
 	const int BASE_ATK = 1;
 	const int BASE_HP = 5;
 	const float BASE_SPEED = 1f;

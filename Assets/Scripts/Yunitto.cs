@@ -2,8 +2,8 @@
 using System.Collections;
 
 public class Yunitto : MonoBehaviour {
-	const int MAX_RANGE = 10;
-	const int MIN_RANGE = 2;
+	const int MAX_RANGE = 4;
+	const float MIN_RANGE = 0.5f;
 	const int BASE_ATK = 1;
 	const int BASE_HP = 5;
 	const float BASE_SPEED = 1f;
@@ -111,7 +111,7 @@ public class Yunitto : MonoBehaviour {
 		if(!onCooldown) {	
 			Debug.DrawRay (transform.position, new Vector3 (range, 0, 0),Color.red);
 			if (Physics.Raycast (new Ray(transform.position, new Vector3 (1, 0, 0)),out hit,range,layerMask)) {
-				if(Mathf.Abs(hit.collider.transform.position.x - transform.position.x) > MIN_RANGE) Shoot();
+				if(Mathf.Abs(hit.collider.transform.position.x - transform.position.x) > 2*MIN_RANGE) Shoot();
 				else HitMelee(hit.collider.gameObject);
 			}
 		} else if(cooldown > 0) {

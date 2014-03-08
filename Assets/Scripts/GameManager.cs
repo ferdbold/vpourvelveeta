@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	public void CreateEnemyYunitto(Player player, float hp = 0.5f, float atk = 0.5f, float range = 0.0f) {
+	public void CreateEnemyYunitto(Player player, float hp = 0.2f, float atk = 0.5f, float range = 0.3f) {
 		GameObject yuni = (GameObject)Instantiate(p_yunittoEnemy, new Vector3(10, player.transform.position.y, player.transform.position.z), transform.rotation);
 		yuni.transform.parent = player.EnemyBunch;
 
