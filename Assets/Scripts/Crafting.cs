@@ -119,6 +119,7 @@ public class Crafting : MonoBehaviour {
 			_player.OtherPlayer.CreateEnemyYunitto(hp,atk,range);
 
 		}
+		audio.Play ();
 	}
 
 	void SetNodeNumber () {

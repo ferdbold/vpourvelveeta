@@ -15,6 +15,7 @@ public class Player : MonoBehaviour {
 	public string craftHpInput;
 	public string craftAtkInput;
 	public string craftRangeInput;
+	public string JumpInput;
 
 	// Attributs
 	private Transform _bunch;
@@ -74,7 +75,6 @@ public class Player : MonoBehaviour {
 		YunittoWiggle yunitto = (YunittoWiggle)yuni.GetComponent<YunittoWiggle>();
 		yunitto.Start();
 		yunitto.SetStats(hp, atk, range);
-		//Debug.Log ("Created an enemy of " + name + " with hp:" + hp + " atk:" + atk + " range:" + range);
 	}
 
 	public void CreateYunitto(float hp = 0.2f, float atk = 0.4f, float range = 0.4f) {
@@ -84,7 +84,6 @@ public class Player : MonoBehaviour {
 		YunittoWiggle yunitto = (YunittoWiggle)yuni.GetComponent<YunittoWiggle>();
 		yunitto.Start();
 		yunitto.SetStats(hp, atk, range);
-		//Debug.Log ("Created an ally of " + name + " with hp:" + hp + " atk:" + atk + " range:" + range);
 	}
 	
 	// Accesseurs
@@ -130,6 +129,9 @@ public class Player : MonoBehaviour {
 			}
 			if(Input.GetButtonDown (_player.craftInput)) {
 				_player._state = new CraftingState(_player);
+			}
+			if(Input.GetButtonDown (_player.JumpInput)) {
+				Debug.Log( "Jumped");
 			}
 		}
 	}
