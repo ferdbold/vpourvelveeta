@@ -12,7 +12,7 @@ public class Crafting : MonoBehaviour {
 	private float Tempo;
 	private bool KeyTry;
 	private int KeyPressed;
-	private float HpSuccess;
+	public float HpSuccess;
 	private float AtkSuccess;
 	private float RangeSuccess;
 	private int Failure;
@@ -166,8 +166,10 @@ public class Crafting : MonoBehaviour {
 	}
 
 	void TimeoutCurrentNode(){
-		if ((CurrentTime >= CurrentNode * Tempo + Latency) && !KeyTry)
-						Spheres [CurrentNode - 1].renderer.material.SetColor ("_Color", Color.black);
+		if ((CurrentTime >= CurrentNode * Tempo + Latency) && !KeyTry) {
+			Spheres [CurrentNode - 1].renderer.material.SetColor ("_Color", Color.black);
+			Failure++;
+		}
 	}
 
 }
