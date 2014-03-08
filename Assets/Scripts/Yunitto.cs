@@ -22,7 +22,7 @@ public class Yunitto : MonoBehaviour {
 	private RaycastHit hit;
 	private GameObject ManagerObject;
 	private GameManager manager; //Game Manager
-	private Shoot_Projectile shoot_Projectile; // Script Shootprojectile
+	private ProjectileManager projectileManager; //Script ProjectileManager dans ManagerObject
 
 	//Getters/Setters
 	public float Hp 
@@ -85,6 +85,7 @@ public class Yunitto : MonoBehaviour {
 
 	void Shoot() {
 		Debug.Log ("SHOTS FIRED");
+		projectileManager.CreateProjectile(1,atk,transform.position,isGood);
 	}
 	void HitMelee(GameObject target) {
 		Debug.Log ("MELEE HIT");
@@ -98,6 +99,7 @@ public class Yunitto : MonoBehaviour {
 		//Get Objects
 		ManagerObject = GameObject.Find("Game");
 		manager = ManagerObject.GetComponent<GameManager>();
+		projectileManager = ManagerObject.GetComponent<ProjectileManager>();
 	}
 
 	void Update () {
