@@ -53,7 +53,7 @@ public class YunittoEnemy : MonoBehaviour {
 	}
 	
 	public void SetStats(float health, float attack, float atk_range){ //Vie,Attaque,Portée, Joueur(P1 ou P2)
-		unitType = setUnitType (health, attack, atk_range); //On choisit le type du joueur selon les stats
+		unitType = setUnitType (health, attack, atk_range); //On choisit le type du joueur selon les stats (TODO : Changé la couleur du modele en fonction de l'unitType)
 		isGood = !(transform.parent.parent.gameObject.name == "P1"); //on vérifie si le parent est P1 ou P2
 		//Stats des ennemis
 		hp = BASE_HP+(health * 100 * manager.StatMultiplier);
@@ -86,13 +86,13 @@ public class YunittoEnemy : MonoBehaviour {
 	}
 	
 	void Shoot() {
-		projectileManager.CreateProjectile(-1,atk,transform.position,isGood);
+		projectileManager.CreateProjectile(-1,atk,transform.position,isGood); //On indique au projetileManager de créer un projectile (Direction,attaque du projectile,position de la création, a qui appartient le projectile)
 		onCooldown = true;
 		cooldown = BASE_SPEED;
 		
 	}
 	void HitMelee(GameObject target) {
-		Yunitto yuni = target.GetComponent<Yunitto> ();
+		Yunitto yuni = target.GetComponent<Yunitto> ();  //On fait atk dégats a l'ennemi touché
 		yuni.Hp -= atk;
 		onCooldown = true;
 		cooldown = BASE_SPEED;
