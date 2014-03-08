@@ -24,10 +24,6 @@ public class BunchBehaviour : MonoBehaviour {
 		this.GenerateTestBunch(2);
 	}
 
-	void Update () {
-		Move();
-	}
-
 	private void GenerateTestBunch(int n) {
 		for(int i=0; i<10; i++) {
 			// Random offset
@@ -42,7 +38,7 @@ public class BunchBehaviour : MonoBehaviour {
 		}
 	}
 
-	private void Move() {
+	public void Move() {
 		float moveAxis = Input.GetAxis(_player.moveInput);
 
 		transform.Translate(moveAxis * Time.deltaTime * moveSpeed, 0F, 0F);
