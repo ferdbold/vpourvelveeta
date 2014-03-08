@@ -31,9 +31,12 @@ public class Player : MonoBehaviour {
 	private YunittoEnemy yunittoEnemy;
 
 	// Méthodes
-	void Start() {
+	void Awake() {
 		_bunch = transform.Find("Bunch");
 		_enemyBunch = transform.Find("Enemies");
+	}
+
+	void Start() {
 		_crafting = transform.Find("Crafting");
 
 		_bunchBehaviour = (BunchBehaviour)_bunch.GetComponent<BunchBehaviour>();
@@ -52,15 +55,18 @@ public class Player : MonoBehaviour {
 	public void CreateEnemyYunitto(float hp = 0.2f, float atk = 0.4f, float range = 0.4f) {
 		GameObject yuni = (GameObject)Instantiate(unitsBad, new Vector3(10, transform.position.y, transform.position.z), transform.rotation);
 		yuni.transform.parent = _enemyBunch;
-		
-		YunittoEnemy yunitto = (YunittoEnemy)yuni.GetComponent<YunittoEnemy>();
+
+		YunittoWiggle yunitto = (YunittoWiggle)yuni.GetComponent<YunittoWiggle>();
+		yunitto.Start();
 		yunitto.SetStats(hp, atk, range);
 	}
+
 	public void CreateYunitto(float hp = 0.2f, float atk = 0.4f, float range = 0.4f) {
 		GameObject yuni = (GameObject)Instantiate(unitsGood, new Vector3(0, transform.position.y, transform.position.z), transform.rotation);
 		yuni.transform.parent = _bunch;
 		
-		Yunitto yunitto = (Yunitto)yuni.GetComponent<Yunitto>();
+		YunittoWiggle yunitto = (YunittoWiggle)yuni.GetComponent<YunittoWiggle>();
+		yunitto.Start();
 		yunitto.SetStats(hp, atk, range);
 	}
 	

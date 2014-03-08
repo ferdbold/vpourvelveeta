@@ -20,7 +20,7 @@ public class BunchBehaviour : MonoBehaviour {
 
 	// Attributs
 	private Player _player;
-	private Yunitto yunitto;
+	private YunittoWiggle yunitto;
 
 	void Start () {
 		_player = transform.parent.gameObject.GetComponent<Player>();
@@ -36,11 +36,13 @@ public class BunchBehaviour : MonoBehaviour {
 			Vector3 offset = transform.position;
 			offset.x += Random.Range(0.0F, 1.0F);
 
-			GameObject yuni = (GameObject)Instantiate(p_yunitto, offset, transform.rotation);
+			_player.CreateYunitto(0.2f, 0.5f, 0.3f);
+
+			/*GameObject yuni = (GameObject)Instantiate(p_yunitto, offset, transform.rotation);
 			yuni.transform.parent = transform;
-			yunitto = (Yunitto)yuni.GetComponent<Yunitto>();
+			yunitto = (YunittoWiggle)yuni.GetComponent<YunittoWiggle>();
 			if(n==1)yunitto.SetStats (0.2f, 0.5f, 0.3f);
-			if(n==2)yunitto.SetStats (0.5f, 0.5f, 0.0f);
+			if(n==2)yunitto.SetStats (0.5f, 0.5f, 0.0f);*/
 		}
 	}
 
