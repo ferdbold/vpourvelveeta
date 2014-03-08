@@ -33,7 +33,7 @@ public class Shoot_Projectile : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		_speed = 2.0f + Random.Range (0, 3);	 //Détermine la vitesse du tir : elle est égal a une constante de 2.0f + une valeur random entre 0 et 3
+		_speed = 2.0f + Random.Range (0, 3);	 
 		_yspeed = Mathf.Sin (_angletir) * _speed; 
 		_xspeed = Mathf.Cos (_angletir) * _speed * direction;
 
@@ -45,7 +45,7 @@ public class Shoot_Projectile : MonoBehaviour {
 
 		transform.Translate(new Vector3(_xspeed,_yspeed,0.0f)*Time.deltaTime); // Mouvement de l'objet selon un vecteur [x,y]
 		
-		_yspeed  -=  _speedreduction*Time.deltaTime; 						   // Force de gravité y _speedreduction appliqué sur le vecteur y du projectile
+		_yspeed  -=  _speedreduction*Time.deltaTime; 						   
 		
 
 	}
