@@ -838,10 +838,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ac9d4e798050141a92a1eba5c96e26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentTime: 0
-  CurrentNode: 0
-  Tempo: 0
-  HpSuccess: 0
   p_sphere: {fileID: 100000, guid: 3d73a8cdd5f414989bc6b441b0670ceb, type: 2}
   p_anneau: {fileID: 100000, guid: 79c3c52fc6a8d45c39c6a137ea5a7a98, type: 2}
   NodeNumberMax: 3
@@ -1051,10 +1047,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ac9d4e798050141a92a1eba5c96e26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentTime: 0
-  CurrentNode: 0
-  Tempo: 0
-  HpSuccess: 0
   p_sphere: {fileID: 100000, guid: 3d73a8cdd5f414989bc6b441b0670ceb, type: 2}
   p_anneau: {fileID: 100000, guid: 79c3c52fc6a8d45c39c6a137ea5a7a98, type: 2}
   NodeNumberMax: 3

@@ -66,7 +66,7 @@ public class ProjectileCollision : MonoBehaviour {
 		Debug.Log(isP1);
 		if(isP1)
 		{
-			if(transform.parent.position.y<=2.0f) //La constante est sujet aux changements!
+			if(transform.parent.position.y<=1.0f) //La constante est sujet aux changements!
 				Destroy (gameObject.transform.parent.gameObject);
 		}
 		else
