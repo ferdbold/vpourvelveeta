@@ -3,8 +3,10 @@ using System.Collections;
 
 public class Yunitto : MonoBehaviour {
 
-	const int MAX_RANGE = 600;
-	const int MIN_RANGE = 20;
+	const int MAX_RANGE = 10;
+	const int MIN_RANGE = 2;
+	const int BASE_ATK = 1;
+	const int BASE_HP = 5;
 
 	private float hp; // vie de l'unité
 	private float atk; // attaque de l'unité
@@ -20,7 +22,7 @@ public class Yunitto : MonoBehaviour {
 	private RaycastHit hit;
 	private GameObject ManagerObject;
 	private GameManager manager; //Game Manager
-	private Shoot_Projectile shoot_Projectile; // Script Shootprojectile
+	private Shoot_projectile1 shoot_Projectile; // Script Shootprojectile
 
 
 	
@@ -51,14 +53,23 @@ public class Yunitto : MonoBehaviour {
 		set { isGood = value;}
 	}
 
-	public void SetStats(float health, float attack, float atk_range,bool isP1){ //Vie,Attaque,Portée, Type d'unité(Good ou Bad), Joueur créant l'unit
-		unitType = setUnitType (health, attack, atk_range);
+	public void SetStats(float health, float attack, float atk_range){ //Vie,Attaque,Portée, Type d'unité(Good ou Bad), Joueur créant l'unit
+		unitType = setUnitType (health, attack, atk_range); //On choisit le type du joueur selon les stats
+		isGood = (transform.parent.parent.gameObject.name == "P1"); //on vérifie si le parent est P1 ou P2
 		//Stats de base pour le joueur
-			hp = (health * friendlyStatMultiplier);
-			atk = (attack * friendlyStatMultiplier);
-			range = (atk_range * MAX_RANGE);
-			if(range < MIN_RANGE) range = MIN_RANGE;
-			isGood = isP1;
+		hp = BASE_HP +(health * friendlyStatMultiplier);
+		atk = BASE_ATK +(attack * friendlyStatMultiplier);
+		range = (atk_range * MAX_RANGE);
+		if(range < MIN_RANGE) range = MIN_RANGE;
+		//On fait les layerMask ici puisque c'est le moment ou on object le joueur a qui appartient l'unité
+		if(isGood) {
+			gameObject.layer = 8; //On le met a la layer P1
+			layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 8)); //Si c'est le J1 , On remarque les collisions avec le j2
+		}
+			else {
+			gameObject.layer = 9; //On le met a la layer P1
+			layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 9)); //Si c'est le J2 , On remarque les collisions avec le j1
+		}
 	}
 
 	int setUnitType(float H,float A,float R){ //Vérifie quel valeur est la plus grande parmis hp, Atk et range et renvoit la bon type
@@ -79,18 +90,15 @@ public class Yunitto : MonoBehaviour {
 	}
 
 	void Awake () {
-		weakThreshold = 0.5f;
+		weakThreshold = 0.5f;  //si le total est en dessous du threshold. l'unité est faible.
 		friendlyStatMultiplier = 10f;
+		//Get Objects
 		ManagerObject = GameObject.Find("Game");
 		manager = ManagerObject.GetComponent<GameManager>();
-		Debug.Log ("MANAGER = " + manager);
-		layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7));
-
-
 	}
 
 	void Update () {
-		Debug.DrawRay (transform.position, new Vector3 (1, 0, 0),Color.red);
+		Debug.DrawRay (transform.position, new Vector3 (range, 0, 0),Color.red);
 		if (Physics.Raycast (new Ray(transform.position, new Vector3 (1, 0, 0)),out hit,range,layerMask)) {
 			Shoot();
 		}

@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour {
 	}
 	// Use this for initialization
 	void Start () {
-		statMultiplier = 10;
+		statMultiplier = 1;
 	}
 	
 	// Update is called once per frame
