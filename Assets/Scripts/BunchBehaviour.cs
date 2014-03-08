@@ -27,7 +27,7 @@ public class BunchBehaviour : MonoBehaviour {
 		Move();
 	}
 
-	void GenerateTestBunch() {
+	private void GenerateTestBunch() {
 		for(int i=0; i<10; i++) {
 			// Random offset
 			Vector3 offset = transform.position;
@@ -36,11 +36,11 @@ public class BunchBehaviour : MonoBehaviour {
 			GameObject yuni = (GameObject)Instantiate(p_yunitto, offset, transform.rotation);
 			yuni.transform.parent = transform;
 			yunitto = (Yunitto)yuni.GetComponent<Yunitto>();
-			yunitto.SetStats (0.5f, 0.5f, 0f, true);
+			yunitto.SetStats (0.5f, 0.5f, 0f);
 		}
 	}
 
-	void Move() {
+	private void Move() {
 		float moveAxis = Input.GetAxis(_player.moveInput);
 
 		transform.Translate(moveAxis * Time.deltaTime * moveSpeed, 0F, 0F);

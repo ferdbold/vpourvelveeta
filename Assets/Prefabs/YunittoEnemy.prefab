@@ -12,6 +12,7 @@ GameObject:
   - 65: {fileID: 6500000}
   - 23: {fileID: 2300000}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400002}
   m_Layer: 0
   m_Name: YunittoEnemy
   m_TagString: Untagged
@@ -81,6 +82,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e665eeed1ca2ed4c8fbd44748dc2958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 928c8c9dc886d4fbe8f5f88c086bdd8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _yVelocity: 0
+  wiggleSpeed: 1
+  leashLength: 10
+  jumpChance: .00499999989
+  jumpHeight: 3
+  jumpVar: 1.5
+  gravity: .300000012
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

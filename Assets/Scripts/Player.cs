@@ -16,23 +16,39 @@ public class Player : MonoBehaviour {
 	public string craftAtkInput;
 	public string craftRangeInput;
 
+	// Attributs
+	private Transform _bunch;
+	private Transform _enemyBunch;
+
 	public GameObject unitsGood;
 	public GameObject unitsBad;
 	private Yunitto yunitto;
 	private YunittoEnemy yunittoEnemy;
 
+	void Start() {
+		_bunch = transform.Find("Bunch");
+		_enemyBunch = transform.Find("Enemies");
 
-	void Start () {
 		yunitto = unitsGood.GetComponent<Yunitto>();
 		yunittoEnemy = unitsBad.GetComponent<YunittoEnemy>();
-		GameObject clone;
-		clone = (GameObject)Instantiate(unitsBad,transform.position,Quaternion.identity);
-		yunittoEnemy = (YunittoEnemy)clone.GetComponent<YunittoEnemy>();
-		yunittoEnemy.SetStats (0.5f, 0.5f, 0f, true);
 
+//		GameObject clone;
+//		clone = (GameObject)Instantiate(unitsBad,transform.position+(new Vector3(1,0,0)),Quaternion.identity);
+//		clone.transform.parent = transform;
+//		yunittoEnemy = (YunittoEnemy)clone.GetComponent<YunittoEnemy>();
+//		yunittoEnemy.SetStats (0f, 0.5f, 0.5f);
 	}
-	// Update is called once per frame
+	
 	void Update () {
 		
+	}
+
+	// Accesseurs
+	public Transform Bunch {
+		get { return _bunch; }
+	}
+
+	public Transform EnemyBunch {
+		get { return _enemyBunch; }
 	}
 }
