@@ -25,6 +25,7 @@ public class YunittoEnemy : MonoBehaviour {
 	private GameManager manager; //Game Manager scripts
 	private ProjectileManager projectileManager;
 
+
 	//Getters/Setters
 	public float Hp 
 	{ 
@@ -54,6 +55,7 @@ public class YunittoEnemy : MonoBehaviour {
 	
 	public void SetStats(float health, float attack, float atk_range){ //Vie,Attaque,Portée, Joueur(P1 ou P2)
 		unitType = setUnitType (health, attack, atk_range); //On choisit le type du joueur selon les stats (TODO : Changé la couleur du modele en fonction de l'unitType)
+		setUnitColor (unitType);
 		isGood = !(transform.parent.parent.gameObject.name == "P1"); //on vérifie si le parent est P1 ou P2
 		//Stats des ennemis
 		hp = BASE_HP+(health * 100 * manager.StatMultiplier);
@@ -83,6 +85,27 @@ public class YunittoEnemy : MonoBehaviour {
 			else if (A < R) return 3;
 		}
 		return 4;
+	}
+	void setUnitColor (int uType) {
+		//BunchBehaviour bunchBehaviour = (BunchBehaviour)transform.parent.gameObject.GetComponent<BunchBehaviour>();
+		//Debug.Log (bunchBehaviour);
+		switch (uType) {
+			case 1:
+				gameObject.renderer.material.color = Color.green;
+				break;
+			case 2:
+				gameObject.renderer.material.color = Color.red;
+				break;
+			case 3:
+				gameObject.renderer.material.color = Color.blue;
+				break;
+			case 4:
+				gameObject.renderer.material.color = Color.white;
+				break;
+			case 5:
+				gameObject.renderer.material.color = Color.black;
+				break;
+		}
 	}
 	
 	void Shoot() {
