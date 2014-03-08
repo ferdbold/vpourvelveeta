@@ -31,10 +31,12 @@ public class Player : MonoBehaviour {
 
 		yunitto = unitsGood.GetComponent<Yunitto>();
 		yunittoEnemy = unitsBad.GetComponent<YunittoEnemy>();
-		GameObject clone;
-		clone = (GameObject)Instantiate(unitsBad,transform.position,Quaternion.identity);
-		yunittoEnemy = (YunittoEnemy)clone.GetComponent<YunittoEnemy>();
-		yunittoEnemy.SetStats (0.5f, 0.5f, 0f, true);
+
+//		GameObject clone;
+//		clone = (GameObject)Instantiate(unitsBad,transform.position+(new Vector3(1,0,0)),Quaternion.identity);
+//		clone.transform.parent = transform;
+//		yunittoEnemy = (YunittoEnemy)clone.GetComponent<YunittoEnemy>();
+//		yunittoEnemy.SetStats (0f, 0.5f, 0.5f);
 	}
 	
 	void Update () {

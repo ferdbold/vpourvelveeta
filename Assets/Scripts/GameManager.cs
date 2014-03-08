@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 		_timeElapsed = 0;
 		_spawnTimeElapsed = 0;
-		statMultiplier = 10;
+		statMultiplier = 1;
 	}
 	
 	void Update () {
@@ -49,9 +49,15 @@ public class GameManager : MonoBehaviour {
 
 		Debug.Log (players);
 		foreach (Player player in players) {
-			GameObject eYuni = (GameObject)Instantiate(p_yunittoEnemy, new Vector3(10, transform.position.y, transform.position.z), transform.rotation);
-			Debug.Log (player);
-			eYuni.transform.parent = player.EnemyBunch;
+			CreateEnemyYunitto(player);
 		}
+	}
+
+	public void CreateEnemyYunitto(Player player, float hp = 0.5f, float atk = 0.5f, float range = 0.0f) {
+		GameObject yuni = (GameObject)Instantiate(p_yunittoEnemy, new Vector3(10, player.transform.position.y, player.transform.position.z), transform.rotation);
+		yuni.transform.parent = player.EnemyBunch;
+
+		YunittoEnemy yunitto = (YunittoEnemy)yuni.GetComponent<YunittoEnemy>();
+		yunitto.SetStats(hp, atk, range);
 	}
 }
