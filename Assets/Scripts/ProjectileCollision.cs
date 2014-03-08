@@ -25,10 +25,13 @@ public class ProjectileCollision : MonoBehaviour {
 		atk = shoot_Projectile.Dmg;
 		isP1 = shoot_Projectile.IsP1;
 		xSpeed = shoot_Projectile._xspeed;
-		if(isP1) layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 8)); //Si c'est le J1 , On remarque les collisions avec le j2
-		else layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 9)); // <-- LAYERS a IGNORER !
-
-
+		if(isP1) {
+			if(direction>1) layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 8) | (1 << 9) | (1 << 10)); //Si c'est le J1 , On remarque les collisions avec le j2
+			else layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 8) | (1 << 10) | (1 << 11));
+		} else {
+			if(direction>1) layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 8) | (1 << 9) | (1 << 11)); // <-- LAYERS a IGNORER !
+			else layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 9) | (1 << 10) | (1 << 11));
+		}
 	}
 	
 	// Update is called once per frame
@@ -39,16 +42,9 @@ public class ProjectileCollision : MonoBehaviour {
 		transform.eulerAngles = new Vector3(0.0f, 0.0f, angle);
 
 
-		Debug.DrawRay (transform.position,transform.right*direction,Color.cyan);
-		if (Physics.Raycast (new Ray (transform.position, transform.right), out hit, range, layerMask)) {
+		Debug.DrawRay (transform.position,transform.right*direction*range,Color.cyan);
+		if (Physics.Raycast (new Ray (transform.position, transform.right*direction), out hit, range, layerMask)) {
 			target = hit.collider.gameObject;
-			if(target.name=="Yunitto") {
-				Yunitto yuni = target.GetComponent<Yunitto> ();
-				yuni.Hp -= atk;
-			} else {
-				YunittoEnemy yuni = target.GetComponent<YunittoEnemy> ();
-				yuni.Hp -= atk;
-			}
 			Destroy (gameObject.transform.parent.gameObject);
 		}
 	}

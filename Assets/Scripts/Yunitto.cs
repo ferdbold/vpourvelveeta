@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class Yunitto : MonoBehaviour {
-
 	const int MAX_RANGE = 10;
 	const int MIN_RANGE = 2;
 	const int BASE_ATK = 1;
@@ -16,7 +15,6 @@ public class Yunitto : MonoBehaviour {
 
 	private float weakThreshold; //Si les stats combinées d'un unité est inférieur au threshold, elle est faible.
 	private float friendlyStatMultiplier;
-
 
 	private LayerMask layerMask;
 	private RaycastHit hit;
@@ -62,12 +60,12 @@ public class Yunitto : MonoBehaviour {
 		//On fait les layerMask ici puisque c'est le moment ou on object le joueur a qui appartient l'unité
 		if(isGood) {
 			gameObject.layer = 8; //On le met a la layer P1
-			layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 8)); //Si c'est le J1 , On remarque les collisions avec le j2
+			layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 8) | (1 << 9) | (1 << 10)); //Si c'est le J1 , On remarque les collisions avec le j2
 		}
 			else {
 			gameObject.layer = 9; //On le met a la layer P1
-			layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 9)); //Si c'est le J2 , On remarque les collisions avec le j1
-		}
+			layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 9) | (1 << 8) | (1 << 11)); //Si c'est le J2 , On remarque les collisions avec le j1
+		} 
 	}
 
 	int setUnitType(float H,float A,float R){ //Vérifie quel valeur est la plus grande parmis hp, Atk et range et renvoit la bon type
@@ -90,7 +88,9 @@ public class Yunitto : MonoBehaviour {
 	void HitMelee(GameObject target) {
 		Debug.Log ("MELEE HIT");
 		YunittoEnemy yuni = target.GetComponent<YunittoEnemy> ();
-		yuni.Hp -= atk;
+		Debug.Log ("HP:" + hp);
+		Debug.Log ("ATK:" + atk);
+		if(yuni != null) yuni.Hp -= atk;
 	}
 
 	void Awake () {

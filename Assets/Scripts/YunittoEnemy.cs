@@ -59,12 +59,12 @@ public class YunittoEnemy : MonoBehaviour {
 		if(range > MAX_RANGE) range = MAX_RANGE;
 		//On fait les layerMask ici puisque c'est le moment ou on object le joueur a qui appartient l'unité
 		if(isGood) {
-			gameObject.layer = 8; //On le met a la layer P1
-			layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 8)); //Si c'est le J1 , On remarque les collisions avec le j2
+			gameObject.layer = 10; //On le met a la layer P1
+			layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 8) | (1 << 10)| (1 << 11)); //Si c'est le J1 , On remarque les collisions avec le j2
 		}
 		else {
-			gameObject.layer = 9; //On le met a la layer P1
-			layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 9)); //Si c'est le J2 , On remarque les collisions avec le j1
+			gameObject.layer = 11; //On le met a la layer P1
+			layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 9) | (1 << 11)); //Si c'est le J2 , On remarque les collisions avec le j1
 		}
 	}
 	
