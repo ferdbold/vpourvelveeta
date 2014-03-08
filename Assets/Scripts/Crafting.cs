@@ -11,7 +11,6 @@ public class Crafting : MonoBehaviour {
 	public int CurrentNode;
 	public float Tempo;
 	public float CurrentTime;
-	public bool NodeFailed;
 	public bool KeyTry;
 	public int KeyPressed;
 	public float HpSuccess;
@@ -19,20 +18,20 @@ public class Crafting : MonoBehaviour {
 	public float RangeSuccess;
 	public int Failure;
 	public GameObject[] Cube;
-
+	public GameObject[] Anneau;
+	
 	// Use this for initialization
 	void Start () {
-		NodeNumberMin = 5;
+		NodeNumberMin = 3;
 		NodeNumberMax = 5;
-		Latency = 1.25f;
+		Latency = 0.25f;
 		CurrentTime = 0.0f;
-		TotalTime = 50.0f;
+		TotalTime = 5.0f;
 		CurrentNode = 1;
 		HpSuccess = 0.0f;
 		AtkSuccess = 0.0f;
 		RangeSuccess = 0.0f;
 		Failure = 0;
-		NodeFailed = false;
 		KeyTry = false;
 		SetNodeNumber ();
 		SetTempo ();
@@ -41,6 +40,7 @@ public class Crafting : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		Anneau[CurrentNode-1].transform.localScale -= new Vector3(0.015F/Tempo, 0.015F/Tempo, 0);
 		if (CheckKeystroke () && IsInTheZone () && !KeyTry) {
 						Cube[CurrentNode-1].renderer.material.SetColor ("_Color", ColorSet());
 						if (KeyPressed == 1)
@@ -55,6 +55,7 @@ public class Crafting : MonoBehaviour {
 						Failure ++;
 						KeyTry = true;
 				}
+		TimeoutCurrentNode ();
 		CheckCurrentNode ();
 		CurrentTime += Time.deltaTime;
 	}
@@ -73,13 +74,13 @@ public class Crafting : MonoBehaviour {
 			return false;
 	}
 	bool CheckKeystroke (){
-		if (Input.GetKey(KeyCode.A)) {
+		if (Input.GetKeyDown(KeyCode.A)) {
 						KeyPressed = 1;
 						return true;
-				} else if (Input.GetKey(KeyCode.S)) {
+				} else if (Input.GetKeyDown(KeyCode.S)) {
 						KeyPressed = 2;
 			            return true;
-				} else if (Input.GetKey(KeyCode.D)) {
+				} else if (Input.GetKeyDown(KeyCode.D)) {
 						KeyPressed = 3;
 						return true;
 				} else
@@ -101,4 +102,9 @@ public class Crafting : MonoBehaviour {
 				else 
 						return Color.black;
 	}
+	void TimeoutCurrentNode(){
+		if ((CurrentTime >= CurrentNode * Tempo + Latency) && !KeyTry)
+						Cube [CurrentNode - 1].renderer.material.SetColor ("_Color", Color.black);
+	}
+
 }
