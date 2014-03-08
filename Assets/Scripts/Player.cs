@@ -19,6 +19,7 @@ public class Player : MonoBehaviour {
 	// Attributs
 	private Transform _bunch;
 	private Transform _enemyBunch;
+	private Transform _crafting;
 
 	public GameObject unitsGood;
 	public GameObject unitsBad;
@@ -28,19 +29,17 @@ public class Player : MonoBehaviour {
 	void Start() {
 		_bunch = transform.Find("Bunch");
 		_enemyBunch = transform.Find("Enemies");
+		_crafting = transform.Find("Crafting");
 
 		yunitto = unitsGood.GetComponent<Yunitto>();
 		yunittoEnemy = unitsBad.GetComponent<YunittoEnemy>();
-
-//		GameObject clone;
-//		clone = (GameObject)Instantiate(unitsBad,transform.position+(new Vector3(1,0,0)),Quaternion.identity);
-//		clone.transform.parent = transform;
-//		yunittoEnemy = (YunittoEnemy)clone.GetComponent<YunittoEnemy>();
-//		yunittoEnemy.SetStats (0f, 0.5f, 0.5f);
 	}
 	
 	void Update () {
-		
+		/*if (Input.GetAxis(craftInput)) {
+			Crafting crafting = (Crafting)_crafting.GetComponent<Crafting>();
+			crafting.BeginCrafting();
+		}*/
 	}
 
 	// Accesseurs
