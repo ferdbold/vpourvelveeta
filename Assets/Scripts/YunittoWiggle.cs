@@ -8,42 +8,47 @@ using System.Collections;
 
 public class YunittoWiggle : MonoBehaviour {
 
+	// Constantes
+	private int DEATH_ANIM_LENGTH = 15;
+
 	// Attributs
 	private float unitRange;
 	private Yunitto yunitto;
 	private YunittoEnemy yunittoEnemy;
 	public float _yVelocity;
 
+	private YunittoState _state;
+
 	// Attributs publics
-	public float wiggleSpeed ;
-	public float leashLength;
-	public float jumpChance ;
-	public float jumpHeight;
-	public float jumpVar;
-	public float gravity;
+	public float wiggleSpeed = 1F;
+	public float leashLength = 10F;
+	public float jumpChance = 0.005F;
+	public float jumpHeight = 3F;
+	public float jumpVar = 1.5F;
+	public float gravity = 0.3F;
 
 	void Start () {
 		_yVelocity = 0F;
-		wiggleSpeed = 1;
-		leashLength = 10;
-		jumpChance = 0.005f;
-		jumpHeight = 3;
-		jumpVar = 1.5f;
-		gravity = 0.3f;
 
-		//Obtenir le range de l'unit en tenant compte que sa peut etre un ally ou un enemy
-		if (gameObject.GetComponent<Yunitto> () != null) {
+		// S'il s'agit d'un allié
+		if(gameObject.GetComponent<Yunitto>() != null) {
+			_state = new AllyMarchState(this);
+
 			yunitto = (Yunitto)gameObject.GetComponent<Yunitto>();
 			unitRange = yunitto.Range;
-		} else {
+		}
+
+		// S'il s'agit d'un ennemi
+		else {
+			_state = new EnemyMarchState(this);
+
 			yunittoEnemy = (YunittoEnemy)gameObject.GetComponent<YunittoEnemy>();
 			unitRange = yunittoEnemy.Range;
 		}
 	}
 
 	void Update () {
-		Move();
-		Jump();
+		_state.Update();
 	}
 
 	private void Move() {
@@ -55,7 +60,7 @@ public class YunittoWiggle : MonoBehaviour {
 		                                      transform.localPosition.z);
 	}
 	
-	private void Jump() {
+	private void Hop() {
 		// Appliquer un saut si ça proc et qu'on est pas déjà dans un saut
 		float yunittoY = transform.localPosition.y;
 
@@ -79,4 +84,81 @@ public class YunittoWiggle : MonoBehaviour {
 		                                      transform.localPosition.z);
 	}
 
+	/**
+	 * STATE MACHINE
+	 **/
+	public abstract class YunittoState {
+
+		// Attributs
+		protected YunittoWiggle _yunitto;
+
+		// Constructeurs
+		private YunittoState() {}
+		public YunittoState(YunittoWiggle yunitto) {
+			_yunitto = yunitto;
+		}
+
+		// Méthodes
+		public abstract void Update();
+	}
+
+	public class AllyMarchState : YunittoState {
+
+		// Constructeurs
+		public AllyMarchState(YunittoWiggle yunitto) : base(yunitto) {}
+
+		// Méthodes
+		public override void Update() {
+			_yunitto.Move();
+			_yunitto.Hop();
+		}
+	}
+
+	public class AllyAttackState : YunittoState {
+
+		// Constructeurs
+		public AllyAttackState(YunittoWiggle yunitto) : base(yunitto) {}
+		
+		// Méthodes
+		public override void Update() {}
+	}
+
+	public class EnemyMarchState : YunittoState {
+
+		// Constructeurs
+		public EnemyMarchState(YunittoWiggle yunitto) : base(yunitto) {}
+
+		// Méthodes
+		public override void Update() {
+			_yunitto.Move();
+			_yunitto.Hop();
+		}
+	}
+
+	public class EnemyAttackState : YunittoState {
+		
+		// Constructeurs
+		public EnemyAttackState(YunittoWiggle yunitto) : base(yunitto) {}
+		
+		// Méthodes
+		public override void Update() {}
+	}
+
+	public class DeathState : YunittoState {
+
+		// Attributs
+		private int _framesElapsed = 0;
+
+		// Constructeurs
+		public DeathState(YunittoWiggle yunitto) : base(yunitto) {}
+		
+		// Méthodes
+		public override void Update() {
+			_framesElapsed++;
+
+			if (_framesElapsed == _yunitto.DEATH_ANIM_LENGTH) {
+				GameObject.Destroy(_yunitto.gameObject);
+			}
+		}
+	}
 }
