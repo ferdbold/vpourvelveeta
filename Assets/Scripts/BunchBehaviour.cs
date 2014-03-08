@@ -36,7 +36,7 @@ public class BunchBehaviour : MonoBehaviour {
 			GameObject yuni = (GameObject)Instantiate(p_yunitto, offset, transform.rotation);
 			yuni.transform.parent = transform;
 			yunitto = (Yunitto)yuni.GetComponent<Yunitto>();
-			yunitto.SetStats (0.5f, 0.5f, 0f);
+			yunitto.SetStats (0.2f, 0.5f, 0.3f);
 		}
 	}
 

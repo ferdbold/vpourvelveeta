@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Yunitto : MonoBehaviour {
-	const int MAX_RANGE = 4;
+	const int MAX_RANGE = 5;
 	const float MIN_RANGE = 0.5f;
 	const int BASE_ATK = 1;
 	const int BASE_HP = 5;
