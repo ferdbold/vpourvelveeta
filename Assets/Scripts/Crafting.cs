@@ -7,13 +7,13 @@ public class Crafting : MonoBehaviour {
 	private Player _player;
 	private GameManager _gameManager;
 	private bool _isCrafting;
-	public float CurrentTime;
+	private float CurrentTime;
 	private int NodeNumber;
-	public int CurrentNode;
-	public float Tempo;
+	private int CurrentNode;
+	private float Tempo;
 	private bool KeyTry;
 	private int KeyPressed;
-	public float HpSuccess;
+	private float HpSuccess;
 	private float AtkSuccess;
 	private float RangeSuccess;
 	private int Failure;
@@ -27,7 +27,7 @@ public class Crafting : MonoBehaviour {
 
 	public int NodeNumberMax = 3;
 	public int NodeNumberMin = 8;
-	public float Latency = 0.25F;
+	public float Latency = 0.20F;
 	public float TotalTime = 5.0F;
 
 	void Start () {
@@ -41,7 +41,7 @@ public class Crafting : MonoBehaviour {
 
 	void Update () {
 		if (_isCrafting) {
-			if (CurrentTime >= 0.25f){
+			if (CurrentTime >= 0.20f){
 				Anneaux[CurrentNode-1].transform.localScale -= new Vector3((ShrinkSpeed()*Time.deltaTime),(ShrinkSpeed()*Time.deltaTime), 0);
 			} //THIS THIS SHIT
 			if (CheckKeystroke () && IsInTheZone () && !KeyTry) {
@@ -110,7 +110,7 @@ public class Crafting : MonoBehaviour {
 	}
 
 	/// <summary>
-	/// Termine la session en cours de crafting et crée les Yunitto résultants.
+	/// Crée les Yunitto résultants d'une session de crafting.
 	/// </summary>
 	private void SpawnCraftingResults() {
 		float hp = (HpSuccess / NodeNumber);
@@ -193,7 +193,7 @@ public class Crafting : MonoBehaviour {
 			return false;
 	}
 	float ShrinkSpeed(){
-		return 0.22f * NodeNumber;
+		return 0.28f * NodeNumber;
 	}
 
 }

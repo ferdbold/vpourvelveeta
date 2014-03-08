@@ -63,7 +63,6 @@ public class GameManager : MonoBehaviour {
 	private void SpawnBasicYunittos() {
 		_spawnTimeElapsed = 0;
 
-		Debug.Log (players);
 		foreach (Player player in players) {
 			player.CreateEnemyYunitto();
 		}

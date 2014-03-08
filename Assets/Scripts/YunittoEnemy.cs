@@ -87,8 +87,6 @@ public class YunittoEnemy : MonoBehaviour {
 		return 4;
 	}
 	void setUnitColor (int uType) {
-		//BunchBehaviour bunchBehaviour = (BunchBehaviour)transform.parent.gameObject.GetComponent<BunchBehaviour>();
-		//Debug.Log (bunchBehaviour);
 		switch (uType) {
 			case 1:
 				gameObject.renderer.material.color = Color.green;

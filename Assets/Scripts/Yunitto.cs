@@ -86,7 +86,6 @@ public class Yunitto : MonoBehaviour {
 	}
 	void setUnitColor (int uType) {
 		BunchBehaviour bunchBehaviour = (BunchBehaviour)transform.parent.gameObject.GetComponent<BunchBehaviour>();
-		Debug.Log (bunchBehaviour);
 		switch (uType) {
 		case 1:
 			gameObject.renderer.material = (Material)bunchBehaviour.green;
@@ -114,7 +113,7 @@ public class Yunitto : MonoBehaviour {
 
 	void HitMelee(GameObject target) {
 
-		YunittoEnemy yuni = target.GetComponent<YunittoEnemy> (); //On fait atk dégats a l'ennemi touché
+		YunittoWiggle yuni = target.GetComponent<YunittoWiggle> (); //On fait atk dégats a l'ennemi touché
 		if(yuni != null) yuni.Hp -= atk;
 		onCooldown = true;
 		cooldown = BASE_SPEED;

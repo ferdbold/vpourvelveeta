@@ -45,32 +45,46 @@ public class ProjectileCollision : MonoBehaviour {
 		Debug.DrawRay (transform.position,transform.right*direction*range,Color.cyan);
 		if (Physics.Raycast (new Ray (transform.position, transform.right*direction), out hit, range, layerMask)) {
 			target = hit.collider.gameObject;
+
 			if(target.name == "Base"){
 				Base baseScript =  (Base)target.GetComponent<Base>();
 				baseScript.Hp -= atk;
 			}
 			else if(direction>=1) {
-				YunittoEnemy yuni = (YunittoEnemy)target.GetComponent<YunittoEnemy>();
+				YunittoWiggle yuni = (YunittoWiggle)target.GetComponent<YunittoWiggle>();
 				yuni.Hp -= atk;
 			} else {
 				Yunitto yuni = (Yunitto)target.GetComponent<Yunitto>();
-				yuni.Hp -= atk;
+				if (yuni != null) yuni.Hp -= atk;
 			}
 
 			Destroy (gameObject.transform.parent.gameObject);
 		}
 
 
-		if (direction >= 1) //Les boucles suivantes servent a la destruction des projectiles touchant le sol (a un point y donné)
+		Debug.Log(isP1);
+		if(isP1)
+		{
+			if(transform.parent.position.y<=1.0f) //La constante est sujet aux changements!
+				Destroy (gameObject.transform.parent.gameObject);
+		}
+		else
+		{
+			if(transform.parent.position.y<=-1.0f)//La constante est sujet aux changements!
+				Destroy (gameObject.transform.parent.gameObject);
+		}
+		
+		
+		/*if (direction >= 1) //Les boucles suivantes servent a la destruction des projectiles touchant le sol (a un point y donné)
 		{
 			if(isP1)
 			{
-				if(transform.parent.transform.position.y<=1.0f) //La constante est sujet aux changements!
+				if(transform.parent.position.y<=2.0f) //La constante est sujet aux changements!
 					Destroy (gameObject.transform.parent.gameObject);
 			}
 			else
 			{
-				if(transform.parent.transform.position.y<=-1.0f)//La constante est sujet aux changements!
+				if(transform.parent.position.y<=-1.0f)//La constante est sujet aux changements!
 					Destroy (gameObject.transform.parent.gameObject);
 			}
 		}
@@ -78,15 +92,15 @@ public class ProjectileCollision : MonoBehaviour {
 		{
 			if(isP1)
 			{
-				if(transform.parent.transform.position.y<=-1.0f)//La constante est sujet aux changements!
+				if(transform.parent.position.y<=2.0f)//La constante est sujet aux changements!
 					Destroy (gameObject.transform.parent.gameObject);
 			}
 			else
 			{
-				if(transform.parent.transform.position.y<=1.0f)//La constante est sujet aux changements!
+				if(transform.parent.position.y<=-1.0f)//La constante est sujet aux changements!
 					Destroy (gameObject.transform.parent.gameObject);
 			}
-		}
+		}*/
 	}
 
 }
