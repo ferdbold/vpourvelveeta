@@ -90,7 +90,13 @@ public class Player : MonoBehaviour {
 		// Méthodes
 		public override void Update() {
 			_player._bunchBehaviour.Move();
-
+			if(Input.GetButtonDown (_player.attackInput)){
+				Yunitto[] units = (Yunitto[])_player._bunch.GetComponentsInChildren<Yunitto>();
+				foreach (Yunitto unit in units) {
+					unit.AttackPlayer();
+				}
+			
+			}
 			if(Input.GetButtonDown (_player.craftInput)) {
 				_player._state = new CraftingState(_player);
 			}
