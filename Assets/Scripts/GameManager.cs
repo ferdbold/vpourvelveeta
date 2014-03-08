@@ -9,7 +9,8 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
 
 	// Attributes
-	private float statMultiplier;
+	private float statMultiplier; //Multiplé aux stats des armées ennemis
+	private float friendlyStatMultiplier; //Multiplé aux stats des armées des joueurs
 	private float _timeElapsed;
 	private float _spawnTimeElapsed;
 
@@ -24,11 +25,17 @@ public class GameManager : MonoBehaviour {
 		get { return statMultiplier;}
 		set { statMultiplier = value;}
 	}
+	public float FriendlyStatMultiplier
+	{
+		get { return friendlyStatMultiplier;}
+		set { friendlyStatMultiplier = value;}
+	}
 
 	void Start () {
 		_timeElapsed = 0;
 		_spawnTimeElapsed = 0;
-		statMultiplier = 0.5f;
+		statMultiplier = 0.6f;
+		friendlyStatMultiplier = 1f;
 	}
 	
 	void Update () {

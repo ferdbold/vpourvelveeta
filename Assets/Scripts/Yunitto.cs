@@ -17,7 +17,6 @@ public class Yunitto : MonoBehaviour {
 	private bool onCooldown;
 
 	private float weakThreshold; //Si les stats combinées d'un unité est inférieur au threshold, elle est faible.
-	private float friendlyStatMultiplier;
 
 	private LayerMask layerMask;
 	private RaycastHit hit;
@@ -53,13 +52,14 @@ public class Yunitto : MonoBehaviour {
 	}
 
 	public void SetStats(float health, float attack, float atk_range){ //Vie,Attaque,Portée, Type d'unité(Good ou Bad), Joueur créant l'unit
-		unitType = setUnitType (health, attack, atk_range); //On choisit le type du joueur selon les stats
+		unitType = setUnitType (health, attack, atk_range); //On choisit le type du joueur selon les stats (TODO : Changé la couleur du modele en fonction de l'unitType
 		isGood = (transform.parent.parent.gameObject.name == "P1"); //on vérifie si le parent est P1 ou P2
 		//Stats de base pour le joueur
-		hp = BASE_HP +(health * friendlyStatMultiplier);
-		atk = BASE_ATK +(attack * friendlyStatMultiplier);
+		hp = BASE_HP +(health * manager.FriendlyStatMultiplier);
+		atk = BASE_ATK +(attack * manager.FriendlyStatMultiplier);
 		range = (atk_range * MAX_RANGE);
 		if(range < MIN_RANGE) range = MIN_RANGE;
+
 		//On fait les layerMask ici puisque c'est le moment ou on object le joueur a qui appartient l'unité
 		if(isGood) {
 			gameObject.layer = 8; //On le met a la layer P1
@@ -85,13 +85,13 @@ public class Yunitto : MonoBehaviour {
 	}
 
 	void Shoot() {
-		projectileManager.CreateProjectile(1,atk,transform.position,isGood);
+		projectileManager.CreateProjectile(1,atk,transform.position,isGood); //On indique au projetileManager de créer un projectile (Direction,attaque du projectile,position de la création, a qui appartient le projectile)
 		onCooldown = true;
 		cooldown = BASE_SPEED;
 	}
 	void HitMelee(GameObject target) {
 
-		YunittoEnemy yuni = target.GetComponent<YunittoEnemy> ();
+		YunittoEnemy yuni = target.GetComponent<YunittoEnemy> (); //On fait atk dégats a l'ennemi touché
 		if(yuni != null) yuni.Hp -= atk;
 		onCooldown = true;
 		cooldown = BASE_SPEED;
@@ -99,8 +99,7 @@ public class Yunitto : MonoBehaviour {
 
 
 	void Awake () {
-		weakThreshold = 0.5f;  //si le total est en dessous du threshold. l'unité est faible.
-		friendlyStatMultiplier = 10f;
+		weakThreshold = 0.5f;  //si le total est en dessous du threshold. l'unité est faible. 
 		//Get Objects
 		ManagerObject = GameObject.Find("Game");
 		manager = ManagerObject.GetComponent<GameManager>();
