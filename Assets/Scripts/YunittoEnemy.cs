@@ -3,32 +3,37 @@ using System.Collections;
 
 public class YunittoEnemy : MonoBehaviour {
 	const int MAX_RANGE = 600;
+	const int MIN_RANGE = 20;
 	
-	private int hp; // vie de l'unité
-	private int atk; // attaque de l'unité
-	private int range; //Portée de tir de l'unité 
+	private float hp; // vie de l'unité
+	private float atk; // attaque de l'unité
+	private float range; //Portée de tir de l'unité 
 	private int unitType; //Type d'unité (1:HP, 2:ATK, 3:Range, 4:Balanced, 5:Weak)
 	private bool isGood; // Est-ce que l'unité appartient a la faction du haut(good) ou du bas(bad)
 	
 	private float weakThreshold; //Si les stats combinées d'un unité est inférieur au threshold, elle est faible.
-	
-	private GameObject ManagerObject;
-	private GameManager manager; //Game Manager
+
+	private LayerMask layerMask;
+	private RaycastHit hit;
+	private GameObject ManagerObject; //Objet GameManager
+	private GameManager manager; //Game Manager scripts
+	private Shoot_Projectile shoot_Projectile; // Script Shootprojectile
+
 	
 	
 	
 	//Getters/Setters
-	public int Hp 
+	public float Hp 
 	{ 
 		get{return hp;}
 		set{hp = value;}
 	}
-	public int Atk
+	public float Atk
 	{
 		get{return atk;}
 		set{atk = value;}
 	}
-	public int Range
+	public float Range
 	{
 		get{ return range;}
 		set{ Range = value;}
@@ -44,12 +49,14 @@ public class YunittoEnemy : MonoBehaviour {
 		set { isGood = value;}
 	}
 	
-	YunittoEnemy(float health, float attack, float atk_range,bool good){ //Vie,Attaque,Portée, Type d'unité(Good ou Bad), Joueur créant l'unit
+	public void SetStats(float health, float attack, float atk_range,bool isP1){ //Vie,Attaque,Portée, Joueur(P1 ou P2)
 		unitType = setUnitType (health, attack, atk_range);
-		hp = (int)(health * manager.StatMultiplier);
-		atk = (int)(attack * manager.StatMultiplier);
-		range = (int)((atk_range * manager.StatMultiplier) * MAX_RANGE);
-		isGood = good;
+		hp = (health * manager.StatMultiplier);
+		Debug.Log (ManagerObject);
+		atk = (attack * manager.StatMultiplier);
+		range = ((atk_range * manager.StatMultiplier) * MAX_RANGE);
+		if(range < MIN_RANGE) range = MIN_RANGE;
+		isGood = isP1;
 	}
 	
 	int setUnitType(float H,float A,float R){ //Vérifie quel valeur est la plus grande parmis hp, Atk et range et renvoit la bon type
@@ -66,19 +73,26 @@ public class YunittoEnemy : MonoBehaviour {
 	}
 	
 	void Shoot() {
-		
+		Debug.Log ("SHOTS FIRED ENEMY");
+		//shoot_Projectile;
 	}
 	
-	void Start () {
+	void Awake () {
 		weakThreshold = 0.5f;
-		ManagerObject = GameObject.Find("GameManager");
+		ManagerObject = GameObject.Find("Game");
 		manager = ManagerObject.GetComponent<GameManager>();
-		
+		layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7));
 	}
 	
 	void Update () {
-		if (Physics.Raycast (transform.position, new Vector3 (1, 0, 0), (float)range)) {
-			Shoot();
-		}
+		Debug.Log ("atk:" + atk);
+		Debug.Log ("hp:" + hp);
+		Debug.Log ("range:" + range);
+		Debug.DrawRay (transform.position, new Vector3 (1, 0, 0),Color.green);
+
+		// Tire une erreur "Maximum distance must be greater than zero
+		//if (Physics.Raycast (new Ray(transform.position, new Vector3 (-1, 0, 0)),out hit,range,layerMask)) {
+		//	Shoot();
+		//}
 	}
 }

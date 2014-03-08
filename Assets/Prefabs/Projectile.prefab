@@ -12,9 +12,8 @@ GameObject:
   - 65: {fileID: 6500000}
   - 23: {fileID: 2300000}
   - 114: {fileID: 11400000}
-  - 114: {fileID: 11400002}
   m_Layer: 0
-  m_Name: YunittoEnemy
+  m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,8 +26,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .100000001, y: .100000001, z: .100000001}
+  m_LocalPosition: {x: 2.98023224e-08, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!23 &2300000
@@ -79,27 +78,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e665eeed1ca2ed4c8fbd44748dc2958, type: 3}
+  m_Script: {fileID: 11500000, guid: 3264714754dfe6247a7f1e486ee1fdde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11400002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 928c8c9dc886d4fbe8f5f88c086bdd8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _yVelocity: 0
-  wiggleSpeed: 1
-  leashLength: 10
-  jumpChance: .00499999989
-  jumpHeight: 3
-  jumpVar: 1.5
-  gravity: .300000012
+  _distance: 0
+  _angleprojectile: 0
+  _angletir: 0
+  _xspeed: 0
+  _yspeed: 0
+  _speed: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

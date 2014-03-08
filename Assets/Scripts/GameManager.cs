@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 		_timeElapsed = 0;
 		_spawnTimeElapsed = 0;
+		statMultiplier = 10;
 	}
 	
 	void Update () {
@@ -48,9 +49,9 @@ public class GameManager : MonoBehaviour {
 
 		Debug.Log (players);
 		foreach (Player player in players) {
-			GameObject eYuni = (GameObject)Instantiate(p_yunittoEnemy, new Vector3(Screen.width + 50, transform.position.y, transform.position.z), transform.rotation);
+			GameObject eYuni = (GameObject)Instantiate(p_yunittoEnemy, new Vector3(10, transform.position.y, transform.position.z), transform.rotation);
 			Debug.Log (player);
-			eYuni.transform.parent = player.Bunch;
+			eYuni.transform.parent = player.EnemyBunch;
 		}
 	}
 }

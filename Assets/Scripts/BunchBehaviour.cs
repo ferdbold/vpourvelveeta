@@ -14,6 +14,7 @@ public class BunchBehaviour : MonoBehaviour {
 
 	// Attributs
 	private Player _player;
+	private Yunitto yunitto;
 
 	void Start () {
 		_player = transform.parent.gameObject.GetComponent<Player>();
@@ -34,6 +35,8 @@ public class BunchBehaviour : MonoBehaviour {
 
 			GameObject yuni = (GameObject)Instantiate(p_yunitto, offset, transform.rotation);
 			yuni.transform.parent = transform;
+			yunitto = (Yunitto)yuni.GetComponent<Yunitto>();
+			yunitto.SetStats (0.5f, 0.5f, 0f, true);
 		}
 	}
 

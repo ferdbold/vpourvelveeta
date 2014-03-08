@@ -21,6 +21,12 @@ public class YunittoWiggle : MonoBehaviour {
 
 	void Start () {
 		_yVelocity = 0F;
+		wiggleSpeed = 1;
+		leashLength = 10;
+		jumpChance = 0.005f;
+		jumpHeight = 3;
+		jumpVar = 1.5f;
+		gravity = 0.3f;
 	}
 
 	void Update () {
@@ -32,7 +38,6 @@ public class YunittoWiggle : MonoBehaviour {
 		// Biaiser les limites de mouvement pour que le yunitto ne s'éloigne pas trop du bunc
 		float interest = (-transform.localPosition.x/leashLength) * wiggleSpeed;
 		float movement = Random.Range(interest-wiggleSpeed, interest+wiggleSpeed) * Time.deltaTime;
-		
 		transform.localPosition = new Vector3(transform.localPosition.x + movement, 
 		                                      transform.localPosition.y, 
 		                                      transform.localPosition.z);
