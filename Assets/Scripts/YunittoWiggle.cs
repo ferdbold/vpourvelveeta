@@ -246,11 +246,16 @@ public class YunittoWiggle : MonoBehaviour {
 	}
 
 	void HitMelee(GameObject target) {
-		YunittoWiggle yuni = (YunittoWiggle)target.GetComponent<YunittoWiggle>();  //On fait atk dégats a l'ennemi touché
-		if (yuni != null) {
-			yuni.Hp -= atk;
-			cooldown = 0;
-			Debug.Log ("pif paf pif");
+		if (target.name == "Base") {
+			Base baseScript =  (Base)target.GetComponent<Base>();
+			baseScript.Hp -= atk;
+		} else {
+			YunittoWiggle yuni = (YunittoWiggle)target.GetComponent<YunittoWiggle>();  //On fait atk dégats a l'ennemi touché
+			if (yuni != null) {
+				yuni.Hp -= atk;
+				cooldown = 0;
+				Debug.Log ("pif paf pif");
+			}
 		}
 	}
 
