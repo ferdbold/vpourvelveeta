@@ -20,14 +20,15 @@ public class BunchBehaviour : MonoBehaviour {
 		_player = transform.parent.gameObject.GetComponent<Player>();
 
 		// Pour tests seulement
-		this.GenerateTestBunch();
+		this.GenerateTestBunch(1);
+		this.GenerateTestBunch(2);
 	}
 
 	void Update () {
 		Move();
 	}
 
-	private void GenerateTestBunch() {
+	private void GenerateTestBunch(int n) {
 		for(int i=0; i<10; i++) {
 			// Random offset
 			Vector3 offset = transform.position;
@@ -36,7 +37,8 @@ public class BunchBehaviour : MonoBehaviour {
 			GameObject yuni = (GameObject)Instantiate(p_yunitto, offset, transform.rotation);
 			yuni.transform.parent = transform;
 			yunitto = (Yunitto)yuni.GetComponent<Yunitto>();
-			yunitto.SetStats (0.2f, 0.5f, 0.3f);
+			if(n==1)yunitto.SetStats (0.2f, 0.5f, 0.3f);
+			if(n==2)yunitto.SetStats (0.5f, 0.5f, 0.0f);
 		}
 	}
 
