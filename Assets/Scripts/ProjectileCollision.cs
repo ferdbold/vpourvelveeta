@@ -53,7 +53,6 @@ public class ProjectileCollision : MonoBehaviour {
 			else if(direction>=1) {
 				YunittoWiggle yuni = (YunittoWiggle)target.GetComponent<YunittoWiggle>();
 				yuni.Hp -= atk;
-				Debug.Log (gameObject + " Did " + atk + " Damage to " + yuni.transform.parent);
 			} else {
 				Yunitto yuni = (Yunitto)target.GetComponent<Yunitto>();
 				if (yuni != null) yuni.Hp -= atk;

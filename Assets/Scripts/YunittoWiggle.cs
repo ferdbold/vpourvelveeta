@@ -94,7 +94,7 @@ public class YunittoWiggle : MonoBehaviour {
 	}
 
 	private void Move() {
-		// Biaiser les limites de mouvement pour que le yunitto ne s'éloigne pas trop du bunc
+		// Biaiser les limites de mouvement pour que le yunitto ne s'éloigne pas trop du bunch
 		float interest = ((-transform.localPosition.x - (0.6f*unitRange))/leashLength) * wiggleSpeed; //ajouté le unit range pour que les ranges soient plus en arriere.
 		float movement = Random.Range(interest-wiggleSpeed, interest+wiggleSpeed) * Time.deltaTime;
 		transform.localPosition = new Vector3(transform.localPosition.x + movement, 
@@ -246,11 +246,16 @@ public class YunittoWiggle : MonoBehaviour {
 	}
 
 	void HitMelee(GameObject target) {
-		YunittoWiggle yuni = (YunittoWiggle)target.GetComponent<YunittoWiggle>();  //On fait atk dégats a l'ennemi touché
-		if (yuni != null) {
-			yuni.Hp -= atk;
-			cooldown = 0;
-			Debug.Log ("pif paf pif");
+		if (target.name == "Base") {
+			Base baseScript =  (Base)target.GetComponent<Base>();
+			baseScript.Hp -= atk;
+		} else {
+			YunittoWiggle yuni = (YunittoWiggle)target.GetComponent<YunittoWiggle>();  //On fait atk dégats a l'ennemi touché
+			if (yuni != null) {
+				yuni.Hp -= atk;
+				cooldown = 0;
+				Debug.Log ("pif paf pif");
+			}
 		}
 	}
 
