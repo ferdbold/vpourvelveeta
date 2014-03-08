@@ -56,7 +56,14 @@ public class Player : MonoBehaviour {
 		YunittoEnemy yunitto = (YunittoEnemy)yuni.GetComponent<YunittoEnemy>();
 		yunitto.SetStats(hp, atk, range);
 	}
-
+	public void CreateYunitto(float hp = 0.2f, float atk = 0.4f, float range = 0.4f) {
+		GameObject yuni = (GameObject)Instantiate(unitsGood, new Vector3(0, transform.position.y, transform.position.z), transform.rotation);
+		yuni.transform.parent = _bunch;
+		
+		Yunitto yunitto = (Yunitto)yuni.GetComponent<Yunitto>();
+		yunitto.SetStats(hp, atk, range);
+	}
+	
 	// Accesseurs
 	public Transform Bunch {
 		get { return _bunch; }
@@ -90,7 +97,13 @@ public class Player : MonoBehaviour {
 		// Méthodes
 		public override void Update() {
 			_player._bunchBehaviour.Move();
-
+			if(Input.GetButtonDown (_player.attackInput)){
+				Yunitto[] units = (Yunitto[])_player._bunch.GetComponentsInChildren<Yunitto>();
+				foreach (Yunitto unit in units) {
+					unit.AttackPlayer();
+				}
+			
+			}
 			if(Input.GetButtonDown (_player.craftInput)) {
 				_player._state = new CraftingState(_player);
 			}
