@@ -16,7 +16,7 @@ public class Player : MonoBehaviour {
 	public string craftAtkInput;
 	public string craftRangeInput;
 	public string JumpInput;
-
+	
 	// Attributs
 	private Transform _bunch;
 	private Transform _enemyBunch;
@@ -39,6 +39,7 @@ public class Player : MonoBehaviour {
 	void Awake() {
 		_bunch = transform.Find("Bunch");
 		_enemyBunch = transform.Find("Enemies");
+
 	}
 
 	void Start() {
@@ -81,7 +82,6 @@ public class Player : MonoBehaviour {
 		yunitto.Start();
 		yunitto.SetStats(hp, atk, range);
 	}
-	
 	// Accesseurs
 	public Transform Bunch {
 		get { return _bunch; }
@@ -90,6 +90,7 @@ public class Player : MonoBehaviour {
 	public Transform EnemyBunch {
 		get { return _enemyBunch; }
 	}
+
 
 	/**
 	 * STATE MACHINE

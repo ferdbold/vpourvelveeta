@@ -12,6 +12,7 @@ public class Shoot_Projectile : MonoBehaviour {
 	public float _yspeed; 						//Variable vitesse horizontale du projectile
 	public float _speed; 						//Variable vitesse du projectile
 	public const float _speedreduction = 5.0f;  //Constante de reduction de vitesse
+	public float _angle;
 
 	//Added by Alex
 	private float dmg;
@@ -42,17 +43,17 @@ public class Shoot_Projectile : MonoBehaviour {
 		_speed = (2.0f+(0.5f*unitRange)) + Random.Range (0, 3);	 
 		_yspeed = Mathf.Sin (_angletir) * _speed; 
 		_xspeed = Mathf.Cos (_angletir) * _speed * direction;
+		transform.eulerAngles = new Vector3(0f, 0f, 0f);
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-
 		transform.Translate(new Vector3(_xspeed,_yspeed,0.0f)*Time.deltaTime); // Mouvement de l'objet selon un vecteur [x,y]
-		
 		_yspeed  -=  _speedreduction*Time.deltaTime; 						   
-		
+
+	
 
 	}
 

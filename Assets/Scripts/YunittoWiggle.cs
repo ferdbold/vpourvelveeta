@@ -55,9 +55,9 @@ public class YunittoWiggle : MonoBehaviour {
 	public float wiggleSpeed = 1F;
 	public float leashLength = 10F;
 	public float jumpChance = 0.005F;
-	public float jumpHeight = 5F;
+	public float jumpHeight = 20F;
 	public float jumpVar = 1.5F;
-	public float gravity = 0.3F;
+	public float gravity = 0.001F;
 
 	/**
 	 * MÉTHODES
@@ -145,7 +145,7 @@ public class YunittoWiggle : MonoBehaviour {
 		float yunittoY = transform.localPosition.y;
 		if (yunittoY == 0) 
 			{
-			_yVelocity = jumpHeight + Random.Range(-jumpVar, jumpVar) * Time.deltaTime;
+			_yVelocity = jumpHeight + Random.Range(-jumpVar, jumpVar);
 			}
 		_yVelocity -= gravity;
 		// Calculer le nouveau Y
@@ -166,7 +166,7 @@ public class YunittoWiggle : MonoBehaviour {
 		float yunittoY = transform.localPosition.y;
 
 		if (yunittoY == 0 && Random.Range(0F, 1F) < jumpChance) {
-			_yVelocity = jumpHeight + Random.Range(-jumpVar, jumpVar) * Time.deltaTime;
+			_yVelocity = jumpHeight + Random.Range(-jumpVar, jumpVar);
 		}
 
 		// Appliquer la gravité
@@ -196,9 +196,22 @@ public class YunittoWiggle : MonoBehaviour {
 		Debug.DrawRay (transform.position, new Vector3 (coefficient * range, 0, 0),Color.green);
 		return Physics.Raycast (new Ray(transform.position, new Vector3 (coefficient, 0, 0)), out hit, range, layerMask);
 	}
+	public void checkHit() {
+		if(Physics.Raycast (new Ray(transform.position, new Vector3 (1, 0, 0)),out hit,range,layerMask)){
+			GameObject target = hit.collider.gameObject;
+			if (Mathf.Abs(target.transform.position.x - transform.position.x) >= 4*MIN_RANGE) {
+				Shoot();
+			}
+			else {
+				YunittoWiggle yuni = (YunittoWiggle)target.transform.parent.gameObject.GetComponent<YunittoWiggle>();
+				Debug.Log (yuni);
+				if (yuni != null) yuni.Hp -= atk;
+			}
+		}
+	}
 	
 	public void SetStats(float health, float attack, float atk_range){ //Vie,Attaque,Portée, Joueur(P1 ou P2)
-		unitType = setUnitType (health, attack, atk_range); //On choisit le type du joueur selon les stats (TODO : Changé la couleur du modele en fonction de l'unitType)
+		unitType = setUnitType (health, attack, atk_range); //On choisit le type du joueur selon les stats
 		setUnitColor (unitType);
 
 		// Stats des alliés
@@ -428,7 +441,7 @@ public class YunittoWiggle : MonoBehaviour {
 						}
 
 						// HIT IT
-						_yunitto.HitMelee(_yunitto.hit.collider.gameObject);
+							_yunitto.checkHit();
 					}
 				}
 			}
@@ -476,17 +489,22 @@ public class YunittoWiggle : MonoBehaviour {
 		// Méthodes
 		public override void Update() {
 			if (!_yunitto.IsInCooldown) {
-
+				Debug.Log ("cd?");
 				// S'il n'y a plus de menace, on revient en mode march
 				if (!_yunitto.CheckThreat()) {
 					_yunitto._state = new EnemyMarchState(_yunitto);
 				}
 
 				else {
-					if(Mathf.Abs(_yunitto.hit.collider.transform.position.x - _yunitto.transform.position.x) > 4*_yunitto.MIN_RANGE)
+					_yunitto.checkHit();
+					/*Debug.Log (hit);
+					if (Mathf.Abs(hit.collider.transform.position.x - _yunitto.transform.position.x) >= 4*_yunitto.MIN_RANGE) {
 						_yunitto.Shoot();
-					else
-						_yunitto.HitMelee(_yunitto.hit.collider.gameObject);
+					}
+					else {
+						_yunitto.HitMelee(hit.collider.gameObject);
+					}*/
+
 				}
 			}
 		}
@@ -514,12 +532,12 @@ public class YunittoWiggle : MonoBehaviour {
 		}
 
 		private void Die() {
+			//if(_yunitto.gameObject.tag == "minion") {
+				//if (_yunitto._player.gameObject.name == "P1") 	_yunitto._player._killCount++;
+				//}		
+
 			GameObject.Destroy(_yunitto.gameObject);
 
-			if(_yunitto.gameObject.tag == "Army") {
-				if (_yunitto._player.gameObject.name == "P1") 	Debug.Log ("Player 1's army brutally murdered Player 2's minions");
-				else 											Debug.Log ("Player 2's army brutally murdered Player 1's minions");
-			}			
 		}
 	}
 }

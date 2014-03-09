@@ -56,7 +56,6 @@ public class ProjectileCollision : MonoBehaviour {
 			if(target.name == "Base"){
 				Base baseScript =  (Base)target.GetComponent<Base>();
 				baseScript.Hp -= atk;
-				Debug.Log (baseScript.Hp); 
 			}
 			else {
 				YunittoWiggle yuni = (YunittoWiggle)target.transform.parent.gameObject.GetComponent<YunittoWiggle>();
