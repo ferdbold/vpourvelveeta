@@ -126,7 +126,28 @@ public class YunittoWiggle : MonoBehaviour {
 			break;
 		}
 	}
-	
+
+	public void Jump() {
+		//Applique un saut si on est pas déja en saut
+		float yunittoY = transform.localPosition.y;
+		if (yunittoY == 0) 
+			{
+			_yVelocity = jumpHeight + Random.Range(-jumpVar, jumpVar) * Time.deltaTime;
+			}
+		_yVelocity -= gravity;
+		// Calculer le nouveau Y
+			yunittoY = transform.localPosition.y + _yVelocity * Time.deltaTime;
+		if (yunittoY < 0) {
+			yunittoY = 0;
+			_yVelocity = 0;
+		}
+		// Appliquer le mouvement du saut
+		transform.localPosition = new Vector3(transform.localPosition.x, 
+		                                      yunittoY, 
+		                                      transform.localPosition.z);
+
+	}
+
 	private void Hop() {
 		// Appliquer un saut si ça proc et qu'on est pas déjà dans un saut
 		float yunittoY = transform.localPosition.y;
