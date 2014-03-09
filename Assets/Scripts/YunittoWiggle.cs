@@ -14,7 +14,7 @@ public class YunittoWiggle : MonoBehaviour {
 	private float MIN_RANGE = 0.5f;
 	const int BASE_ATK = 1;
 	const int BASE_HP = 10;
-	const float BASE_SPEED = 1.5f;
+	public float BASE_SPEED = 1.5f;
 
 	// Attributs
 	private float unitRange;
@@ -239,7 +239,7 @@ public class YunittoWiggle : MonoBehaviour {
 
 		// Stats des ennemis
 		else if (gameObject.tag == "Minion") {
-			hp = BASE_HP+(health * 100 * manager.StatMultiplier);
+			hp = (BASE_HP+(health * 100 * manager.StatMultiplier))*0.75f;
 			atk = BASE_ATK+(attack * 50 * manager.StatMultiplier);
 			range = ((atk_range) * MAX_RANGE);
 			if(range < MIN_RANGE) range = MIN_RANGE;
