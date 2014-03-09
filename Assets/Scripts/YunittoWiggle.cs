@@ -200,7 +200,7 @@ public class YunittoWiggle : MonoBehaviour {
 		return Physics.Raycast (new Ray(transform.position, new Vector3 (coefficient, 0, 0)), out hit, range, layerMask);
 	}
 	public void checkHit() {
-		Debug.Log ("CHECKHIT");
+		Debug.Log ("CHECKHIT" + gameObject.tag);
 		int coefficient = 1;
 		if (gameObject.tag == "Minion") coefficient = -1;
 		Debug.DrawRay (transform.position, new Vector3 (coefficient * range, 0, 0),Color.red);
@@ -481,6 +481,8 @@ public class YunittoWiggle : MonoBehaviour {
 
 			if (!_yunitto.IsInCooldown) {
 				// S'il y a une menace, on passe en mode attaque
+				Debug.Log (_yunitto.CheckThreat());
+
 				if (_yunitto.CheckThreat()) {
 					_yunitto._state = new EnemyAttackState(_yunitto);
 				}
