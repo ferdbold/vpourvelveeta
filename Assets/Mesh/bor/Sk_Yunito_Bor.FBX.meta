@@ -1,0 +1,113 @@
+fileFormatVersion: 2
+guid: f316a029a7a02b943b05586e851b7cb7
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Bor
+    100002: knob00
+    100004: knob01
+    100006: knob02
+    100008: knob03
+    100010: knob04
+    100012: knob05
+    100014: sk_Robot_bone_center
+    100016: sk_Robot_bone_hanche
+    100018: sk_Robot_bone_Head
+    100020: sk_Robot_bone_L_Bras00
+    100022: sk_Robot_bone_L_Bras01
+    100024: sk_Robot_bone_L_Bras02
+    100026: sk_Robot_bone_L_foot
+    100028: sk_Robot_bone_L_shoulder
+    100030: sk_Robot_bone_R_bras00
+    100032: sk_Robot_bone_R_bras01
+    100034: sk_Robot_bone_R_bras02
+    100036: sk_Robot_bone_R_bras03
+    100038: sk_Robot_bone_R_foot
+    100040: sk_Robot_bone_R_Shoulder
+    100042: sk_Robot_bone_Spine00
+    100044: sk_Robot_bone_Spine01
+    100046: //RootNode
+    400000: Bor
+    400002: knob00
+    400004: knob01
+    400006: knob02
+    400008: knob03
+    400010: knob04
+    400012: knob05
+    400014: sk_Robot_bone_center
+    400016: sk_Robot_bone_hanche
+    400018: sk_Robot_bone_Head
+    400020: sk_Robot_bone_L_Bras00
+    400022: sk_Robot_bone_L_Bras01
+    400024: sk_Robot_bone_L_Bras02
+    400026: sk_Robot_bone_L_foot
+    400028: sk_Robot_bone_L_shoulder
+    400030: sk_Robot_bone_R_bras00
+    400032: sk_Robot_bone_R_bras01
+    400034: sk_Robot_bone_R_bras02
+    400036: sk_Robot_bone_R_bras03
+    400038: sk_Robot_bone_R_foot
+    400040: sk_Robot_bone_R_Shoulder
+    400042: sk_Robot_bone_Spine00
+    400044: sk_Robot_bone_Spine01
+    400046: //RootNode
+    2300000: sk_Robot_bone_center
+    3300000: sk_Robot_bone_center
+    4300000: Bor
+    4300002: sk_Robot_bone_center
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Bor
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
