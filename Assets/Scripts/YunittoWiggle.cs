@@ -297,7 +297,7 @@ public class YunittoWiggle : MonoBehaviour {
 			
 			if(Mathf.Abs(hit.collider.transform.position.x - transform.position.x) < 2*MIN_RANGE)
 			{
-				YunittoEnemy yuni = (YunittoEnemy)hit.collider.gameObject.GetComponent<YunittoEnemy> ();
+				YunittoWiggle yuni = (YunittoWiggle)hit.collider.gameObject.GetComponent<YunittoWiggle> ();
 				if(yuni != null) yuni.Hp -= atk;
 				//projectileManager.CreateProjectile(1,atk,transform.position,isGood);
 			}

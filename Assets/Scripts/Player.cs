@@ -28,8 +28,6 @@ public class Player : MonoBehaviour {
 
 	public GameObject unitsGood;
 	public GameObject unitsBad;
-	private Yunitto yunitto;
-	private YunittoEnemy yunittoEnemy;
 
 	private GameObject otherPlayerObj;
 	private Player otherPlayer;
@@ -58,8 +56,6 @@ public class Player : MonoBehaviour {
 		_bunchBehaviour = (BunchBehaviour)_bunch.GetComponent<BunchBehaviour>();
 		_craftingBehaviour = (Crafting)_crafting.GetComponent<Crafting>();
 
-		yunitto = unitsGood.GetComponent<Yunitto>();
-		yunittoEnemy = unitsBad.GetComponent<YunittoEnemy>();
 
 		_state = new BattleState(this);
 	}
