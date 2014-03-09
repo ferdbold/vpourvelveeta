@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Yunito_Bor_Blue_Material
+  m_Name: Yunito_Bor_Yellow_Material
   m_Shader: {fileID: 4800000, guid: 7195ae813de9ec44a9066faaf205dcb3, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
@@ -22,16 +22,16 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _Specular
+          name: _SelfIlu
         second:
-          m_Texture: {fileID: 2800000, guid: d5d2dc4fd2414634d801a8698848b677, type: 3}
+          m_Texture: {fileID: 2800000, guid: a518e75bd87328c4eb58d0a7107af233, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _SelfIlu
+          name: _Specular
         second:
-          m_Texture: {fileID: 2800000, guid: a518e75bd87328c4eb58d0a7107af233, type: 3}
+          m_Texture: {fileID: 2800000, guid: d5d2dc4fd2414634d801a8698848b677, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats: {}
@@ -39,4 +39,4 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 0, g: .751724005, b: 1, a: 1}
+        second: {r: 1, g: .848275781, b: 0, a: 1}

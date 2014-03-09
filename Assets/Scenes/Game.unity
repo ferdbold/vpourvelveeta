@@ -819,7 +819,7 @@ MonoBehaviour:
   craftAtkInput: P2CraftAtk
   craftRangeInput: P2CraftRange
   JumpInput: P2Jump
-  unitsGood: {fileID: 100046, guid: e109a8626ca23495096e2aedb2350f26, type: 2}
+  unitsGood: {fileID: 100046, guid: 52589a9e7507e4fa1aafdce170c14af8, type: 2}
   unitsBad: {fileID: 100046, guid: 3e27d3d5dbc3a435d997f2dd6850546d, type: 2}
 --- !u!1 &172195081
 GameObject:
@@ -934,11 +934,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   _cursor: {fileID: 172195082}
-  white: {fileID: 2100000, guid: 77cdeb9ba21514297bf1b18a35597c04, type: 2}
-  brown: {fileID: 2100000, guid: 7e57631924628444fac5ed9e67e03e24, type: 2}
-  red: {fileID: 2100000, guid: aec19eb5239026947a801d826276d0c4, type: 2}
-  blue: {fileID: 2100000, guid: f806801c4f833154788d5cb0a9b5c790, type: 2}
-  green: {fileID: 2100000, guid: 57245b87dc9d18b418cd2d336c990be6, type: 2}
+  white: {fileID: 2100000, guid: bd34b704ffe69c749a0e31dd10d22c6e, type: 2}
+  brown: {fileID: 2100000, guid: b767d19393570e8419d6ff9394bc7186, type: 2}
+  red: {fileID: 2100000, guid: f98e0a6231039df49b7af1d96c27d4b8, type: 2}
+  blue: {fileID: 2100000, guid: 9f42e28d4cc7ea84fa6e20da4130ca91, type: 2}
+  green: {fileID: 2100000, guid: 515f0564b3aabaf40b52a63f78988fac, type: 2}
 --- !u!1001 &186765896
 Prefab:
   m_ObjectHideFlags: 0
@@ -1104,7 +1104,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: c4ccb2ed90b10334c9d1c5fca7d7e244, type: 2}
+  - {fileID: 2100000, guid: 13d980697bd9d064c833e7427fb41d63, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -1984,7 +1984,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: c4ccb2ed90b10334c9d1c5fca7d7e244, type: 2}
+  - {fileID: 2100000, guid: 13d980697bd9d064c833e7427fb41d63, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -2638,7 +2638,7 @@ Prefab:
     - target: {fileID: 11400000, guid: 20724569d52a942238e146e4e21d5626, type: 2}
       propertyPath: unitsBad
       value: 
-      objectReference: {fileID: 100046, guid: 5924532e31ad34a49a8fdfdfc2a6d31f, type: 2}
+      objectReference: {fileID: 100046, guid: 775fbdc3b2e634debad9ca4803524eb7, type: 2}
     - target: {fileID: 2300002, guid: 20724569d52a942238e146e4e21d5626, type: 2}
       propertyPath: m_Enabled
       value: 0
@@ -2649,12 +2649,44 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 20724569d52a942238e146e4e21d5626, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 3.67262793
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 20724569d52a942238e146e4e21d5626, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400008, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: brown
+      value: 
+      objectReference: {fileID: 2100000, guid: b767d19393570e8419d6ff9394bc7186, type: 2}
+    - target: {fileID: 11400008, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: white
+      value: 
+      objectReference: {fileID: 2100000, guid: bd34b704ffe69c749a0e31dd10d22c6e, type: 2}
+    - target: {fileID: 11400008, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: green
+      value: 
+      objectReference: {fileID: 2100000, guid: 515f0564b3aabaf40b52a63f78988fac, type: 2}
+    - target: {fileID: 11400008, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: red
+      value: 
+      objectReference: {fileID: 2100000, guid: f98e0a6231039df49b7af1d96c27d4b8, type: 2}
+    - target: {fileID: 11400008, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: blue
+      value: 
+      objectReference: {fileID: 2100000, guid: 9f42e28d4cc7ea84fa6e20da4130ca91, type: 2}
+    - target: {fileID: 11400004, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: Message1
+      value: 
+      objectReference: {fileID: 100000, guid: 898081ed631b587498961504ce9fb558, type: 2}
+    - target: {fileID: 11400004, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: Message2
+      value: 
+      objectReference: {fileID: 100000, guid: 6763b12f1646a794f95910408f75af60, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 20724569d52a942238e146e4e21d5626, type: 2}
   m_RootGameObject: {fileID: 1866417861}
@@ -3336,8 +3368,8 @@ Renderer:
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
   - {fileID: 2100000, guid: d3128c263287c7a4e89f9865d0f6da79, type: 2}
-  - {fileID: 2100000, guid: c355ca55b8d39d44c8b245e602b67961, type: 2}
-  - {fileID: 2100000, guid: c4ccb2ed90b10334c9d1c5fca7d7e244, type: 2}
+  - {fileID: 2100000, guid: 6f2f7877ed30e0342a4b6cf84448c541, type: 2}
+  - {fileID: 2100000, guid: 13d980697bd9d064c833e7427fb41d63, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -3973,11 +4005,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbe6a312f85e94fcc9e17d21d8c51f4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  white: {fileID: 2100000, guid: 77cdeb9ba21514297bf1b18a35597c04, type: 2}
-  brown: {fileID: 2100000, guid: 7e57631924628444fac5ed9e67e03e24, type: 2}
-  red: {fileID: 2100000, guid: aec19eb5239026947a801d826276d0c4, type: 2}
-  blue: {fileID: 2100000, guid: f806801c4f833154788d5cb0a9b5c790, type: 2}
-  green: {fileID: 2100000, guid: 57245b87dc9d18b418cd2d336c990be6, type: 2}
+  white: {fileID: 2100000, guid: bd34b704ffe69c749a0e31dd10d22c6e, type: 2}
+  brown: {fileID: 2100000, guid: b767d19393570e8419d6ff9394bc7186, type: 2}
+  red: {fileID: 2100000, guid: f98e0a6231039df49b7af1d96c27d4b8, type: 2}
+  blue: {fileID: 2100000, guid: 9f42e28d4cc7ea84fa6e20da4130ca91, type: 2}
+  green: {fileID: 2100000, guid: 515f0564b3aabaf40b52a63f78988fac, type: 2}
 --- !u!1 &915495363
 GameObject:
   m_ObjectHideFlags: 0
@@ -4973,27 +5005,23 @@ Prefab:
     - target: {fileID: 11400000, guid: 20724569d52a942238e146e4e21d5626, type: 2}
       propertyPath: unitsGood
       value: 
-      objectReference: {fileID: 100046, guid: e109a8626ca23495096e2aedb2350f26, type: 2}
+      objectReference: {fileID: 100046, guid: 52589a9e7507e4fa1aafdce170c14af8, type: 2}
     - target: {fileID: 11400002, guid: 20724569d52a942238e146e4e21d5626, type: 2}
       propertyPath: white
       value: 
-      objectReference: {fileID: 2100000, guid: 77cdeb9ba21514297bf1b18a35597c04, type: 2}
-    - target: {fileID: 11400002, guid: 20724569d52a942238e146e4e21d5626, type: 2}
-      propertyPath: brown
-      value: 
-      objectReference: {fileID: 2100000, guid: 7e57631924628444fac5ed9e67e03e24, type: 2}
+      objectReference: {fileID: 2100000, guid: bd34b704ffe69c749a0e31dd10d22c6e, type: 2}
     - target: {fileID: 11400002, guid: 20724569d52a942238e146e4e21d5626, type: 2}
       propertyPath: red
       value: 
-      objectReference: {fileID: 2100000, guid: aec19eb5239026947a801d826276d0c4, type: 2}
+      objectReference: {fileID: 2100000, guid: f98e0a6231039df49b7af1d96c27d4b8, type: 2}
     - target: {fileID: 11400002, guid: 20724569d52a942238e146e4e21d5626, type: 2}
       propertyPath: blue
       value: 
-      objectReference: {fileID: 2100000, guid: f806801c4f833154788d5cb0a9b5c790, type: 2}
+      objectReference: {fileID: 2100000, guid: 9f42e28d4cc7ea84fa6e20da4130ca91, type: 2}
     - target: {fileID: 11400002, guid: 20724569d52a942238e146e4e21d5626, type: 2}
       propertyPath: green
       value: 
-      objectReference: {fileID: 2100000, guid: 57245b87dc9d18b418cd2d336c990be6, type: 2}
+      objectReference: {fileID: 2100000, guid: 515f0564b3aabaf40b52a63f78988fac, type: 2}
     - target: {fileID: 11400000, guid: 20724569d52a942238e146e4e21d5626, type: 2}
       propertyPath: unitsBad
       value: 
@@ -5008,12 +5036,28 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 20724569d52a942238e146e4e21d5626, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 3.40554762
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 20724569d52a942238e146e4e21d5626, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: brown
+      value: 
+      objectReference: {fileID: 2100000, guid: b767d19393570e8419d6ff9394bc7186, type: 2}
+    - target: {fileID: 11400004, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: Message1
+      value: 
+      objectReference: {fileID: 100000, guid: 898081ed631b587498961504ce9fb558, type: 2}
+    - target: {fileID: 11400004, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: Message2
+      value: 
+      objectReference: {fileID: 100000, guid: 6763b12f1646a794f95910408f75af60, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 20724569d52a942238e146e4e21d5626, type: 2}
   m_RootGameObject: {fileID: 160677729}
@@ -8831,7 +8875,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: c4ccb2ed90b10334c9d1c5fca7d7e244, type: 2}
+  - {fileID: 2100000, guid: 13d980697bd9d064c833e7427fb41d63, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -9092,8 +9136,8 @@ Renderer:
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
   - {fileID: 2100000, guid: d3128c263287c7a4e89f9865d0f6da79, type: 2}
-  - {fileID: 2100000, guid: c355ca55b8d39d44c8b245e602b67961, type: 2}
-  - {fileID: 2100000, guid: c4ccb2ed90b10334c9d1c5fca7d7e244, type: 2}
+  - {fileID: 2100000, guid: 6f2f7877ed30e0342a4b6cf84448c541, type: 2}
+  - {fileID: 2100000, guid: 13d980697bd9d064c833e7427fb41d63, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -9492,7 +9536,7 @@ MonoBehaviour:
   craftRangeInput: P1CraftRange
   JumpInput: P1Jump
   unitsGood: {fileID: 100046, guid: ec957b62479d4479fb5878653d0a3938, type: 2}
-  unitsBad: {fileID: 100046, guid: 5924532e31ad34a49a8fdfdfc2a6d31f, type: 2}
+  unitsBad: {fileID: 100046, guid: 775fbdc3b2e634debad9ca4803524eb7, type: 2}
 --- !u!1001 &1869118497
 Prefab:
   m_ObjectHideFlags: 0
@@ -10423,7 +10467,8 @@ MonoBehaviour:
   Tempo: 0
   p_sphere: {fileID: 100000, guid: 3d73a8cdd5f414989bc6b441b0670ceb, type: 2}
   p_anneau: {fileID: 100000, guid: 79c3c52fc6a8d45c39c6a137ea5a7a98, type: 2}
-  Message1: {fileID: 0}
+  Message1: {fileID: 100000, guid: 898081ed631b587498961504ce9fb558, type: 2}
+  Message2: {fileID: 100000, guid: 6763b12f1646a794f95910408f75af60, type: 2}
   NodeNumberMax: 3
   NodeNumberMin: 8
   Latency: .25
@@ -10435,7 +10480,7 @@ Transform:
   m_PrefabInternal: {fileID: 1059750988}
   m_GameObject: {fileID: 2006325455}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 3.40554762, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 160677730}
@@ -10707,7 +10752,7 @@ Transform:
   m_PrefabInternal: {fileID: 496957996}
   m_GameObject: {fileID: 2105348309}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 3.67262793, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1866417862}
@@ -10727,7 +10772,8 @@ MonoBehaviour:
   Tempo: 0
   p_sphere: {fileID: 100000, guid: 3d73a8cdd5f414989bc6b441b0670ceb, type: 2}
   p_anneau: {fileID: 100000, guid: 79c3c52fc6a8d45c39c6a137ea5a7a98, type: 2}
-  Message1: {fileID: 0}
+  Message1: {fileID: 100000, guid: 898081ed631b587498961504ce9fb558, type: 2}
+  Message2: {fileID: 100000, guid: 6763b12f1646a794f95910408f75af60, type: 2}
   NodeNumberMax: 3
   NodeNumberMin: 8
   Latency: .25

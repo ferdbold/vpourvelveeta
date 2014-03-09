@@ -1,7 +1,7 @@
 fileFormatVersion: 2
-guid: 7c1593572abb5cf459b2049ae90846ce
+guid: 8cc97b939fc7fe4489618fdf4e4871af
 ModelImporter:
-  serializedVersion: 16
+  serializedVersion: 15
   fileIDToRecycleName:
     100000: Bor
     100002: knob00
@@ -109,5 +109,4 @@ ModelImporter:
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 1
-  additionalBone: 0
   userData: 
