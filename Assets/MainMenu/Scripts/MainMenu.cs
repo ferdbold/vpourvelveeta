@@ -19,12 +19,12 @@ public class MainMenu : MonoBehaviour {
 // Display our Buttons with gui outlines
 		if (GUI.Button (new Rect (Screen.width * 0.25f, Screen.height * 0.50f, Screen.width * 0.5f, Screen.height * 0.2f), "How To Play"))
 		{
-			Application.LoadLevel ("HowToPlay");
+			Application.LoadLevel (1);
 			print ("clicked");
 		}
 		if (GUI.Button (new Rect (Screen.width * 0.25f, Screen.height * 0.75f, Screen.width * 0.5f, Screen.height * 0.2f), "Play Game"))
 		{
-			Application.LoadLevel ("Level1");
+			Application.LoadLevel (2);
 			print ("clicked");
 		}
 

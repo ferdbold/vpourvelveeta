@@ -6,8 +6,10 @@ public class PlayerVictory : MonoBehaviour {
 	public Texture backgroundTexture;
 	private string Winner;
 	public GUIStyle myGUIstyle;
-	public AudioSource p1won;
-	public AudioSource p2won;
+
+
+		
+
 
 	void OnGUI() {
 
@@ -24,7 +26,7 @@ public class PlayerVictory : MonoBehaviour {
 		//Display our Buttons with gui outlines
 		if (GUI.Button (new Rect (Screen.width * 0.05f, Screen.height * 0.75f, Screen.width * 0.4f, Screen.height * 0.2f), "New Game"))
 		{
-			Application.LoadLevel ("Level1");
+			Application.LoadLevel (2);
 			print ("clicked");
 		}
 		if (GUI.Button (new Rect (Screen.width * 0.55f, Screen.height * 0.75f, Screen.width * 0.4f, Screen.height * 0.2f), "Exit Game"))
