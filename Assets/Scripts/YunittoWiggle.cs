@@ -115,20 +115,8 @@ public class YunittoWiggle : MonoBehaviour {
 			float mov = ((_cursor.transform.position.x - transform.position.x) - (0.6f * unitRange) *_personalSpeed) * Time.deltaTime;
 			mov = Random.Range(mov - wiggleSpeed, mov + wiggleSpeed);
 			transform.Translate(mov, 0, 0);
-
-			//transform.position.x += (_cursor.transform.position.x - transform.position.x) / Time.deltaTime;
-			//transform.position.x = Random.Range(transform.position.x - wiggleSpeed, transform.position.x + wiggleSpeed);
 			break;
 		}
-	
-		// Biaiser les limites de mouvement pour que le yunitto ne s'éloigne pas trop du bunc
-		//float interest = (target.position.x - target.position.x) / Time.deltaTime + transform.position.x;
-		//float interest = ((-target.position.x - (0.6f*unitRange))/leashLength) * wiggleSpeed; //ajouté le unit range pour que les ranges soient plus en arriere.
-		//float movement = Random.Range(interest-wiggleSpeed, interest+wiggleSpeed) * Time.deltaTime;
-		//transform.position = new Vector3(transform.position.x + movement, 
-	    //                                  transform.position.y, 
-	    //                                  transform.position.z);
-
 	}
 	
 	private void Hop() {
@@ -349,6 +337,7 @@ public class YunittoWiggle : MonoBehaviour {
 			_yunitto.Hop();
 
 			if (!_yunitto.IsInCooldown) {
+				Debug.Log ("Not in cooldown!");
 				// S'il y a une menace, on passe en mode attaque
 				if (_yunitto.CheckThreat()) {
 					_yunitto._state = new AllyAttackState(_yunitto);
@@ -360,7 +349,12 @@ public class YunittoWiggle : MonoBehaviour {
 	public class AllyAttackState : YunittoState {
 
 		// Constructeurs
-		public AllyAttackState(YunittoWiggle yunitto) : base(yunitto) {}
+		public AllyAttackState(YunittoWiggle yunitto) : base(yunitto) {
+			// Les yunittos collent au sol lorsqu'ils attaquent
+			_yunitto.transform.localPosition = new Vector3(_yunitto.transform.localPosition.x,
+			                                               0, 
+			                                               _yunitto.transform.localPosition.z);
+		}
 		
 		// Méthodes
 		public override void Update() {
@@ -407,7 +401,7 @@ public class YunittoWiggle : MonoBehaviour {
 		
 		// Constructeurs
 		public EnemyAttackState(YunittoWiggle yunitto) : base(yunitto) {
-			// Les ennemis collent au sol lorsqu'ils attaquent
+			// Les yunittos collent au sol lorsqu'ils attaquent
 			_yunitto.transform.localPosition = new Vector3(_yunitto.transform.localPosition.x,
 			                                               0, 
 			                                               _yunitto.transform.localPosition.z);
