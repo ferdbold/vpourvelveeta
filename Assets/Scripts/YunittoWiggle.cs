@@ -467,7 +467,7 @@ public class YunittoWiggle : MonoBehaviour {
 		public DeathState(YunittoWiggle yunitto) : base(yunitto) {
 
 			// Changer l'animation
-			_yunitto.animation.Play ("Sk_Yunito_Rob_Death");
+			_yunitto.animation.Play ("Sk_Yunito_Rob_death");
 		}
 		
 		// Méthodes
