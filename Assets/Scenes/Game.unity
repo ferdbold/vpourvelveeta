@@ -239,8 +239,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 519998853}
   m_AABB:
-    m_Center: {x: .0908269882, y: .0657366812, z: 6.49092513e-09}
-    m_Extent: {x: 2.45405269, y: .194744408, z: 6.49093934e-09}
+    m_Center: {x: .0908271074, y: .0657366812, z: 6.49092513e-09}
+    m_Extent: {x: 2.45405293, y: .194744408, z: 6.49093934e-09}
   m_DirtyAABB: 0
 --- !u!1 &40462976
 GameObject:
@@ -819,7 +819,7 @@ MonoBehaviour:
   craftAtkInput: P2CraftAtk
   craftRangeInput: P2CraftRange
   JumpInput: P2Jump
-  unitsGood: {fileID: 100046, guid: e109a8626ca23495096e2aedb2350f26, type: 2}
+  unitsGood: {fileID: 100046, guid: 52589a9e7507e4fa1aafdce170c14af8, type: 2}
   unitsBad: {fileID: 100046, guid: 3e27d3d5dbc3a435d997f2dd6850546d, type: 2}
 --- !u!1 &172195081
 GameObject:
@@ -934,11 +934,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   _cursor: {fileID: 172195082}
-  white: {fileID: 2100000, guid: 77cdeb9ba21514297bf1b18a35597c04, type: 2}
-  brown: {fileID: 2100000, guid: 7e57631924628444fac5ed9e67e03e24, type: 2}
-  red: {fileID: 2100000, guid: aec19eb5239026947a801d826276d0c4, type: 2}
-  blue: {fileID: 2100000, guid: f806801c4f833154788d5cb0a9b5c790, type: 2}
-  green: {fileID: 2100000, guid: 57245b87dc9d18b418cd2d336c990be6, type: 2}
+  white: {fileID: 2100000, guid: bd34b704ffe69c749a0e31dd10d22c6e, type: 2}
+  brown: {fileID: 2100000, guid: b767d19393570e8419d6ff9394bc7186, type: 2}
+  red: {fileID: 2100000, guid: f98e0a6231039df49b7af1d96c27d4b8, type: 2}
+  blue: {fileID: 2100000, guid: 9f42e28d4cc7ea84fa6e20da4130ca91, type: 2}
+  green: {fileID: 2100000, guid: 515f0564b3aabaf40b52a63f78988fac, type: 2}
 --- !u!1001 &186765896
 Prefab:
   m_ObjectHideFlags: 0
@@ -2638,7 +2638,7 @@ Prefab:
     - target: {fileID: 11400000, guid: 20724569d52a942238e146e4e21d5626, type: 2}
       propertyPath: unitsBad
       value: 
-      objectReference: {fileID: 100046, guid: 5924532e31ad34a49a8fdfdfc2a6d31f, type: 2}
+      objectReference: {fileID: 100046, guid: 775fbdc3b2e634debad9ca4803524eb7, type: 2}
     - target: {fileID: 2300002, guid: 20724569d52a942238e146e4e21d5626, type: 2}
       propertyPath: m_Enabled
       value: 0
@@ -2659,6 +2659,26 @@ Prefab:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400008, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: brown
+      value: 
+      objectReference: {fileID: 2100000, guid: b767d19393570e8419d6ff9394bc7186, type: 2}
+    - target: {fileID: 11400008, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: white
+      value: 
+      objectReference: {fileID: 2100000, guid: bd34b704ffe69c749a0e31dd10d22c6e, type: 2}
+    - target: {fileID: 11400008, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: green
+      value: 
+      objectReference: {fileID: 2100000, guid: 515f0564b3aabaf40b52a63f78988fac, type: 2}
+    - target: {fileID: 11400008, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: red
+      value: 
+      objectReference: {fileID: 2100000, guid: f98e0a6231039df49b7af1d96c27d4b8, type: 2}
+    - target: {fileID: 11400008, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: blue
+      value: 
+      objectReference: {fileID: 2100000, guid: 9f42e28d4cc7ea84fa6e20da4130ca91, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 20724569d52a942238e146e4e21d5626, type: 2}
   m_RootGameObject: {fileID: 1866417861}
@@ -3617,8 +3637,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 1123359531}
   m_AABB:
-    m_Center: {x: .0908269882, y: .0657366812, z: 6.49092513e-09}
-    m_Extent: {x: 2.45405269, y: .194744408, z: 6.49093934e-09}
+    m_Center: {x: .0908271074, y: .0657366812, z: 6.49092513e-09}
+    m_Extent: {x: 2.45405293, y: .194744408, z: 6.49093934e-09}
   m_DirtyAABB: 0
 --- !u!1 &832033477
 GameObject:
@@ -3977,11 +3997,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbe6a312f85e94fcc9e17d21d8c51f4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  white: {fileID: 2100000, guid: 77cdeb9ba21514297bf1b18a35597c04, type: 2}
-  brown: {fileID: 2100000, guid: 7e57631924628444fac5ed9e67e03e24, type: 2}
-  red: {fileID: 2100000, guid: aec19eb5239026947a801d826276d0c4, type: 2}
-  blue: {fileID: 2100000, guid: f806801c4f833154788d5cb0a9b5c790, type: 2}
-  green: {fileID: 2100000, guid: 57245b87dc9d18b418cd2d336c990be6, type: 2}
+  white: {fileID: 2100000, guid: bd34b704ffe69c749a0e31dd10d22c6e, type: 2}
+  brown: {fileID: 2100000, guid: b767d19393570e8419d6ff9394bc7186, type: 2}
+  red: {fileID: 2100000, guid: f98e0a6231039df49b7af1d96c27d4b8, type: 2}
+  blue: {fileID: 2100000, guid: 9f42e28d4cc7ea84fa6e20da4130ca91, type: 2}
+  green: {fileID: 2100000, guid: 515f0564b3aabaf40b52a63f78988fac, type: 2}
 --- !u!1 &915495363
 GameObject:
   m_ObjectHideFlags: 0
@@ -4445,8 +4465,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 115001514}
   m_AABB:
-    m_Center: {x: .0908269882, y: .0657366812, z: 6.49092513e-09}
-    m_Extent: {x: 2.45405269, y: .194744408, z: 6.49093934e-09}
+    m_Center: {x: .0908271074, y: .0657366812, z: 6.49092513e-09}
+    m_Extent: {x: 2.45405293, y: .194744408, z: 6.49093934e-09}
   m_DirtyAABB: 0
 --- !u!1 &985699389
 GameObject:
@@ -4977,27 +4997,23 @@ Prefab:
     - target: {fileID: 11400000, guid: 20724569d52a942238e146e4e21d5626, type: 2}
       propertyPath: unitsGood
       value: 
-      objectReference: {fileID: 100046, guid: e109a8626ca23495096e2aedb2350f26, type: 2}
+      objectReference: {fileID: 100046, guid: 52589a9e7507e4fa1aafdce170c14af8, type: 2}
     - target: {fileID: 11400002, guid: 20724569d52a942238e146e4e21d5626, type: 2}
       propertyPath: white
       value: 
-      objectReference: {fileID: 2100000, guid: 77cdeb9ba21514297bf1b18a35597c04, type: 2}
-    - target: {fileID: 11400002, guid: 20724569d52a942238e146e4e21d5626, type: 2}
-      propertyPath: brown
-      value: 
-      objectReference: {fileID: 2100000, guid: 7e57631924628444fac5ed9e67e03e24, type: 2}
+      objectReference: {fileID: 2100000, guid: bd34b704ffe69c749a0e31dd10d22c6e, type: 2}
     - target: {fileID: 11400002, guid: 20724569d52a942238e146e4e21d5626, type: 2}
       propertyPath: red
       value: 
-      objectReference: {fileID: 2100000, guid: aec19eb5239026947a801d826276d0c4, type: 2}
+      objectReference: {fileID: 2100000, guid: f98e0a6231039df49b7af1d96c27d4b8, type: 2}
     - target: {fileID: 11400002, guid: 20724569d52a942238e146e4e21d5626, type: 2}
       propertyPath: blue
       value: 
-      objectReference: {fileID: 2100000, guid: f806801c4f833154788d5cb0a9b5c790, type: 2}
+      objectReference: {fileID: 2100000, guid: 9f42e28d4cc7ea84fa6e20da4130ca91, type: 2}
     - target: {fileID: 11400002, guid: 20724569d52a942238e146e4e21d5626, type: 2}
       propertyPath: green
       value: 
-      objectReference: {fileID: 2100000, guid: 57245b87dc9d18b418cd2d336c990be6, type: 2}
+      objectReference: {fileID: 2100000, guid: 515f0564b3aabaf40b52a63f78988fac, type: 2}
     - target: {fileID: 11400000, guid: 20724569d52a942238e146e4e21d5626, type: 2}
       propertyPath: unitsBad
       value: 
@@ -5022,6 +5038,10 @@ Prefab:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: brown
+      value: 
+      objectReference: {fileID: 2100000, guid: b767d19393570e8419d6ff9394bc7186, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 20724569d52a942238e146e4e21d5626, type: 2}
   m_RootGameObject: {fileID: 160677729}
@@ -7661,8 +7681,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 563889868}
   m_AABB:
-    m_Center: {x: .0908269882, y: .0657366812, z: 6.49092513e-09}
-    m_Extent: {x: 2.45405269, y: .194744408, z: 6.49093934e-09}
+    m_Center: {x: .0908271074, y: .0657366812, z: 6.49092513e-09}
+    m_Extent: {x: 2.45405293, y: .194744408, z: 6.49093934e-09}
   m_DirtyAABB: 0
 --- !u!1 &1623920530
 GameObject:
@@ -7723,8 +7743,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 824366406}
   m_AABB:
-    m_Center: {x: .0908269882, y: .0657366812, z: 6.49092513e-09}
-    m_Extent: {x: 2.45405269, y: .194744408, z: 6.49093934e-09}
+    m_Center: {x: .0908271074, y: .0657366812, z: 6.49092513e-09}
+    m_Extent: {x: 2.45405293, y: .194744408, z: 6.49093934e-09}
   m_DirtyAABB: 0
 --- !u!1 &1629256918
 GameObject:
@@ -9445,8 +9465,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 1493474074}
   m_AABB:
-    m_Center: {x: .0908269882, y: .0657366812, z: 6.49092513e-09}
-    m_Extent: {x: 2.45405269, y: .194744408, z: 6.49093934e-09}
+    m_Center: {x: .0908271074, y: .0657366812, z: 6.49092513e-09}
+    m_Extent: {x: 2.45405293, y: .194744408, z: 6.49093934e-09}
   m_DirtyAABB: 0
 --- !u!1 &1866417861
 GameObject:
@@ -9500,7 +9520,7 @@ MonoBehaviour:
   craftRangeInput: P1CraftRange
   JumpInput: P1Jump
   unitsGood: {fileID: 100046, guid: ec957b62479d4479fb5878653d0a3938, type: 2}
-  unitsBad: {fileID: 100046, guid: 5924532e31ad34a49a8fdfdfc2a6d31f, type: 2}
+  unitsBad: {fileID: 100046, guid: 775fbdc3b2e634debad9ca4803524eb7, type: 2}
 --- !u!1001 &1869118497
 Prefab:
   m_ObjectHideFlags: 0
