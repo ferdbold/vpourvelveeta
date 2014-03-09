@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Yunito_Rob_White_Material 1
+  m_Name: Yunito_Rob_Yellow_Material
   m_Shader: {fileID: 4800000, guid: 7195ae813de9ec44a9066faaf205dcb3, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1

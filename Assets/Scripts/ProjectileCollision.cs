@@ -52,7 +52,7 @@ public class ProjectileCollision : MonoBehaviour {
 			}
 			else if(direction>=1) {
 				YunittoWiggle yuni = (YunittoWiggle)target.GetComponent<YunittoWiggle>();
-				yuni.Hp -= atk;
+				if (yuni != null) yuni.Hp -= atk;
 			} else {
 				YunittoWiggle yuni = (YunittoWiggle)target.GetComponent<YunittoWiggle>();
 				if (yuni != null) yuni.Hp -= atk;
@@ -61,8 +61,6 @@ public class ProjectileCollision : MonoBehaviour {
 			Destroy (gameObject.transform.parent.gameObject);
 		}
 
-
-		Debug.Log(isP1);
 		if(isP1)
 		{
 			if(transform.parent.position.y<=1.0f) //La constante est sujet aux changements!

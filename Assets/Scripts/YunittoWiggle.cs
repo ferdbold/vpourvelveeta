@@ -24,6 +24,7 @@ public class YunittoWiggle : MonoBehaviour {
 	private Player _player;
 	private Transform _cursor;
 	private float _personalSpeed;
+	private Transform _body;
 
 	private float hp; // vie de l'unité
 	private float atk; // attaque de l'unité
@@ -85,6 +86,8 @@ public class YunittoWiggle : MonoBehaviour {
 				unitRange = yunittoEnemy.Range;
 				break;
 		}
+
+		_body = transform.FindChild("Body");
 	}
 
 	void Update () {
@@ -184,27 +187,6 @@ public class YunittoWiggle : MonoBehaviour {
 			if(range < MIN_RANGE) range = MIN_RANGE;
 			if(range > MAX_RANGE) range = MAX_RANGE;
 		}
-
-		//On fait les layerMask ici puisque c'est le moment ou on object le joueur a qui appartient l'unité
-		if(_player.name == "P1") { //On le met a la layer P1
-			if(gameObject.tag == "Army") {
-				gameObject.layer = 8;
-				layerMask = ~((1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 8) | (1 << 9) | (1 << 10));
-			} else if (gameObject.tag == "Minion") {
-				gameObject.layer = 11;
-				layerMask = ~((1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 9) | (1 << 10)| (1 << 11));
-			}
-
-		}
-		else { //On le met a la layer P2
-			if (gameObject.tag == "Army") {
-				gameObject.layer = 9;
-				layerMask = ~((1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 8) | (1 << 9) | (1 << 11));
-			} else if (gameObject.tag == "Minion") {
-				gameObject.layer = 10;
-				layerMask = ~((1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 8) | (1 << 10) | (1 << 11));
-			}
-		}
 	}
 
 	int setUnitType(float H,float A,float R){ //Vérifie quel valeur est la plus grande parmis hp, Atk et range et renvoit la bon type
@@ -222,45 +204,46 @@ public class YunittoWiggle : MonoBehaviour {
 
 	void setUnitColor (int uType) {
 		if (gameObject.tag == "Army") {
-			BunchBehaviour bunchBehaviour = (BunchBehaviour)transform.parent.gameObject.GetComponent<BunchBehaviour>();
+			BunchBehaviour parentBunch = (BunchBehaviour)transform.parent.gameObject.GetComponent<BunchBehaviour>();
 			switch (uType) {
 			case 1:
-				gameObject.renderer.material = (Material)bunchBehaviour.green;
+				_body.renderer.material = (Material)parentBunch.green;
 				break;
 			case 2:
-				gameObject.renderer.material= (Material)bunchBehaviour.red;
+				_body.renderer.material = (Material)parentBunch.red;
 				break;
 			case 3:
-				gameObject.renderer.material = (Material)bunchBehaviour.blue;
+				_body.renderer.material = (Material)parentBunch.blue;
 				break;
 			case 4:
-				gameObject.renderer.material= (Material)bunchBehaviour.white;
+				_body.renderer.material = (Material)parentBunch.white;
 				break;
 			case 5:
-				gameObject.renderer.material = (Material)bunchBehaviour.brown;
+				_body.renderer.material = (Material)parentBunch.brown;
+				break;
+			}
+		} else if (gameObject.tag == "Minion") {
+			EnemyBunch parentBunch = (EnemyBunch)transform.parent.GetComponent<EnemyBunch>();
+			switch (uType) {
+			case 1:
+				_body.renderer.material = (Material)parentBunch.green;
+				break;
+			case 2:
+				_body.renderer.material = (Material)parentBunch.red;
+				break;
+			case 3:
+				_body.renderer.material = (Material)parentBunch.blue;
+				break;
+			case 4:
+				_body.renderer.material = (Material)parentBunch.white;
+				break;
+			case 5:
+				_body.renderer.material = (Material)parentBunch.brown;
 				break;
 			}
 		}
 
-		else if (gameObject.tag == "Minion") {
-			switch (uType) {
-			case 1:
-				gameObject.renderer.material.color = Color.green;
-				break;
-			case 2:
-				gameObject.renderer.material.color = Color.red;
-				break;
-			case 3:
-				gameObject.renderer.material.color = Color.blue;
-				break;
-			case 4:
-				gameObject.renderer.material.color = Color.white;
-				break;
-			case 5:
-				gameObject.renderer.material.color = Color.black;
-				break;
-			}
-		}
+
 	}
 	
 	void Shoot() {
@@ -455,9 +438,7 @@ public class YunittoWiggle : MonoBehaviour {
 		private int _framesElapsed = 0;
 
 		// Constructeurs
-		public DeathState(YunittoWiggle yunitto) : base(yunitto) {
-
-		}
+		public DeathState(YunittoWiggle yunitto) : base(yunitto) {}
 		
 		// Méthodes
 		public override void Update() {
