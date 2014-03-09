@@ -9,34 +9,25 @@ public class MainMenu : MonoBehaviour {
 
 	public Texture backgroundTexture;
 
-	public GUIStyle Button1;
-	public GUIStyle Button2;
+	public GUISkin style;
 
 	void OnGUI(){
 // Display background texture
+		GUI.skin = style;
+
 		GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), backgroundTexture);
 
 // Display our Buttons with gui outlines
-		if (GUI.Button (new Rect (Screen.width * 0.25f, Screen.height * 0.50f, Screen.width * 0.5f, Screen.height * 0.2f), "How To Play"))
+		Debug.Log (Screen.width + " " + Screen.height);
+		if (GUI.Button (new Rect (720*Screen.width/1280, 520*Screen.height/720, 230*Screen.width/1280, 100*Screen.height/720), "Instructions"))
 		{
 			Application.LoadLevel ("HowToPlay");
 			print ("clicked");
 		}
-		if (GUI.Button (new Rect (Screen.width * 0.25f, Screen.height * 0.75f, Screen.width * 0.5f, Screen.height * 0.2f), "Play Game"))
+		if (GUI.Button (new Rect (300*Screen.width/1280, 520*Screen.height/720, 230*Screen.width/1280, 100*Screen.height/720), "GO!"))
 		{
 			Application.LoadLevel ("Game");
 			print ("clicked");
 		}
-
-// Display our Buttons without gui outlines
-/*		if (GUI.Button (new Rect (Screen.width * 0.25f, Screen.height * 0.50f, Screen.width * 0.5f, Screen.height * 0.2f),"How to play",Button1))
-		{
-			print ("clicked");
-		}
-		if (GUI.Button (new Rect (Screen.width * 0.25f, Screen.height * 0.75f, Screen.width * 0.5f, Screen.height * 0.2f), "Play Game",Button2))
-		{
-			print ("clicked");
-		}
-*/
 	}
 }
