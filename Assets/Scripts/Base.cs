@@ -27,7 +27,7 @@ public class Base : MonoBehaviour {
 			}
 			else
 				P1won=true;
-			Application.LoadLevel("EcranFinal");
+			Application.LoadLevel(3);
 			/*Debug.Log(transform.parent.name + " HAS LOST!");            //ANCIENNE MÉTHODE NON UTILISÉE (ON UTILISE LES STATICS A LA PLACE)
 			GameObject end = GameObject.Find ("EndStats");
 
