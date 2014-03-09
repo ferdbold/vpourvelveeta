@@ -66,11 +66,12 @@ public class GameManager : MonoBehaviour {
 				if (statMultiplier <= friendlyStatMultiplier)
 						statMultiplier += (_timeElapsed / 100); // unités ennemis deviennent de plus en plus forte jusqu'a etre aussi fort que les unités normale
 		// Faire progresser l'intervalle de spawn (plus en plus de spawns)
-		spawnInterval *= 0.9997F;
+		//spawnInterval *= 0.99F;
 
 		// 		Spawner des ennemis random
 		if (_spawnTimeElapsed >= spawnInterval) {
 			SpawnBasicYunittos();
+			spawnInterval *= 0.995F;
 		}
 		AmbiantMusic.volume = ambiantSound;
 		if (timerUpdate >= 0.1) {

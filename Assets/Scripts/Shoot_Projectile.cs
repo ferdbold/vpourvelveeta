@@ -40,7 +40,7 @@ public class Shoot_Projectile : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		_speed = (2.0f+(0.5f*unitRange)) + Random.Range (0, 3);	 
+		_speed = (3.0f+(0.5f*unitRange)) + Random.Range (0f, 3f);	 
 		_yspeed = Mathf.Sin (_angletir) * _speed; 
 		_xspeed = Mathf.Cos (_angletir) * _speed * direction;
 		transform.eulerAngles = new Vector3(0f, 0f, 0f);

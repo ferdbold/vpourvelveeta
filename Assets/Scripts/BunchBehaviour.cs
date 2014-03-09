@@ -29,11 +29,10 @@ public class BunchBehaviour : MonoBehaviour {
 
 		// Pour tests seulement
 		this.GenerateTestBunch(1);
-		this.GenerateTestBunch(2);
 	}
 
 	private void GenerateTestBunch(int n) {
-		for(int i=0; i<10; i++) {
+		for(int i=0; i<5; i++) {
 			// Random offset
 			Vector3 offset = transform.position;
 			offset.x += Random.Range(0.0F, 1.0F);

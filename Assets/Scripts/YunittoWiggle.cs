@@ -10,11 +10,11 @@ public class YunittoWiggle : MonoBehaviour {
 	
 	// Constantes
 	private int DEATH_ANIM_LENGTH = 20;
-	const int MAX_RANGE = 3;
-	private float MIN_RANGE = 0.2f;
+	const int MAX_RANGE = 4;
+	private float MIN_RANGE = 0.5f;
 	const int BASE_ATK = 1;
-	const int BASE_HP = 5;
-	const float BASE_SPEED = 1f;
+	const int BASE_HP = 10;
+	const float BASE_SPEED = 1.5f;
 
 	// Attributs
 	private float unitRange;
@@ -200,19 +200,28 @@ public class YunittoWiggle : MonoBehaviour {
 		return Physics.Raycast (new Ray(transform.position, new Vector3 (coefficient, 0, 0)), out hit, range, layerMask);
 	}
 	public void checkHit() {
+		Debug.Log ("CHECKHIT");
 		int coefficient = 1;
 		if (gameObject.tag == "Minion") coefficient = -1;
-
-		if(Physics.Raycast (new Ray(transform.position, new Vector3 (coefficient, 0, 0)),out hit,range,layerMask)){
+		Debug.DrawRay (transform.position, new Vector3 (coefficient * range, 0, 0),Color.red);
+		if(Physics.Raycast (new Ray(transform.position, new Vector3 (coefficient, 0, 0)),out hit,(1.1f*range),layerMask)){
 			GameObject target = hit.collider.gameObject;
 			if (Mathf.Abs(target.transform.position.x - transform.position.x) >= 4*MIN_RANGE) {
 				Debug.Log ("EnnemyShot");
 				Shoot();
+				cooldown = 0;
 			}
 			else {
+				if(target.name == "Base"){
+					Base baseScript =  (Base)target.GetComponent<Base>();
+					baseScript.Hp -= atk;
+				} else {
 				YunittoWiggle yuni = (YunittoWiggle)target.transform.parent.gameObject.GetComponent<YunittoWiggle>();
 				if (yuni != null) yuni.Hp -= atk;
+				cooldown = 0;
+				}
 			}
+			cooldown = 0;
 		}
 	}
 	
@@ -222,7 +231,7 @@ public class YunittoWiggle : MonoBehaviour {
 
 		// Stats des alliés
 		if (gameObject.tag == "Army") {
-			hp = BASE_HP +(health * 50 * manager.FriendlyStatMultiplier);
+			hp = BASE_HP +(health * 100 * manager.FriendlyStatMultiplier);
 			atk = BASE_ATK +(attack * 50 * manager.FriendlyStatMultiplier);
 			range = (atk_range * MAX_RANGE);
 			if(range < MIN_RANGE) range = MIN_RANGE;
@@ -364,7 +373,7 @@ public class YunittoWiggle : MonoBehaviour {
 			if(yuni != null) yuni.Hp -= atk;*/
 		}
 		
-		cooldown -= 0.05f;
+		cooldown = 0;
 	}
 
 	/**
