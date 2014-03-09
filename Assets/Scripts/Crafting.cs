@@ -17,7 +17,6 @@ public class Crafting : MonoBehaviour {
 	private float AtkSuccess;
 	private float RangeSuccess;
 	private int Failure;
-	private bool NextNodeFailure;
 	private GameObject[] Spheres;
 	private GameObject[] Anneaux;
 
@@ -45,7 +44,7 @@ public class Crafting : MonoBehaviour {
 			if (CurrentTime >= 0.25f){
 				Anneaux[CurrentNode-1].transform.localScale -= new Vector3((ShrinkSpeed()*Time.deltaTime),(ShrinkSpeed()*Time.deltaTime), 0);
 			} 
-			if (CheckKeystroke () && IsInTheZone () && !KeyTry && !NextNodeFailure) {
+			if (CheckKeystroke () && IsInTheZone () && !KeyTry) {
 
 				Spheres[CurrentNode-1].renderer.material.SetColor ("_Color", ColorSet());
 				if (KeyPressed == 1)
@@ -55,19 +54,11 @@ public class Crafting : MonoBehaviour {
 				else if (KeyPressed == 3)
 					RangeSuccess++;
 				KeyTry = true;
-			} else if ((CheckKeystroke () && !IsInTheZone ()&& !KeyTry) || NextNodeFailure) {
+			} else if ((CheckKeystroke () && !IsInTheZone ()&& !KeyTry)) {
 				Spheres[CurrentNode-1].renderer.material.SetColor ("_Color", Color.black);
 				Failure++;
 				KeyTry = true;
-				NextNodeFailure = false;
 			}
-			else if ((CheckKeystroke () && IsInTheZone ()&& KeyTry)) {
-				Spheres[CurrentNode-1].renderer.material.SetColor ("_Color", Color.black);
-				Failure++;
-				KeyTry = true;
-				NextNodeFailure = true;
-			}
-
 
 				TimeoutCurrentNode ();
 				CheckCurrentNode ();
