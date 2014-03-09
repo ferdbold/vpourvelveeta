@@ -127,7 +127,11 @@ public class Player : MonoBehaviour {
 				_player._state = new CraftingState(_player);
 			}
 			if(Input.GetButtonDown (_player.JumpInput)) {
-				Debug.Log( "Jumped");
+				Debug.Log("Jumped");
+				YunittoWiggle[] units = (YunittoWiggle[])_player.Bunch.GetComponentsInChildren<YunittoWiggle>();
+				foreach (YunittoWiggle unit in units){
+					unit.Jump();
+				}
 			}
 		}
 	}
