@@ -4,7 +4,7 @@ using System.Collections;
 
 public class Shoot_Projectile : MonoBehaviour {
 	
-	public int direction=1; 					//Direction du tir, elle ÉGALE A 1 POUR DES TESTS SEULEMENT
+	public int direction; 					//Direction du tir, elle ÉGALE A 1 POUR DES TESTS SEULEMENT
 	public float _distance; 					//Distance entre deux unités
 	public float _angleprojectile; 				//Angle de la de la vitesse du projectile
 	public float _angletir=45.0f;				//Angle du  tir du projectile

@@ -125,8 +125,8 @@ MonoBehaviour:
   craftAtkInput: P2CraftAtk
   craftRangeInput: P2CraftRange
   JumpInput: P2Jump
-  unitsGood: {fileID: 100000, guid: f79a14f42d8a240399ea0076ee0efdbe, type: 2}
-  unitsBad: {fileID: 100000, guid: 2d7f7b34ca3a447fa96b9513dac60c3d, type: 2}
+  unitsGood: {fileID: 100046, guid: e109a8626ca23495096e2aedb2350f26, type: 2}
+  unitsBad: {fileID: 100046, guid: 3e27d3d5dbc3a435d997f2dd6850546d, type: 2}
 --- !u!1 &172195081
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,12 +239,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  _cursor: {fileID: 0}
-  white: {fileID: 2100000, guid: 22b4a6189b69fe747bfb4b7d27fb8ea8, type: 2}
-  brown: {fileID: 2100000, guid: 6cadedaea292f7a4dbbf0500184a953b, type: 2}
-  red: {fileID: 2100000, guid: 339a8cebe665e7442821eb2433a0086e, type: 2}
-  blue: {fileID: 2100000, guid: ac752c9213c3a834aa7dad91928e8882, type: 2}
-  green: {fileID: 2100000, guid: 11d67273589eec74f9b962d368504473, type: 2}
+  _cursor: {fileID: 172195082}
+  white: {fileID: 2100000, guid: 77cdeb9ba21514297bf1b18a35597c04, type: 2}
+  brown: {fileID: 2100000, guid: 7e57631924628444fac5ed9e67e03e24, type: 2}
+  red: {fileID: 2100000, guid: aec19eb5239026947a801d826276d0c4, type: 2}
+  blue: {fileID: 2100000, guid: f806801c4f833154788d5cb0a9b5c790, type: 2}
+  green: {fileID: 2100000, guid: 57245b87dc9d18b418cd2d336c990be6, type: 2}
 --- !u!1 &428952742
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,12 +274,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  _cursor: {fileID: 0}
-  white: {fileID: 2100000, guid: 22b4a6189b69fe747bfb4b7d27fb8ea8, type: 2}
-  brown: {fileID: 2100000, guid: 6cadedaea292f7a4dbbf0500184a953b, type: 2}
-  red: {fileID: 2100000, guid: 339a8cebe665e7442821eb2433a0086e, type: 2}
-  blue: {fileID: 2100000, guid: ac752c9213c3a834aa7dad91928e8882, type: 2}
-  green: {fileID: 2100000, guid: 11d67273589eec74f9b962d368504473, type: 2}
+  _cursor: {fileID: 1305763055}
+  white: {fileID: 2100000, guid: 77cdeb9ba21514297bf1b18a35597c04, type: 2}
+  brown: {fileID: 2100000, guid: 7e57631924628444fac5ed9e67e03e24, type: 2}
+  red: {fileID: 2100000, guid: aec19eb5239026947a801d826276d0c4, type: 2}
+  blue: {fileID: 2100000, guid: f806801c4f833154788d5cb0a9b5c790, type: 2}
+  green: {fileID: 2100000, guid: 57245b87dc9d18b418cd2d336c990be6, type: 2}
 --- !u!4 &428952744
 Transform:
   m_ObjectHideFlags: 0
@@ -346,6 +346,42 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: .100000001
       objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .751193047
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: unitsGood
+      value: 
+      objectReference: {fileID: 100046, guid: ec957b62479d4479fb5878653d0a3938, type: 2}
+    - target: {fileID: 11400002, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: _cursor
+      value: 
+      objectReference: {fileID: 1305763055}
+    - target: {fileID: 11400002, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: white
+      value: 
+      objectReference: {fileID: 2100000, guid: 77cdeb9ba21514297bf1b18a35597c04, type: 2}
+    - target: {fileID: 11400002, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: brown
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e57631924628444fac5ed9e67e03e24, type: 2}
+    - target: {fileID: 11400002, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: red
+      value: 
+      objectReference: {fileID: 2100000, guid: aec19eb5239026947a801d826276d0c4, type: 2}
+    - target: {fileID: 11400002, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: blue
+      value: 
+      objectReference: {fileID: 2100000, guid: f806801c4f833154788d5cb0a9b5c790, type: 2}
+    - target: {fileID: 11400002, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: green
+      value: 
+      objectReference: {fileID: 2100000, guid: 57245b87dc9d18b418cd2d336c990be6, type: 2}
+    - target: {fileID: 11400000, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: unitsBad
+      value: 
+      objectReference: {fileID: 100046, guid: 5924532e31ad34a49a8fdfdfc2a6d31f, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 20724569d52a942238e146e4e21d5626, type: 2}
   m_RootGameObject: {fileID: 1866417861}
@@ -421,6 +457,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 902254109}
+  - 114: {fileID: 902254110}
   m_Layer: 0
   m_Name: Enemies
   m_TagString: Untagged
@@ -439,6 +476,23 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1866417862}
+--- !u!114 &902254110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400008, guid: 20724569d52a942238e146e4e21d5626,
+    type: 2}
+  m_PrefabInternal: {fileID: 496957996}
+  m_GameObject: {fileID: 902254108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbe6a312f85e94fcc9e17d21d8c51f4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  white: {fileID: 2100000, guid: 77cdeb9ba21514297bf1b18a35597c04, type: 2}
+  brown: {fileID: 2100000, guid: 7e57631924628444fac5ed9e67e03e24, type: 2}
+  red: {fileID: 2100000, guid: aec19eb5239026947a801d826276d0c4, type: 2}
+  blue: {fileID: 2100000, guid: f806801c4f833154788d5cb0a9b5c790, type: 2}
+  green: {fileID: 2100000, guid: 57245b87dc9d18b418cd2d336c990be6, type: 2}
 --- !u!1 &997768444
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,7 +614,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: 20724569d52a942238e146e4e21d5626, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: .803146362
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 20724569d52a942238e146e4e21d5626, type: 2}
       propertyPath: m_Name
@@ -610,6 +664,38 @@ Prefab:
       propertyPath: JumpInput
       value: P2Jump
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: _cursor
+      value: 
+      objectReference: {fileID: 172195082}
+    - target: {fileID: 11400000, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: unitsGood
+      value: 
+      objectReference: {fileID: 100046, guid: e109a8626ca23495096e2aedb2350f26, type: 2}
+    - target: {fileID: 11400002, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: white
+      value: 
+      objectReference: {fileID: 2100000, guid: 77cdeb9ba21514297bf1b18a35597c04, type: 2}
+    - target: {fileID: 11400002, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: brown
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e57631924628444fac5ed9e67e03e24, type: 2}
+    - target: {fileID: 11400002, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: red
+      value: 
+      objectReference: {fileID: 2100000, guid: aec19eb5239026947a801d826276d0c4, type: 2}
+    - target: {fileID: 11400002, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: blue
+      value: 
+      objectReference: {fileID: 2100000, guid: f806801c4f833154788d5cb0a9b5c790, type: 2}
+    - target: {fileID: 11400002, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: green
+      value: 
+      objectReference: {fileID: 2100000, guid: 57245b87dc9d18b418cd2d336c990be6, type: 2}
+    - target: {fileID: 11400000, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: unitsBad
+      value: 
+      objectReference: {fileID: 100046, guid: 3e27d3d5dbc3a435d997f2dd6850546d, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 20724569d52a942238e146e4e21d5626, type: 2}
   m_RootGameObject: {fileID: 160677729}
@@ -641,7 +727,7 @@ Transform:
   m_PrefabInternal: {fileID: 496957996}
   m_GameObject: {fileID: 1189930632}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.20377541, y: 1.25315952, z: 0}
+  m_LocalPosition: {x: -6.20377541, y: .751193047, z: 0}
   m_LocalScale: {x: 1, y: 2.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1866417862}
@@ -858,7 +944,7 @@ Transform:
   m_PrefabInternal: {fileID: 1059750988}
   m_GameObject: {fileID: 1637916053}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.20377541, y: 0, z: 0}
+  m_LocalPosition: {x: -6.20377541, y: .803146362, z: 0}
   m_LocalScale: {x: 1, y: 2.5, z: 1}
   m_Children: []
   m_Father: {fileID: 160677730}
@@ -925,6 +1011,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1824185175}
+  - 114: {fileID: 1824185176}
   m_Layer: 0
   m_Name: Enemies
   m_TagString: Untagged
@@ -943,6 +1030,23 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 160677730}
+--- !u!114 &1824185176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400008, guid: 20724569d52a942238e146e4e21d5626,
+    type: 2}
+  m_PrefabInternal: {fileID: 1059750988}
+  m_GameObject: {fileID: 1824185174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbe6a312f85e94fcc9e17d21d8c51f4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  white: {fileID: 2100000, guid: 77cdeb9ba21514297bf1b18a35597c04, type: 2}
+  brown: {fileID: 2100000, guid: 7e57631924628444fac5ed9e67e03e24, type: 2}
+  red: {fileID: 2100000, guid: aec19eb5239026947a801d826276d0c4, type: 2}
+  blue: {fileID: 2100000, guid: f806801c4f833154788d5cb0a9b5c790, type: 2}
+  green: {fileID: 2100000, guid: 57245b87dc9d18b418cd2d336c990be6, type: 2}
 --- !u!1 &1866417861
 GameObject:
   m_ObjectHideFlags: 0
@@ -994,8 +1098,8 @@ MonoBehaviour:
   craftAtkInput: P1CraftAtk
   craftRangeInput: P1CraftRange
   JumpInput: P1Jump
-  unitsGood: {fileID: 100000, guid: f79a14f42d8a240399ea0076ee0efdbe, type: 2}
-  unitsBad: {fileID: 100000, guid: 2d7f7b34ca3a447fa96b9513dac60c3d, type: 2}
+  unitsGood: {fileID: 100046, guid: ec957b62479d4479fb5878653d0a3938, type: 2}
+  unitsBad: {fileID: 100046, guid: 5924532e31ad34a49a8fdfdfc2a6d31f, type: 2}
 --- !u!1 &2006325455
 GameObject:
   m_ObjectHideFlags: 0
