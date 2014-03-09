@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Map_Basemat
+  m_Shader: {fileID: 4800000, guid: 918017e6208130a4195b0f6ef148f968, type: 3}
+  m_ShaderKeywords: []
+  m_CustomRenderQueue: -1
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+      data:
+        first:
+          name: _Diffuse
+        second:
+          m_Texture: {fileID: 2800000, guid: c518b8ffce3472c48aa0fdd3b6542fe6, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Selfill
+        second:
+          m_Texture: {fileID: 2800000, guid: bb90e1908f0b3d64ab6a305ee6e14c00, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+    m_Floats: {}
+    m_Colors:
+      data:
+        first:
+          name: _node9
+        second: {r: .5, g: .5, b: .5, a: 1}
+      data:
+        first:
+          name: _Colormult
+        second: {r: 0, g: .627586365, b: 1, a: 1}
