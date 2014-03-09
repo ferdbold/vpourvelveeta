@@ -82,10 +82,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _yVelocity: 0
-  wiggleSpeed: 1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  wiggleSpeed: .0500000007
   leashLength: 10
   jumpChance: .00499999989
-  jumpHeight: 3
+  jumpHeight: 2
   jumpVar: 1.5
   gravity: .300000012
 --- !u!1001 &100100000

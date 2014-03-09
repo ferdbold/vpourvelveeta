@@ -27,13 +27,14 @@ public class Shoot_Projectile : MonoBehaviour {
 		set {isP1 = value;}
 	}
 	public GameObject model;
+	public float unitRange;
 
 
 	
 	
 	// Use this for initialization
 	void Start () {
-		_speed = 2.0f + Random.Range (0, 3);	 
+		_speed = (2.0f+(0.5f*unitRange)) + Random.Range (0, 3);	 
 		_yspeed = Mathf.Sin (_angletir) * _speed; 
 		_xspeed = Mathf.Cos (_angletir) * _speed * direction;
 
