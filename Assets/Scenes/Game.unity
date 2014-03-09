@@ -239,8 +239,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 519998853}
   m_AABB:
-    m_Center: {x: .0908271074, y: .0657366812, z: 6.49092513e-09}
-    m_Extent: {x: 2.45405293, y: .194744408, z: 6.49093934e-09}
+    m_Center: {x: .0908269882, y: .0657366812, z: 6.49092513e-09}
+    m_Extent: {x: 2.45405269, y: .194744408, z: 6.49093934e-09}
   m_DirtyAABB: 0
 --- !u!1 &40462976
 GameObject:
@@ -3613,8 +3613,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 1123359531}
   m_AABB:
-    m_Center: {x: .0908271074, y: .0657366812, z: 6.49092513e-09}
-    m_Extent: {x: 2.45405293, y: .194744408, z: 6.49093934e-09}
+    m_Center: {x: .0908269882, y: .0657366812, z: 6.49092513e-09}
+    m_Extent: {x: 2.45405269, y: .194744408, z: 6.49093934e-09}
   m_DirtyAABB: 0
 --- !u!1 &832033477
 GameObject:
@@ -4441,8 +4441,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 115001514}
   m_AABB:
-    m_Center: {x: .0908271074, y: .0657366812, z: 6.49092513e-09}
-    m_Extent: {x: 2.45405293, y: .194744408, z: 6.49093934e-09}
+    m_Center: {x: .0908269882, y: .0657366812, z: 6.49092513e-09}
+    m_Extent: {x: 2.45405269, y: .194744408, z: 6.49093934e-09}
   m_DirtyAABB: 0
 --- !u!1 &985699389
 GameObject:
@@ -5569,6 +5569,7 @@ GameObject:
   - 65: {fileID: 1189930636}
   - 23: {fileID: 1189930635}
   - 114: {fileID: 1189930634}
+  - 114: {fileID: 1189930638}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -5642,6 +5643,140 @@ MeshFilter:
   m_PrefabInternal: {fileID: 496957996}
   m_GameObject: {fileID: 1189930632}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1189930638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1189930632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 098475e8d4b3d8a438c5ba670af7c0d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BaseObject: {fileID: 0}
+  barDisplay: 0
+  emptyTex: {fileID: 2800000, guid: 6134a0f9c27c47e4082528e375b92645, type: 3}
+  fullTex: {fileID: 2800000, guid: 54157c68bcad4604e9fe415be27de55f, type: 3}
+  healthbase: {fileID: 0}
+  progress_empty:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 0}
+    m_FontSize: 0
+    m_FontStyle: 0
+    m_Alignment: 0
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
+  progress_full:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 0}
+    m_FontSize: 0
+    m_FontStyle: 0
+    m_Alignment: 0
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
 --- !u!1 &1198338948
 GameObject:
   m_ObjectHideFlags: 0
@@ -7518,8 +7653,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 563889868}
   m_AABB:
-    m_Center: {x: .0908271074, y: .0657366812, z: 6.49092513e-09}
-    m_Extent: {x: 2.45405293, y: .194744408, z: 6.49093934e-09}
+    m_Center: {x: .0908269882, y: .0657366812, z: 6.49092513e-09}
+    m_Extent: {x: 2.45405269, y: .194744408, z: 6.49093934e-09}
   m_DirtyAABB: 0
 --- !u!1 &1623920530
 GameObject:
@@ -7580,8 +7715,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 824366406}
   m_AABB:
-    m_Center: {x: .0908271074, y: .0657366812, z: 6.49092513e-09}
-    m_Extent: {x: 2.45405293, y: .194744408, z: 6.49093934e-09}
+    m_Center: {x: .0908269882, y: .0657366812, z: 6.49092513e-09}
+    m_Extent: {x: 2.45405269, y: .194744408, z: 6.49093934e-09}
   m_DirtyAABB: 0
 --- !u!1 &1629256918
 GameObject:
@@ -7669,6 +7804,7 @@ GameObject:
   - 65: {fileID: 1637916057}
   - 23: {fileID: 1637916056}
   - 114: {fileID: 1637916055}
+  - 114: {fileID: 1637916059}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -7742,6 +7878,140 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1059750988}
   m_GameObject: {fileID: 1637916053}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1637916059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1637916053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 098475e8d4b3d8a438c5ba670af7c0d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BaseObject: {fileID: 0}
+  barDisplay: 0
+  emptyTex: {fileID: 2800000, guid: 6134a0f9c27c47e4082528e375b92645, type: 3}
+  fullTex: {fileID: 2800000, guid: 54157c68bcad4604e9fe415be27de55f, type: 3}
+  healthbase: {fileID: 0}
+  progress_empty:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 0}
+    m_FontSize: 0
+    m_FontStyle: 0
+    m_Alignment: 0
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
+  progress_full:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 0}
+    m_FontSize: 0
+    m_FontStyle: 0
+    m_Alignment: 0
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
 --- !u!1001 &1653804664
 Prefab:
   m_ObjectHideFlags: 0
@@ -9167,8 +9437,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 1493474074}
   m_AABB:
-    m_Center: {x: .0908271074, y: .0657366812, z: 6.49092513e-09}
-    m_Extent: {x: 2.45405293, y: .194744408, z: 6.49093934e-09}
+    m_Center: {x: .0908269882, y: .0657366812, z: 6.49092513e-09}
+    m_Extent: {x: 2.45405269, y: .194744408, z: 6.49093934e-09}
   m_DirtyAABB: 0
 --- !u!1 &1866417861
 GameObject:

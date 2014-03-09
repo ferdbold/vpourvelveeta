@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: card_texture
-  m_Shader: {fileID: 7, guid: 0000000000000000f000000000000000, type: 0}
+  m_Name: Yunito_Bor_Master_Material
+  m_Shader: {fileID: 4800000, guid: 7195ae813de9ec44a9066faaf205dcb3, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -15,23 +15,23 @@ Material:
     m_TexEnvs:
       data:
         first:
-          name: _MainTex
-        second:
-          m_Texture: {fileID: 2800000, guid: 80fd9591bba3d93478b7faa06c50ae29, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
           name: _Diffuse
         second:
-          m_Texture: {fileID: 2800000, guid: 80fd9591bba3d93478b7faa06c50ae29, type: 3}
+          m_Texture: {fileID: 2800000, guid: 3c22365b7c7a46c478410ecd1695f056, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _Selfill
+          name: _Specular
         second:
-          m_Texture: {fileID: 2800000, guid: 635e76c4679aa1b4188af865539b5bcd, type: 3}
+          m_Texture: {fileID: 2800000, guid: d5d2dc4fd2414634d801a8698848b677, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _SelfIlu
+        second:
+          m_Texture: {fileID: 2800000, guid: a518e75bd87328c4eb58d0a7107af233, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats: {}
@@ -39,12 +39,4 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: .588, g: .588, b: .588, a: 1}
-      data:
-        first:
-          name: _Colormult
-<<<<<<< HEAD
-        second: {r: .696551323, g: 0, b: 1, a: 1}
-=======
         second: {r: 1, g: 1, b: 1, a: 1}
->>>>>>> 9b56c4f86db29eb4dfad65e12fa6712247745d7a
