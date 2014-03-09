@@ -94,7 +94,10 @@ public class YunittoWiggle : MonoBehaviour {
 				unitRange = yunittoEnemy.Range;
 				break;
 		}
+
 		_body = transform.FindChild("Sphere001");
+		if (_body == null) _body = transform.FindChild("Bor");
+
 		switch(name) { // Set de LayerMask
 		case "P1Army(Clone)": 
 			layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 8) | (1 << 9) | (1 << 10)); //Si c'est le J1 , On remarque les collisions avec le j2
@@ -135,7 +138,7 @@ public class YunittoWiggle : MonoBehaviour {
 		case "Army":
 			float mov = ((_cursor.transform.position.x - transform.position.x) - (0.6f * unitRange) *_personalSpeed) * Time.deltaTime;
 			mov = Random.Range(mov - wiggleSpeed, mov + wiggleSpeed);
-			transform.Translate(mov, 0, 0);
+			transform.Translate(0, 0, mov);
 			break;
 		}
 	}
@@ -489,7 +492,7 @@ public class YunittoWiggle : MonoBehaviour {
 		// Méthodes
 		public override void Update() {
 			if (!_yunitto.IsInCooldown) {
-				Debug.Log ("cd?");
+
 				// S'il n'y a plus de menace, on revient en mode march
 				if (!_yunitto.CheckThreat()) {
 					_yunitto._state = new EnemyMarchState(_yunitto);

@@ -66,7 +66,7 @@ public class Player : MonoBehaviour {
 	}
 
 	public void CreateEnemyYunitto(float hp = 0.2f, float atk = 0.4f, float range = 0.4f) {
-		GameObject yuni = (GameObject)Instantiate(unitsBad, new Vector3(10, transform.position.y, transform.position.z), transform.rotation);
+		GameObject yuni = (GameObject)Instantiate(unitsBad, new Vector3(10, transform.position.y, transform.position.z), Quaternion.Euler (0, -90, 0));
 		yuni.transform.parent = _enemyBunch;
 
 		YunittoWiggle yunitto = (YunittoWiggle)yuni.GetComponent<YunittoWiggle>();
@@ -75,7 +75,7 @@ public class Player : MonoBehaviour {
 	}
 
 	public void CreateYunitto(float hp = 0.2f, float atk = 0.4f, float range = 0.4f) {
-		GameObject yuni = (GameObject)Instantiate(unitsGood, new Vector3(-10, transform.position.y, transform.position.z), transform.rotation);
+		GameObject yuni = (GameObject)Instantiate(unitsGood, new Vector3(-10, transform.position.y, transform.position.z), Quaternion.Euler (0, 90, 0));
 		yuni.transform.parent = _bunch;
 		
 		YunittoWiggle yunitto = (YunittoWiggle)yuni.GetComponent<YunittoWiggle>();
