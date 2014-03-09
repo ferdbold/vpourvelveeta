@@ -111,7 +111,6 @@ public class YunittoWiggle : MonoBehaviour {
 		case "Army":
 			float mov = ((_cursor.transform.position.x - transform.position.x) - (0.6f * unitRange) *_personalSpeed) * Time.deltaTime;
 			mov = Random.Range(mov - wiggleSpeed, mov + wiggleSpeed);
-			Debug.Log (mov);
 			transform.Translate(mov, 0, 0);
 
 			//transform.position.x += (_cursor.transform.position.x - transform.position.x) / Time.deltaTime;
@@ -414,7 +413,6 @@ public class YunittoWiggle : MonoBehaviour {
 
 			if (!_yunitto.IsInCooldown) {
 				// S'il y a une menace, on passe en mode attaque
-				//Debug.Log(_yunitto.CheckThreat());
 				if (_yunitto.CheckThreat()) {
 					_yunitto._state = new EnemyAttackState(_yunitto);
 				}
@@ -426,7 +424,10 @@ public class YunittoWiggle : MonoBehaviour {
 		
 		// Constructeurs
 		public EnemyAttackState(YunittoWiggle yunitto) : base(yunitto) {
-			Debug.Log ("Enter attack state");
+			// Les ennemis collent au sol lorsqu'ils attaquent
+			_yunitto.transform.localPosition = new Vector3(_yunitto.transform.localPosition.x,
+			                                               0, 
+			                                               _yunitto.transform.localPosition.z);
 		}
 		
 		// Méthodes
@@ -468,10 +469,12 @@ public class YunittoWiggle : MonoBehaviour {
 		}
 
 		private void Die() {
-			Debug.Log ("That die tho");
 			GameObject.Destroy(_yunitto.gameObject);
-			if(_yunitto.isGood) Debug.Log ("Player2's army Brutally Murdered Player1's minions");
-			else 				Debug.Log ("Player1's army Brutally Murdered Player2's minions");
+
+			if(_yunitto.gameObject.tag == "Army") {
+				if (_yunitto._player.gameObject.name == "P1") 	Debug.Log ("Player 1's army brutally murdered Player 2's minions");
+				else 											Debug.Log ("Player 2's army brutally murdered Player 1's minions");
+			}			
 		}
 	}
 }
