@@ -240,8 +240,7 @@ public class YunittoWiggle : MonoBehaviour {
 	void Shoot() {
 		int direction = 1;
 		if (gameObject.tag == "Minion") direction = -1;
-
-		projectileManager.CreateProjectile(direction,atk,transform.position, (_player.gameObject.name == "P1")); //On indique au projetileManager de créer un projectile (Direction,attaque du projectile,position de la création, a qui appartient le projectile)
+		projectileManager.CreateProjectile(direction,atk,transform.position, (_player.gameObject.name == "P1"),range); //On indique au projetileManager de créer un projectile (Direction,attaque du projectile,position de la création, a qui appartient le projectile)
 		cooldown = 0;
 	}
 
@@ -299,12 +298,12 @@ public class YunittoWiggle : MonoBehaviour {
 			{
 				YunittoWiggle yuni = (YunittoWiggle)hit.collider.gameObject.GetComponent<YunittoWiggle> ();
 				if(yuni != null) yuni.Hp -= atk;
-				//projectileManager.CreateProjectile(1,atk,transform.position,isGood);
+				//projectileManager.CreateProjectile(1,atk,transform.position,_player.name=="P1");
 			}
 		}
 		else 
 		{
-			projectileManager.CreateProjectile(1,atk,transform.position, (_player.gameObject.name == "P1"));
+			projectileManager.CreateProjectile(1,atk,transform.position, (_player.gameObject.name == "P1"),range);
 			/*YunittoEnemy yuni = (YunittoEnemy)hit.collider.gameObject.GetComponent<YunittoEnemy> ();
 			if(yuni != null) yuni.Hp -= atk;*/
 		}
