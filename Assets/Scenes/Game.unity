@@ -239,8 +239,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 519998853}
   m_AABB:
-    m_Center: {x: .0908271074, y: .0657366812, z: 6.49092513e-09}
-    m_Extent: {x: 2.45405293, y: .194744408, z: 6.49093934e-09}
+    m_Center: {x: .0908269882, y: .0657366812, z: 6.49092513e-09}
+    m_Extent: {x: 2.45405269, y: .194744408, z: 6.49093934e-09}
   m_DirtyAABB: 0
 --- !u!1 &40462976
 GameObject:
@@ -2679,6 +2679,14 @@ Prefab:
       propertyPath: blue
       value: 
       objectReference: {fileID: 2100000, guid: 9f42e28d4cc7ea84fa6e20da4130ca91, type: 2}
+    - target: {fileID: 11400004, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: Message1
+      value: 
+      objectReference: {fileID: 100000, guid: 898081ed631b587498961504ce9fb558, type: 2}
+    - target: {fileID: 11400004, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: Message2
+      value: 
+      objectReference: {fileID: 100000, guid: 6763b12f1646a794f95910408f75af60, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 20724569d52a942238e146e4e21d5626, type: 2}
   m_RootGameObject: {fileID: 1866417861}
@@ -3637,8 +3645,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 1123359531}
   m_AABB:
-    m_Center: {x: .0908271074, y: .0657366812, z: 6.49092513e-09}
-    m_Extent: {x: 2.45405293, y: .194744408, z: 6.49093934e-09}
+    m_Center: {x: .0908269882, y: .0657366812, z: 6.49092513e-09}
+    m_Extent: {x: 2.45405269, y: .194744408, z: 6.49093934e-09}
   m_DirtyAABB: 0
 --- !u!1 &832033477
 GameObject:
@@ -4465,8 +4473,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 115001514}
   m_AABB:
-    m_Center: {x: .0908271074, y: .0657366812, z: 6.49092513e-09}
-    m_Extent: {x: 2.45405293, y: .194744408, z: 6.49093934e-09}
+    m_Center: {x: .0908269882, y: .0657366812, z: 6.49092513e-09}
+    m_Extent: {x: 2.45405269, y: .194744408, z: 6.49093934e-09}
   m_DirtyAABB: 0
 --- !u!1 &985699389
 GameObject:
@@ -5042,6 +5050,14 @@ Prefab:
       propertyPath: brown
       value: 
       objectReference: {fileID: 2100000, guid: b767d19393570e8419d6ff9394bc7186, type: 2}
+    - target: {fileID: 11400004, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: Message1
+      value: 
+      objectReference: {fileID: 100000, guid: 898081ed631b587498961504ce9fb558, type: 2}
+    - target: {fileID: 11400004, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: Message2
+      value: 
+      objectReference: {fileID: 100000, guid: 6763b12f1646a794f95910408f75af60, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 20724569d52a942238e146e4e21d5626, type: 2}
   m_RootGameObject: {fileID: 160677729}
@@ -7681,8 +7697,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 563889868}
   m_AABB:
-    m_Center: {x: .0908271074, y: .0657366812, z: 6.49092513e-09}
-    m_Extent: {x: 2.45405293, y: .194744408, z: 6.49093934e-09}
+    m_Center: {x: .0908269882, y: .0657366812, z: 6.49092513e-09}
+    m_Extent: {x: 2.45405269, y: .194744408, z: 6.49093934e-09}
   m_DirtyAABB: 0
 --- !u!1 &1623920530
 GameObject:
@@ -7743,8 +7759,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 824366406}
   m_AABB:
-    m_Center: {x: .0908271074, y: .0657366812, z: 6.49092513e-09}
-    m_Extent: {x: 2.45405293, y: .194744408, z: 6.49093934e-09}
+    m_Center: {x: .0908269882, y: .0657366812, z: 6.49092513e-09}
+    m_Extent: {x: 2.45405269, y: .194744408, z: 6.49093934e-09}
   m_DirtyAABB: 0
 --- !u!1 &1629256918
 GameObject:
@@ -9465,8 +9481,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 1493474074}
   m_AABB:
-    m_Center: {x: .0908271074, y: .0657366812, z: 6.49092513e-09}
-    m_Extent: {x: 2.45405293, y: .194744408, z: 6.49093934e-09}
+    m_Center: {x: .0908269882, y: .0657366812, z: 6.49092513e-09}
+    m_Extent: {x: 2.45405269, y: .194744408, z: 6.49093934e-09}
   m_DirtyAABB: 0
 --- !u!1 &1866417861
 GameObject:
@@ -10451,7 +10467,8 @@ MonoBehaviour:
   Tempo: 0
   p_sphere: {fileID: 100000, guid: 3d73a8cdd5f414989bc6b441b0670ceb, type: 2}
   p_anneau: {fileID: 100000, guid: 79c3c52fc6a8d45c39c6a137ea5a7a98, type: 2}
-  Message1: {fileID: 0}
+  Message1: {fileID: 100000, guid: 898081ed631b587498961504ce9fb558, type: 2}
+  Message2: {fileID: 100000, guid: 6763b12f1646a794f95910408f75af60, type: 2}
   NodeNumberMax: 3
   NodeNumberMin: 8
   Latency: .25
@@ -10755,7 +10772,8 @@ MonoBehaviour:
   Tempo: 0
   p_sphere: {fileID: 100000, guid: 3d73a8cdd5f414989bc6b441b0670ceb, type: 2}
   p_anneau: {fileID: 100000, guid: 79c3c52fc6a8d45c39c6a137ea5a7a98, type: 2}
-  Message1: {fileID: 0}
+  Message1: {fileID: 100000, guid: 898081ed631b587498961504ce9fb558, type: 2}
+  Message2: {fileID: 100000, guid: 6763b12f1646a794f95910408f75af60, type: 2}
   NodeNumberMax: 3
   NodeNumberMin: 8
   Latency: .25

@@ -24,6 +24,7 @@ public class Crafting : MonoBehaviour {
 	public GameObject p_sphere;
 	public GameObject p_anneau;
 	public GameObject Message1;
+	public GameObject Message2;
 
 	public int NodeNumberMax = 3;
 	public int NodeNumberMin = 8;
@@ -120,9 +121,12 @@ public class Crafting : MonoBehaviour {
 			_player.CreateYunitto (hp, atk, range);
 		for (int i=0; i<(int)(_gameManager.EnnemyAmountMultiplier); i++) {
 			_player.OtherPlayer.CreateEnemyYunitto(hp,atk,range);
-
 		}
 		audio.Play ();
+		if(((HpSuccess+AtkSuccess+RangeSuccess)/NodeNumber) > 0.6f) {
+			Instantiate (Message1, transform.position,transform.rotation);
+		}
+		else Instantiate (Message2, transform.position,transform.rotation);
 	}
 
 	void SetNodeNumber () {
