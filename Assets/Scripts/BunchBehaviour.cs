@@ -9,8 +9,9 @@ using System.Collections;
 public class BunchBehaviour : MonoBehaviour {
 
 	// Attributs publics
-	public GameObject p_yunitto;
 	public float moveSpeed = 5;
+	public Transform _cursor;
+
 	// materiel_couleur
 	public Material white;
 	public Material brown;
@@ -24,6 +25,7 @@ public class BunchBehaviour : MonoBehaviour {
 
 	void Start () {
 		_player = transform.parent.gameObject.GetComponent<Player>();
+		_cursor = transform.parent.FindChild("Cursor");
 
 		// Pour tests seulement
 		this.GenerateTestBunch(1);
@@ -37,18 +39,12 @@ public class BunchBehaviour : MonoBehaviour {
 			offset.x += Random.Range(0.0F, 1.0F);
 
 			_player.CreateYunitto(0.2f, 0.5f, 0.3f);
-
-			/*GameObject yuni = (GameObject)Instantiate(p_yunitto, offset, transform.rotation);
-			yuni.transform.parent = transform;
-			yunitto = (YunittoWiggle)yuni.GetComponent<YunittoWiggle>();
-			if(n==1)yunitto.SetStats (0.2f, 0.5f, 0.3f);
-			if(n==2)yunitto.SetStats (0.5f, 0.5f, 0.0f);*/
 		}
 	}
 
 	public void Move() {
 		float moveAxis = Input.GetAxis(_player.moveInput);
 
-		transform.Translate(moveAxis * Time.deltaTime * moveSpeed, 0F, 0F);
+		_cursor.transform.Translate(moveAxis * Time.deltaTime * moveSpeed, 0F, 0F);
 	}
 }

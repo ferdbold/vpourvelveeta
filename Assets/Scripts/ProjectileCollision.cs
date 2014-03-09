@@ -55,7 +55,7 @@ public class ProjectileCollision : MonoBehaviour {
 				yuni.Hp -= atk;
 				Debug.Log (gameObject + " Did " + atk + " Damage to " + yuni.transform.parent);
 			} else {
-				Yunitto yuni = (Yunitto)target.GetComponent<Yunitto>();
+				YunittoWiggle yuni = (YunittoWiggle)target.GetComponent<YunittoWiggle>();
 				if (yuni != null) yuni.Hp -= atk;
 			}
 
@@ -71,7 +71,7 @@ public class ProjectileCollision : MonoBehaviour {
 		}
 		else
 		{
-			if(transform.parent.position.y<=-1.0f)//La constante est sujet aux changements!
+			if(transform.parent.position.y<=-2.0f)//La constante est sujet aux changements!
 				Destroy (gameObject.transform.parent.gameObject);
 		}
 		

@@ -22,6 +22,8 @@ public class YunittoWiggle : MonoBehaviour {
 	private YunittoWiggle yunittoEnemy;
 	public float _yVelocity;
 	private Player _player;
+	private Transform _cursor;
+	private float _personalSpeed;
 
 	private float hp; // vie de l'unité
 	private float atk; // attaque de l'unité
@@ -63,6 +65,8 @@ public class YunittoWiggle : MonoBehaviour {
 		_yVelocity = 0F;
 
 		_player = (Player)transform.parent.parent.GetComponent<Player>();
+		_cursor = transform.parent.parent.FindChild("Cursor");
+		_personalSpeed = Random.Range(1F, 3F);
 
 		switch(gameObject.tag) {
 			// S'il s'agit d'un allié
@@ -94,12 +98,34 @@ public class YunittoWiggle : MonoBehaviour {
 	}
 
 	private void Move() {
+		// Les minions visent la position du bunch ennemi (le château) et l'armée vise le curseur
+		switch(gameObject.tag) {
+		case "Minion":
+			float interest = ((-transform.parent.position.x - (0.6f*unitRange))) * wiggleSpeed; //ajouté le unit range pour que les ranges soient plus en arriere.
+			float movement = Random.Range(interest-wiggleSpeed, interest+wiggleSpeed) * Time.deltaTime;
+			transform.position = new Vector3(transform.position.x + movement, 
+			                                 transform.position.y, 
+			                                 transform.position.z);
+			break;
+		
+		case "Army":
+			float mov = ((_cursor.transform.position.x - transform.position.x) - (0.6f * unitRange) *_personalSpeed) * Time.deltaTime;
+			mov = Random.Range(mov - wiggleSpeed, mov + wiggleSpeed);
+			Debug.Log (mov);
+			transform.Translate(mov, 0, 0);
+
+			//transform.position.x += (_cursor.transform.position.x - transform.position.x) / Time.deltaTime;
+			//transform.position.x = Random.Range(transform.position.x - wiggleSpeed, transform.position.x + wiggleSpeed);
+			break;
+		}
+	
 		// Biaiser les limites de mouvement pour que le yunitto ne s'éloigne pas trop du bunc
-		float interest = ((-transform.localPosition.x - (0.6f*unitRange))/leashLength) * wiggleSpeed; //ajouté le unit range pour que les ranges soient plus en arriere.
-		float movement = Random.Range(interest-wiggleSpeed, interest+wiggleSpeed) * Time.deltaTime;
-		transform.localPosition = new Vector3(transform.localPosition.x + movement, 
-		                                      transform.localPosition.y, 
-		                                      transform.localPosition.z);
+		//float interest = (target.position.x - target.position.x) / Time.deltaTime + transform.position.x;
+		//float interest = ((-target.position.x - (0.6f*unitRange))/leashLength) * wiggleSpeed; //ajouté le unit range pour que les ranges soient plus en arriere.
+		//float movement = Random.Range(interest-wiggleSpeed, interest+wiggleSpeed) * Time.deltaTime;
+		//transform.position = new Vector3(transform.position.x + movement, 
+	    //                                  transform.position.y, 
+	    //                                  transform.position.z);
 	}
 	
 	private void Hop() {
@@ -107,7 +133,7 @@ public class YunittoWiggle : MonoBehaviour {
 		float yunittoY = transform.localPosition.y;
 
 		if (yunittoY == 0 && Random.Range(0F, 1F) < jumpChance) {
-			_yVelocity = jumpHeight + Random.Range(-jumpVar, jumpVar);
+			_yVelocity = jumpHeight + Random.Range(-jumpVar, jumpVar) * Time.deltaTime;
 		}
 
 		// Appliquer la gravité
@@ -292,7 +318,7 @@ public class YunittoWiggle : MonoBehaviour {
 			
 			if(Mathf.Abs(hit.collider.transform.position.x - transform.position.x) < 2*MIN_RANGE)
 			{
-				YunittoEnemy yuni = (YunittoEnemy)hit.collider.gameObject.GetComponent<YunittoEnemy> ();
+				YunittoWiggle yuni = (YunittoWiggle)hit.collider.gameObject.GetComponent<YunittoWiggle> ();
 				if(yuni != null) yuni.Hp -= atk;
 				//projectileManager.CreateProjectile(1,atk,transform.position,isGood);
 			}
@@ -351,6 +377,8 @@ public class YunittoWiggle : MonoBehaviour {
 		
 		// Méthodes
 		public override void Update() {
+			_yunitto.Move();
+
 			if (!_yunitto.IsInCooldown) {
 				
 				// S'il n'y a plus de menace, on revient en mode march
