@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour {
 				timerUpdate += Time.deltaTime;
 				ennemyAmountMultiplier = (0.1f * _timeElapsed) + 1;
 				//if (statMultiplier <= friendlyStatMultiplier)
-						statMultiplier += (Time.deltaTime / 200); // unités ennemis deviennent de plus en plus forte jusqu'a etre aussi fort que les unités normale
+						statMultiplier += (Time.deltaTime / 60); // unités ennemis deviennent de plus en plus forte jusqu'a etre aussi fort que les unités normale
 		// Faire progresser l'intervalle de spawn (plus en plus de spawns)
 		//spawnInterval *= 0.99F;
 
