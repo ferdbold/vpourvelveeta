@@ -87,7 +87,7 @@ public class YunittoWiggle : MonoBehaviour {
 				break;
 		}
 
-		_body = transform.FindChild("Body");
+		_body = transform.FindChild("Sphere001");
 	}
 
 	void Update () {
@@ -230,8 +230,6 @@ public class YunittoWiggle : MonoBehaviour {
 				break;
 			}
 		}
-
-
 	}
 	
 	void Shoot() {
@@ -329,7 +327,11 @@ public class YunittoWiggle : MonoBehaviour {
 	public class AllyMarchState : YunittoState {
 
 		// Constructeurs
-		public AllyMarchState(YunittoWiggle yunitto) : base(yunitto) {}
+		public AllyMarchState(YunittoWiggle yunitto) : base(yunitto) {
+
+			// Changer l'animation
+			_yunitto.animation.Play ("Sk_Yunito_Rob_Walk");
+		}
 
 		// Méthodes
 		public override void Update() {
@@ -337,7 +339,6 @@ public class YunittoWiggle : MonoBehaviour {
 			_yunitto.Hop();
 
 			if (!_yunitto.IsInCooldown) {
-				Debug.Log ("Not in cooldown!");
 				// S'il y a une menace, on passe en mode attaque
 				if (_yunitto.CheckThreat()) {
 					_yunitto._state = new AllyAttackState(_yunitto);
@@ -354,6 +355,9 @@ public class YunittoWiggle : MonoBehaviour {
 			_yunitto.transform.localPosition = new Vector3(_yunitto.transform.localPosition.x,
 			                                               0, 
 			                                               _yunitto.transform.localPosition.z);
+
+			// Changer l'animation
+			_yunitto.animation.Play ("Sk_Yunito_Rob_AttM"); 
 		}
 		
 		// Méthodes
@@ -380,7 +384,11 @@ public class YunittoWiggle : MonoBehaviour {
 	public class EnemyMarchState : YunittoState {
 
 		// Constructeurs
-		public EnemyMarchState(YunittoWiggle yunitto) : base(yunitto) {}
+		public EnemyMarchState(YunittoWiggle yunitto) : base(yunitto) {
+
+			// Changer l'animation
+			_yunitto.animation.Play ("Sk_Yunito_Rob_Walk");
+		}
 
 		// Méthodes
 		public override void Update() {
@@ -405,6 +413,9 @@ public class YunittoWiggle : MonoBehaviour {
 			_yunitto.transform.localPosition = new Vector3(_yunitto.transform.localPosition.x,
 			                                               0, 
 			                                               _yunitto.transform.localPosition.z);
+
+			// Changer l'animation
+			_yunitto.animation.Play ("Sk_Yunito_Rob_AttM");
 		}
 		
 		// Méthodes
@@ -432,7 +443,11 @@ public class YunittoWiggle : MonoBehaviour {
 		private int _framesElapsed = 0;
 
 		// Constructeurs
-		public DeathState(YunittoWiggle yunitto) : base(yunitto) {}
+		public DeathState(YunittoWiggle yunitto) : base(yunitto) {
+
+			// Changer l'animation
+			_yunitto.animation.Play ("Sk_Yunito_Rob_Death");
+		}
 		
 		// Méthodes
 		public override void Update() {
