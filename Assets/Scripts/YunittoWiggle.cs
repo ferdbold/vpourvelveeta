@@ -10,8 +10,8 @@ public class YunittoWiggle : MonoBehaviour {
 	
 	// Constantes
 	private int DEATH_ANIM_LENGTH = 20;
-	const int MAX_RANGE = 5;
-	private float MIN_RANGE = 0.5f;
+	const int MAX_RANGE = 3;
+	private float MIN_RANGE = 0.2f;
 	const int BASE_ATK = 1;
 	const int BASE_HP = 5;
 	const float BASE_SPEED = 1f;
@@ -112,7 +112,7 @@ public class YunittoWiggle : MonoBehaviour {
 		// Les minions visent la position du bunch ennemi (le château) et l'armée vise le curseur
 		switch(gameObject.tag) {
 		case "Minion":
-			float interest = ((-transform.parent.position.x - (0.6f*unitRange))) * wiggleSpeed; //ajouté le unit range pour que les ranges soient plus en arriere.
+			float interest = ((-transform.parent.position.x - (0.4f*unitRange))) * wiggleSpeed; //ajouté le unit range pour que les ranges soient plus en arriere.
 			float movement = Random.Range(interest-wiggleSpeed, interest+wiggleSpeed) * Time.deltaTime;
 			transform.position = new Vector3(transform.position.x + movement, 
 			                                 transform.position.y, 
@@ -190,8 +190,8 @@ public class YunittoWiggle : MonoBehaviour {
 
 		// Stats des alliés
 		if (gameObject.tag == "Army") {
-			hp = BASE_HP +(health * manager.FriendlyStatMultiplier);
-			atk = BASE_ATK +(attack * manager.FriendlyStatMultiplier);
+			hp = BASE_HP +(health * 50 * manager.FriendlyStatMultiplier);
+			atk = BASE_ATK +(attack * 50 * manager.FriendlyStatMultiplier);
 			range = (atk_range * MAX_RANGE);
 			if(range < MIN_RANGE) range = MIN_RANGE;
 		}
@@ -199,8 +199,8 @@ public class YunittoWiggle : MonoBehaviour {
 		// Stats des ennemis
 		else if (gameObject.tag == "Minion") {
 			hp = BASE_HP+(health * 100 * manager.StatMultiplier);
-			atk = BASE_ATK+(attack * 100 * manager.StatMultiplier);
-			range = ((atk_range * manager.StatMultiplier) * MAX_RANGE);
+			atk = BASE_ATK+(attack * 50 * manager.StatMultiplier);
+			range = ((atk_range) * MAX_RANGE);
 			if(range < MIN_RANGE) range = MIN_RANGE;
 			if(range > MAX_RANGE) range = MAX_RANGE;
 		}

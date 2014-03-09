@@ -59,15 +59,16 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	void Update () {
-		_timeElapsed += Time.deltaTime;
-		_spawnTimeElapsed += Time.deltaTime;
-		timerUpdate += Time.deltaTime;
-		ennemyAmountMultiplier = (0.1f * _timeElapsed) + 1;
-
+				_timeElapsed += Time.deltaTime;
+				_spawnTimeElapsed += Time.deltaTime;
+				timerUpdate += Time.deltaTime;
+				ennemyAmountMultiplier = (0.1f * _timeElapsed) + 1;
+				if (statMultiplier <= friendlyStatMultiplier)
+						statMultiplier += (_timeElapsed / 100); // unités ennemis deviennent de plus en plus forte jusqu'a etre aussi fort que les unités normale
 		// Faire progresser l'intervalle de spawn (plus en plus de spawns)
 		spawnInterval *= 0.9997F;
 
-		// Spawner des ennemis random
+		// 		Spawner des ennemis random
 		if (_spawnTimeElapsed >= spawnInterval) {
 			SpawnBasicYunittos();
 		}
@@ -91,7 +92,7 @@ public class GameManager : MonoBehaviour {
 		_spawnTimeElapsed = 0;
 
 		foreach (Player player in players) {
-			player.CreateEnemyYunitto();
+			player.CreateEnemyYunitto(0.2f,0.2f,0.2f);
 		}
 	}
 
