@@ -60,7 +60,6 @@ public class ProjectileCollision : MonoBehaviour {
 			}
 			else {
 				YunittoWiggle yuni = (YunittoWiggle)target.transform.parent.gameObject.GetComponent<YunittoWiggle>();
-				Debug.Log(target);
 				if (yuni != null) yuni.Hp -= atk;
 			}
 
@@ -69,12 +68,12 @@ public class ProjectileCollision : MonoBehaviour {
 
 		if(unitName == "P1Army(Clone)" || unitName == "P2Minions(Clone)" )
 		{
-			if(transform.parent.position.y<=1.0f) //La constante est sujet aux changements!
+			if(transform.parent.position.y<=0f) //La constante est sujet aux changements!
 				Destroy (gameObject.transform.parent.gameObject);
 		}
 		else
 		{
-			if(transform.parent.position.y<=-2.0f)//La constante est sujet aux changements!
+			if(transform.parent.position.y<=-4.8f)//La constante est sujet aux changements!
 				Destroy (gameObject.transform.parent.gameObject);
 		}
 	}

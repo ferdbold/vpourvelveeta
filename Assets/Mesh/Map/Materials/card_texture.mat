@@ -43,4 +43,8 @@ Material:
       data:
         first:
           name: _Colormult
+<<<<<<< HEAD
         second: {r: .696551323, g: 0, b: 1, a: 1}
+=======
+        second: {r: 1, g: 1, b: 1, a: 1}
+>>>>>>> 9b56c4f86db29eb4dfad65e12fa6712247745d7a
