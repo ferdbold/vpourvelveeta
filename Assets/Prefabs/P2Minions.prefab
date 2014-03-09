@@ -326,7 +326,7 @@ GameObject:
   - 137: {fileID: 13700000}
   - 135: {fileID: 13500000}
   m_Layer: 11
-  m_Name: Body
+  m_Name: Sphere001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -343,7 +343,7 @@ GameObject:
   - 33: {fileID: 3300000}
   - 23: {fileID: 2300000}
   m_Layer: 11
-  m_Name: BoneCenter
+  m_Name: sk_Robot_bone_center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -689,11 +689,15 @@ Animation:
   m_GameObject: {fileID: 100046}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400002, guid: d5cdd49751892a847aea97cf935eed6c, type: 3}
+  m_Animation: {fileID: 7400000, guid: 5e57a6fd2d83ecd4c9acf6183b8216ce, type: 3}
   m_Animations:
-  - {fileID: 7400002, guid: d5cdd49751892a847aea97cf935eed6c, type: 3}
+  - {fileID: 7400000, guid: 5e57a6fd2d83ecd4c9acf6183b8216ce, type: 3}
+  - {fileID: 7400000, guid: 48056d06d55d9564ebf5468a65408ccf, type: 3}
+  - {fileID: 7400000, guid: 62a6e314e94cd314f86ba32023ab97b9, type: 3}
+  - {fileID: 7400000, guid: 19c4c5bed8a87d64e857dfe467387070, type: 3}
+  - {fileID: 7400000, guid: 6255e23795fc9de41abb01a5444a7fac, type: 3}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 1
 --- !u!114 &11400000
@@ -728,7 +732,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: .25
-  m_Center: {x: 0, y: -.200000003, z: 0}
+  m_Center: {x: 0, y: 0, z: -.200000003}
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
