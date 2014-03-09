@@ -9,7 +9,7 @@ using System.Collections;
 public class YunittoWiggle : MonoBehaviour {
 	
 	// Constantes
-	private int DEATH_ANIM_LENGTH = 15;
+	private int DEATH_ANIM_LENGTH = 20;
 	const int MAX_RANGE = 5;
 	private float MIN_RANGE = 0.5f;
 	const int BASE_ATK = 1;
@@ -338,6 +338,7 @@ public class YunittoWiggle : MonoBehaviour {
 		public AllyMarchState(YunittoWiggle yunitto) : base(yunitto) {
 
 			// Changer l'animation
+			_yunitto.animation["Sk_Yunito_Rob_Walk"].time = Random.Range(0.0F, _yunitto.animation["Sk_Yunito_Rob_Walk"].length);
 			_yunitto.animation.Play ("Sk_Yunito_Rob_Walk");
 		}
 
@@ -363,14 +364,10 @@ public class YunittoWiggle : MonoBehaviour {
 			_yunitto.transform.localPosition = new Vector3(_yunitto.transform.localPosition.x,
 			                                               0, 
 			                                               _yunitto.transform.localPosition.z);
-
-			// Changer l'animation
-			_yunitto.animation.Play ("Sk_Yunito_Rob_AttM"); 
 		}
 		
 		// Méthodes
 		public override void Update() {
-			Debug.Log("ATACK");
 			_yunitto.Move();
 
 			if (!_yunitto.IsInCooldown) {
@@ -381,10 +378,24 @@ public class YunittoWiggle : MonoBehaviour {
 				}
 				
 				else {
-					if(Mathf.Abs(_yunitto.hit.collider.transform.position.x - _yunitto.transform.position.x) > 2*_yunitto.MIN_RANGE)
+					if(Mathf.Abs(_yunitto.hit.collider.transform.position.x - _yunitto.transform.position.x) > 2*_yunitto.MIN_RANGE) {
+						// Changer l'animation
+						if (_yunitto.animation.clip.name != "Sk_Yunito_Rob_attR") {
+							_yunitto.animation.Play ("Sk_Yunito_Rob_attR");
+						}
+
+						// FIRE IN THE HOLE
 						_yunitto.Shoot();
-					else
+					}
+					else {
+						// Changer l'animation
+						if (_yunitto.animation.clip.name != "Sk_Yunito_Rob_AttM") {
+							_yunitto.animation.Play ("Sk_Yunito_Rob_AttM");
+						}
+
+						// HIT IT
 						_yunitto.HitMelee(_yunitto.hit.collider.gameObject);
+					}
 				}
 			}
 		}
@@ -396,6 +407,7 @@ public class YunittoWiggle : MonoBehaviour {
 		public EnemyMarchState(YunittoWiggle yunitto) : base(yunitto) {
 
 			// Changer l'animation
+			_yunitto.animation["Sk_Yunito_Rob_Walk"].time = Random.Range(0.0F, _yunitto.animation["Sk_Yunito_Rob_Walk"].length);
 			_yunitto.animation.Play ("Sk_Yunito_Rob_Walk");
 		}
 
