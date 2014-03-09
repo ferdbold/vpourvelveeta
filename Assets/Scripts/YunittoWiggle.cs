@@ -344,8 +344,7 @@ public class YunittoWiggle : MonoBehaviour {
 			_yunitto.Move();
 			_yunitto.Hop();
 
-			if (!_yunitto.IsInCooldown) {
-				Debug.Log ("Not in cooldown!");
+			if (!_yunitto.IsInCooldown){
 				// S'il y a une menace, on passe en mode attaque
 				if (_yunitto.CheckThreat()) {
 					_yunitto._state = new AllyAttackState(_yunitto);
@@ -366,6 +365,7 @@ public class YunittoWiggle : MonoBehaviour {
 		
 		// Méthodes
 		public override void Update() {
+			Debug.Log("ATACK");
 			_yunitto.Move();
 
 			if (!_yunitto.IsInCooldown) {

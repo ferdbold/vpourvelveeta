@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour {
 		Player1 = GameObject.Find ("P1");
 		Player2 = GameObject.Find ("P2");
 		AmbiantMusic.Play ();
+		AmbiantMusic.audio.loop = true;
 	}
 	
 	void Update () {
@@ -72,15 +73,16 @@ public class GameManager : MonoBehaviour {
 			SpawnBasicYunittos();
 		}
 		AmbiantMusic.volume = ambiantSound;
-		ambiantSound -= 0.3f*Time.deltaTime;
-		if (timerUpdate >= 1) {
+		if (timerUpdate >= 0.1) {
+			ambiantSound -= 0.05f;
+			if(ambiantSound < Min_AmbientSound) ambiantSound = Min_AmbientSound;
 			timerUpdate = 0;
 			YunittoWiggle[] units = (YunittoWiggle[])Player1.GetComponentsInChildren<YunittoWiggle>();
 			foreach (YunittoWiggle unit in units) {
 
 				if (unit.isInAllyAttackState)
 				{
-					if(ambiantSound < Max_AmbientSound)ambiantSound += 0.05f;
+					if(ambiantSound < Max_AmbientSound)ambiantSound += 0.20f;
 				}
 			}
 		}
