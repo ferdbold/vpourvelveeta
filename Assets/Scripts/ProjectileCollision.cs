@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ProjectileCollision : MonoBehaviour {
 	private float atk;
-	private bool isP1;
+	private string unitName;
 	private float range;
 	private RaycastHit hit;
 
@@ -23,14 +23,21 @@ public class ProjectileCollision : MonoBehaviour {
 		shoot_Projectile = (Shoot_Projectile)transform.parent.GetComponent<Shoot_Projectile> ();
 		direction = shoot_Projectile.direction;
 		atk = shoot_Projectile.Dmg;
-		isP1 = shoot_Projectile.IsP1;
+		unitName = shoot_Projectile.UnitName;
 		xSpeed = shoot_Projectile._xspeed;
-		if(isP1) {
-			if(direction>=1) layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 8) | (1 << 9) | (1 << 10)); //Si c'est le J1 , On remarque les collisions avec le j2
-			else layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 8) | (1 << 10) | (1 << 11));
-		} else {
-			if(direction>=1) layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 8) | (1 << 9) | (1 << 11)); // <-- LAYERS a IGNORER !
-			else layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 9) | (1 << 10) | (1 << 11));
+		switch(unitName) {
+		case "P1Army(Clone)": 
+			layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 8) | (1 << 9) | (1 << 10)); //Si c'est le J1 , On remarque les collisions avec le j2
+			break;
+		case "P2Army(Clone)":
+			layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 8) | (1 << 9) | (1 << 11));
+			break;
+		case "P1Minions(Clone)":
+			layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 8) | (1 << 10) | (1 << 11)); // <-- LAYERS a IGNORER !
+			break;
+		case "P2Minions(Clone)":
+			layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 9) | (1 << 10) | (1 << 11));
+			break;
 		}
 	}
 	
@@ -49,27 +56,25 @@ public class ProjectileCollision : MonoBehaviour {
 			if(target.name == "Base"){
 				Base baseScript =  (Base)target.GetComponent<Base>();
 				baseScript.Hp -= atk;
-				Debug.Log ("BASE HIT"); 
+				Debug.Log (baseScript.Hp); 
 			}
-			else if(direction>=1) {
-				YunittoWiggle yuni = (YunittoWiggle)target.GetComponent<YunittoWiggle>();
-				if (yuni != null) yuni.Hp -= atk;
-			} else {
-				YunittoWiggle yuni = (YunittoWiggle)target.GetComponent<YunittoWiggle>();
+			else {
+				YunittoWiggle yuni = (YunittoWiggle)target.transform.parent.gameObject.GetComponent<YunittoWiggle>();
+				Debug.Log(target);
 				if (yuni != null) yuni.Hp -= atk;
 			}
 
 			Destroy (gameObject.transform.parent.gameObject);
 		}
 
-		if(isP1)
+		if(unitName == "P1Army(Clone)" || unitName == "P2Minions(Clone)" )
 		{
-			if(transform.parent.position.y<=1.0f) //La constante est sujet aux changements!
+			if(transform.parent.position.y<=0f) //La constante est sujet aux changements!
 				Destroy (gameObject.transform.parent.gameObject);
 		}
 		else
 		{
-			if(transform.parent.position.y<=-2.0f)//La constante est sujet aux changements!
+			if(transform.parent.position.y<=-4.8f)//La constante est sujet aux changements!
 				Destroy (gameObject.transform.parent.gameObject);
 		}
 	}

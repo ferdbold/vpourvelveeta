@@ -14,12 +14,12 @@ public class ProjectileManager : MonoBehaviour {
 	
 	}
 
-	public void CreateProjectile(int direction,float damage,Vector3 position,bool isProjectileP1,float range){
+	public void CreateProjectile(int direction,float damage,Vector3 position,string unitName,float range){
 		GameObject copy = (GameObject)Instantiate (projectile, position, transform.rotation);
 		shoot_Projectile = (Shoot_Projectile)copy.GetComponent<Shoot_Projectile> ();
 		shoot_Projectile.direction = direction;
 		shoot_Projectile.Dmg = damage;
-		shoot_Projectile.IsP1 = isProjectileP1;
+		shoot_Projectile.UnitName = unitName;
 		shoot_Projectile.unitRange = range;
 	}
 }

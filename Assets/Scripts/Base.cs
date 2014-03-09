@@ -27,13 +27,7 @@ public class Base : MonoBehaviour {
 			}
 			else
 				P1won=true;
-			Application.LoadLevel(3);
-			/*Debug.Log(transform.parent.name + " HAS LOST!");            //ANCIENNE MÉTHODE NON UTILISÉE (ON UTILISE LES STATICS A LA PLACE)
-			GameObject end = GameObject.Find ("EndStats");
-
-			PlayerVictory victory = (PlayerVictory)end.GetComponent<PlayerVictory>();
-			if(transform.parent.name == "P1") victory.EndGame(true);
-			else victory.EndGame(false);*/
+			Application.LoadLevel("EcranFinal");
 		}
 	}
 }

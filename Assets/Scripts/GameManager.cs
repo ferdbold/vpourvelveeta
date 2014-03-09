@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour {
 
 	private float timerUpdate;
 	private GameObject Player1;
-	private GameObject Player2;
+
 
 
 
@@ -54,7 +54,6 @@ public class GameManager : MonoBehaviour {
 		ambiantSound = Min_AmbientSound;
 		timerUpdate = 0f;
 		Player1 = GameObject.Find ("P1");
-		Player2 = GameObject.Find ("P2");
 		AmbiantMusic.Play ();
 		AmbiantMusic.audio.loop = true;
 	}

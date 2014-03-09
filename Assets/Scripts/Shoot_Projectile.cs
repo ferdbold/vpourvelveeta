@@ -26,6 +26,11 @@ public class Shoot_Projectile : MonoBehaviour {
 		get {return isP1;}
 		set {isP1 = value;}
 	}
+	private string unitName;
+	public string UnitName{
+		get { return unitName;}
+		set { unitName = value;}
+	}
 	public GameObject model;
 	public float unitRange;
 

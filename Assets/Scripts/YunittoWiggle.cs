@@ -264,7 +264,7 @@ public class YunittoWiggle : MonoBehaviour {
 	void Shoot() {
 		int direction = 1;
 		if (gameObject.tag == "Minion") direction = -1;
-		projectileManager.CreateProjectile(direction,atk,transform.position, (_player.gameObject.name == "P1"),range); //On indique au projetileManager de créer un projectile (Direction,attaque du projectile,position de la création, a qui appartient le projectile)
+		projectileManager.CreateProjectile(direction,atk,transform.position, gameObject.name,range); //On indique au projetileManager de créer un projectile (Direction,attaque du projectile,position de la création, a qui appartient le projectile)
 		cooldown = 0;
 	}
 
@@ -327,7 +327,7 @@ public class YunittoWiggle : MonoBehaviour {
 		}
 		else 
 		{
-			projectileManager.CreateProjectile(1,atk,transform.position, (_player.gameObject.name == "P1"),range);
+			projectileManager.CreateProjectile(1,atk,transform.position, gameObject.name,range);
 			/*YunittoEnemy yuni = (YunittoEnemy)hit.collider.gameObject.GetComponent<YunittoEnemy> ();
 			if(yuni != null) yuni.Hp -= atk;*/
 		}
@@ -488,7 +488,7 @@ public class YunittoWiggle : MonoBehaviour {
 		public DeathState(YunittoWiggle yunitto) : base(yunitto) {
 
 			// Changer l'animation
-			_yunitto.animation.Play ("Sk_Yunito_Rob_Death");
+			_yunitto.animation.Play ("Sk_Yunito_Rob_death");
 		}
 		
 		// Méthodes
