@@ -55,9 +55,9 @@ public class YunittoWiggle : MonoBehaviour {
 	public float wiggleSpeed = 1F;
 	public float leashLength = 10F;
 	public float jumpChance = 0.005F;
-	public float jumpHeight = 5F;
+	public float jumpHeight = 20F;
 	public float jumpVar = 1.5F;
-	public float gravity = 0.3F;
+	public float gravity = 0.001F;
 
 	/**
 	 * MÉTHODES
@@ -94,7 +94,10 @@ public class YunittoWiggle : MonoBehaviour {
 				unitRange = yunittoEnemy.Range;
 				break;
 		}
+
 		_body = transform.FindChild("Sphere001");
+		if (_body == null) _body = transform.FindChild("Bor");
+
 		switch(name) { // Set de LayerMask
 		case "P1Army(Clone)": 
 			layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 8) | (1 << 9) | (1 << 10)); //Si c'est le J1 , On remarque les collisions avec le j2
@@ -135,7 +138,7 @@ public class YunittoWiggle : MonoBehaviour {
 		case "Army":
 			float mov = ((_cursor.transform.position.x - transform.position.x) - (0.6f * unitRange) *_personalSpeed) * Time.deltaTime;
 			mov = Random.Range(mov - wiggleSpeed, mov + wiggleSpeed);
-			transform.Translate(mov, 0, 0);
+			transform.Translate(0, 0, mov);
 			break;
 		}
 	}
@@ -145,7 +148,7 @@ public class YunittoWiggle : MonoBehaviour {
 		float yunittoY = transform.localPosition.y;
 		if (yunittoY == 0) 
 			{
-			_yVelocity = jumpHeight + Random.Range(-jumpVar, jumpVar) * Time.deltaTime;
+			_yVelocity = jumpHeight + Random.Range(-jumpVar, jumpVar);
 			}
 		_yVelocity -= gravity;
 		// Calculer le nouveau Y
@@ -166,7 +169,7 @@ public class YunittoWiggle : MonoBehaviour {
 		float yunittoY = transform.localPosition.y;
 
 		if (yunittoY == 0 && Random.Range(0F, 1F) < jumpChance) {
-			_yVelocity = jumpHeight + Random.Range(-jumpVar, jumpVar) * Time.deltaTime;
+			_yVelocity = jumpHeight + Random.Range(-jumpVar, jumpVar);
 		}
 
 		// Appliquer la gravité
@@ -196,9 +199,25 @@ public class YunittoWiggle : MonoBehaviour {
 		Debug.DrawRay (transform.position, new Vector3 (coefficient * range, 0, 0),Color.green);
 		return Physics.Raycast (new Ray(transform.position, new Vector3 (coefficient, 0, 0)), out hit, range, layerMask);
 	}
+	public void checkHit() {
+		int coefficient = 1;
+		if (gameObject.tag == "Minion") coefficient = -1;
+
+		if(Physics.Raycast (new Ray(transform.position, new Vector3 (coefficient, 0, 0)),out hit,range,layerMask)){
+			GameObject target = hit.collider.gameObject;
+			if (Mathf.Abs(target.transform.position.x - transform.position.x) >= 4*MIN_RANGE) {
+				Debug.Log ("EnnemyShot");
+				Shoot();
+			}
+			else {
+				YunittoWiggle yuni = (YunittoWiggle)target.transform.parent.gameObject.GetComponent<YunittoWiggle>();
+				if (yuni != null) yuni.Hp -= atk;
+			}
+		}
+	}
 	
 	public void SetStats(float health, float attack, float atk_range){ //Vie,Attaque,Portée, Joueur(P1 ou P2)
-		unitType = setUnitType (health, attack, atk_range); //On choisit le type du joueur selon les stats (TODO : Changé la couleur du modele en fonction de l'unitType)
+		unitType = setUnitType (health, attack, atk_range); //On choisit le type du joueur selon les stats
 		setUnitColor (unitType);
 
 		// Stats des alliés
@@ -428,7 +447,7 @@ public class YunittoWiggle : MonoBehaviour {
 						}
 
 						// HIT IT
-						_yunitto.HitMelee(_yunitto.hit.collider.gameObject);
+							_yunitto.checkHit();
 					}
 				}
 			}
@@ -483,10 +502,15 @@ public class YunittoWiggle : MonoBehaviour {
 				}
 
 				else {
-					if(Mathf.Abs(_yunitto.hit.collider.transform.position.x - _yunitto.transform.position.x) > 4*_yunitto.MIN_RANGE)
+					_yunitto.checkHit();
+					/*Debug.Log (hit);
+					if (Mathf.Abs(hit.collider.transform.position.x - _yunitto.transform.position.x) >= 4*_yunitto.MIN_RANGE) {
 						_yunitto.Shoot();
-					else
-						_yunitto.HitMelee(_yunitto.hit.collider.gameObject);
+					}
+					else {
+						_yunitto.HitMelee(hit.collider.gameObject);
+					}*/
+
 				}
 			}
 		}
@@ -514,12 +538,12 @@ public class YunittoWiggle : MonoBehaviour {
 		}
 
 		private void Die() {
+			//if(_yunitto.gameObject.tag == "minion") {
+				//if (_yunitto._player.gameObject.name == "P1") 	_yunitto._player._killCount++;
+				//}		
+
 			GameObject.Destroy(_yunitto.gameObject);
 
-			if(_yunitto.gameObject.tag == "Army") {
-				if (_yunitto._player.gameObject.name == "P1") 	Debug.Log ("Player 1's army brutally murdered Player 2's minions");
-				else 											Debug.Log ("Player 2's army brutally murdered Player 1's minions");
-			}			
 		}
 	}
 }

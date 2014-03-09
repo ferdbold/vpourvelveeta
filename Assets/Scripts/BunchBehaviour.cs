@@ -44,7 +44,13 @@ public class BunchBehaviour : MonoBehaviour {
 
 	public void Move() {
 		float moveAxis = Input.GetAxis(_player.moveInput);
-
-		_cursor.transform.Translate(moveAxis * Time.deltaTime * moveSpeed, 0F, 0F);
+		if (moveAxis > 0) {
+			if(_cursor.transform.position.x < 8.5)
+						_cursor.transform.Translate (moveAxis * Time.deltaTime * moveSpeed, 0F, 0F);
+		}
+		if (moveAxis < 0) {
+			if(_cursor.transform.position.x > -6)
+				_cursor.transform.Translate (moveAxis * Time.deltaTime * moveSpeed, 0F, 0F);
+		}
 	}
 }
