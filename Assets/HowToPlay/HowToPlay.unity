@@ -166,4 +166,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cbd1bec7e7846f4da1f2ced9268a9fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundTexture: {fileID: 2800000, guid: 11e3c1b200bb859498296b3962c609b3, type: 3}
+  backgroundTexture: {fileID: 2800000, guid: 866cb6f88ef9144d6be26ba58419ba1b, type: 3}
+  skin: {fileID: 11400000, guid: d6d3dd8a6e3af4608a0249dc789bc624, type: 2}
