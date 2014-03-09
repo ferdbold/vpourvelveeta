@@ -85,7 +85,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
-  wiggleSpeed: .150000006
+  wiggleSpeed: .0500000007
   leashLength: 10
   jumpChance: .00499999989
   jumpHeight: 2

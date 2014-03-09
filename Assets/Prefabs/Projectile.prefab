@@ -46,7 +46,7 @@ Transform:
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .100000001, y: .100000001, z: .100000001}
+  m_LocalScale: {x: .0500000007, y: .0500000007, z: .0500000007}
   m_Children:
   - {fileID: 400002}
   m_Father: {fileID: 0}
@@ -160,6 +160,7 @@ MonoBehaviour:
   _yspeed: 0
   _speed: 0
   model: {fileID: 100000, guid: e276a2ab001ac454b8d6f4876dfa88e5, type: 2}
+  unitRange: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
