@@ -944,7 +944,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 13d980697bd9d064c833e7427fb41d63, type: 2}
+  - {fileID: 2100000, guid: 469ef97b5f2f8264199677a901cccfe0, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -2614,7 +2614,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 13d980697bd9d064c833e7427fb41d63, type: 2}
+  - {fileID: 2100000, guid: 469ef97b5f2f8264199677a901cccfe0, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -7032,8 +7032,8 @@ Renderer:
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
   - {fileID: 2100000, guid: d3128c263287c7a4e89f9865d0f6da79, type: 2}
-  - {fileID: 2100000, guid: 6f2f7877ed30e0342a4b6cf84448c541, type: 2}
-  - {fileID: 2100000, guid: 13d980697bd9d064c833e7427fb41d63, type: 2}
+  - {fileID: 2100000, guid: e74ad40de10e966468073898ca0b83d5, type: 2}
+  - {fileID: 2100000, guid: 469ef97b5f2f8264199677a901cccfe0, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -10385,7 +10385,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 13d980697bd9d064c833e7427fb41d63, type: 2}
+  - {fileID: 2100000, guid: 469ef97b5f2f8264199677a901cccfe0, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -10804,8 +10804,8 @@ Renderer:
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
   - {fileID: 2100000, guid: d3128c263287c7a4e89f9865d0f6da79, type: 2}
-  - {fileID: 2100000, guid: 6f2f7877ed30e0342a4b6cf84448c541, type: 2}
-  - {fileID: 2100000, guid: 13d980697bd9d064c833e7427fb41d63, type: 2}
+  - {fileID: 2100000, guid: e74ad40de10e966468073898ca0b83d5, type: 2}
+  - {fileID: 2100000, guid: 469ef97b5f2f8264199677a901cccfe0, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
