@@ -1092,7 +1092,7 @@ MonoBehaviour:
   NodeNumberMax: 3
   NodeNumberMin: 8
   Latency: .25
-  TotalTime: 5
+  TotalTime: 1.5
 --- !u!4 &2006325458
 Transform:
   m_ObjectHideFlags: 0
@@ -1152,7 +1152,7 @@ MonoBehaviour:
   NodeNumberMax: 3
   NodeNumberMin: 8
   Latency: .25
-  TotalTime: 5
+  TotalTime: 1.5
 --- !u!82 &2105348312
 AudioSource:
   m_ObjectHideFlags: 0
