@@ -8,6 +8,8 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
+	private const float Min_AmbientSound = 0.2f;
+	private const float Max_AmbientSound = 1.0f;
 	// Attributes
 	private float statMultiplier; //Multiplé aux stats des armées ennemis
 	private float friendlyStatMultiplier; //Multiplé aux stats des armées des joueurs
@@ -15,12 +17,18 @@ public class GameManager : MonoBehaviour {
 	private float _timeElapsed;
 	private float _spawnTimeElapsed;
 
+	private float timerUpdate;
+	private GameObject Player1;
+	private GameObject Player2;
+
 
 
 	// Public attributes
 	public Player[] players;
 	public float spawnInterval = 2F;
 	public GameObject p_yunittoEnemy;
+	public float ambiantSound;
+	public AudioSource AmbiantMusic;
 
 	public float StatMultiplier
 	{
@@ -43,12 +51,17 @@ public class GameManager : MonoBehaviour {
 		_spawnTimeElapsed = 0;
 		statMultiplier = 0.6f;
 		friendlyStatMultiplier = 1f;
-
+		ambiantSound = Min_AmbientSound;
+		timerUpdate = 0f;
+		Player1 = GameObject.Find ("P1");
+		Player2 = GameObject.Find ("P2");
+		AmbiantMusic.Play ();
 	}
 	
 	void Update () {
 		_timeElapsed += Time.deltaTime;
 		_spawnTimeElapsed += Time.deltaTime;
+		timerUpdate += Time.deltaTime;
 		ennemyAmountMultiplier = (0.1f * _timeElapsed) + 1;
 
 		// Faire progresser l'intervalle de spawn (plus en plus de spawns)
@@ -57,6 +70,19 @@ public class GameManager : MonoBehaviour {
 		// Spawner des ennemis random
 		if (_spawnTimeElapsed >= spawnInterval) {
 			SpawnBasicYunittos();
+		}
+		AmbiantMusic.volume = ambiantSound;
+		ambiantSound -= 0.3f*Time.deltaTime;
+		if (timerUpdate >= 1) {
+			timerUpdate = 0;
+			YunittoWiggle[] units = (YunittoWiggle[])Player1.GetComponentsInChildren<YunittoWiggle>();
+			foreach (YunittoWiggle unit in units) {
+
+				if (unit.isInAllyAttackState)
+				{
+					if(ambiantSound < Max_AmbientSound)ambiantSound += 0.05f;
+				}
+			}
 		}
 	}
 

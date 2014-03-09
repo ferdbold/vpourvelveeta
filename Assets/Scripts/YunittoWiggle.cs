@@ -42,6 +42,14 @@ public class YunittoWiggle : MonoBehaviour {
 	private ProjectileManager projectileManager; //Script ProjectileManager dans ManagerObject
 
 	private YunittoState _state;
+	public YunittoState State
+	{
+		get{return _state;}
+	}
+	public bool isInAllyAttackState 
+	{
+		get{ return(State is AllyAttackState);}
+	}
 
 	// Attributs publics
 	public float wiggleSpeed = 1F;
