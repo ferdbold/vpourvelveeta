@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour {
 		}
 		AmbiantMusic.volume = ambiantSound;
 		if (timerUpdate >= 0.1) {
-			ambiantSound -= 0.05f;
+			ambiantSound -= 0.01f;
 			if(ambiantSound < Min_AmbientSound) ambiantSound = Min_AmbientSound;
 			timerUpdate = 0;
 			YunittoWiggle[] units = (YunittoWiggle[])Player1.GetComponentsInChildren<YunittoWiggle>();
