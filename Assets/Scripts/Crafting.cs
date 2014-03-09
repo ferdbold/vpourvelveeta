@@ -171,11 +171,11 @@ public class Crafting : MonoBehaviour {
 
 	Color ColorSet(){
 		if (KeyPressed == 1)
-			return Color.red;
+			return Color.yellow;
 		else if (KeyPressed == 2)
-			return Color.blue;
+			return Color.red;
 		else if (KeyPressed == 3)
-			return Color.green;
+			return Color.blue;
 		else 
 			return Color.black;
 	}
