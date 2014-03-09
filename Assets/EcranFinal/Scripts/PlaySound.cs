@@ -3,12 +3,14 @@ using System.Collections;
 
 public class PlaySound : MonoBehaviour {
 
-	public AudioClip myClip;
-	public AudioClip myClip2;
+	public AudioSource p1won;
+	public AudioSource p2won;
 
 	// Use this for initialization
 	void Start () {
-		audio.PlayOneShot (myClip);
+		if(Base.P1won) p1won.Play();
+		else
+			p2won.Play();
 	}
 	
 	// Update is called once per frame

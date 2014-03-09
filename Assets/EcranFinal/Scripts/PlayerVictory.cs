@@ -6,8 +6,10 @@ public class PlayerVictory : MonoBehaviour {
 	public Texture backgroundTexture;
 	private string Winner;
 	public GUIStyle myGUIstyle;
-	public AudioSource p1won;
-	public AudioSource p2won;
+
+
+		
+
 
 	void OnGUI() {
 
