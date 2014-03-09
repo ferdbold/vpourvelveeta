@@ -326,7 +326,7 @@ GameObject:
   - 137: {fileID: 13700000}
   - 135: {fileID: 13500000}
   m_Layer: 11
-  m_Name: Body
+  m_Name: Sphere001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -343,7 +343,7 @@ GameObject:
   - 33: {fileID: 3300000}
   - 23: {fileID: 2300000}
   m_Layer: 11
-  m_Name: BoneCenter
+  m_Name: sk_Robot_bone_center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -697,7 +697,7 @@ Animation:
   - {fileID: 7400000, guid: 19c4c5bed8a87d64e857dfe467387070, type: 3}
   - {fileID: 7400000, guid: 6255e23795fc9de41abb01a5444a7fac, type: 3}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 1
 --- !u!114 &11400000
