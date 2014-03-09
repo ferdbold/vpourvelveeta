@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour {
 	private const float Min_AmbientSound = 0.2f;
 	private const float Max_AmbientSound = 1.0f;
 	// Attributes
-	private float statMultiplier; //Multiplé aux stats des armées ennemis
+	public float statMultiplier; //Multiplé aux stats des armées ennemis
 	private float friendlyStatMultiplier; //Multiplé aux stats des armées des joueurs
 	private float ennemyAmountMultiplier; //Nombre d'ennemis qui apparait a chaque craft
 	private float _timeElapsed;
@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 		_timeElapsed = 0;
 		_spawnTimeElapsed = 0;
-		statMultiplier = 0.6f;
+		statMultiplier = 0.2f;
 		friendlyStatMultiplier = 1f;
 		ambiantSound = Min_AmbientSound;
 		timerUpdate = 0f;
@@ -63,8 +63,8 @@ public class GameManager : MonoBehaviour {
 				_spawnTimeElapsed += Time.deltaTime;
 				timerUpdate += Time.deltaTime;
 				ennemyAmountMultiplier = (0.1f * _timeElapsed) + 1;
-				if (statMultiplier <= friendlyStatMultiplier)
-						statMultiplier += (_timeElapsed / 100); // unités ennemis deviennent de plus en plus forte jusqu'a etre aussi fort que les unités normale
+				//if (statMultiplier <= friendlyStatMultiplier)
+						statMultiplier += (Time.deltaTime / 200); // unités ennemis deviennent de plus en plus forte jusqu'a etre aussi fort que les unités normale
 		// Faire progresser l'intervalle de spawn (plus en plus de spawns)
 		//spawnInterval *= 0.99F;
 
