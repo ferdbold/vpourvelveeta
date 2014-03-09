@@ -20,7 +20,7 @@ public class PlayerVictory : MonoBehaviour {
 		else{
 			Winner="Player2 wins!";
 		}
-		GUI.Label (new Rect (0.42f*Screen.width,0.35f*Screen.height, Screen.width, Screen.height), Winner, myGUIstyle);
+		GUI.Label (new Rect (0.37f*Screen.width,0.4f*Screen.height, Screen.width, Screen.height), Winner, myGUIstyle);
 		
 		
 		//Display our Buttons with gui outlines
