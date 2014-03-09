@@ -5,14 +5,16 @@ public class PlayerVictory : MonoBehaviour {
 
 	public Texture backgroundTexture;
 	public string Winner;
+	public bool P1won;
 	void OnGUI() {
+		//P1won= gameObject.GetComponent<>;
 		GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), backgroundTexture);
-		/*	if(){
+			if(P1won){
 			Winner="Player1 wins!"; //Il manque une condition de victoire
 		}
 		else{
 			Winner="Player2 wins!";
-		}*/
+		}
 		//GUI.Label (new Rect (0, 0, Screen.width * 0, 25f, Screen.height * 0, 25), Winner);
 		
 		
@@ -29,9 +31,4 @@ public class PlayerVictory : MonoBehaviour {
 		}
 	}
 
-	void Awake () {
-		
-		DontDestroyOnLoad (gameObject);
-		
-	}
 }
