@@ -21,8 +21,9 @@ public class Base : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (hp <= 0) {
-			/*Debug.Log(transform.parent.name + " HAS LOST!");
-			GameObject end = GameObject.Find ("EndStats");
+
+			Debug.Log(transform.parent.name + " HAS LOST!");
+			/*GameObject end = GameObject.Find ("EndStats");
 			PlayerVictory victory = (PlayerVictory)end.GetComponent<PlayerVictory>();
 			if(transform.parent.name == "P1") victory.EndGame(true);
 			else victory.EndGame(false);*/
