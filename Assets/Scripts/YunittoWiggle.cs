@@ -197,14 +197,17 @@ public class YunittoWiggle : MonoBehaviour {
 		return Physics.Raycast (new Ray(transform.position, new Vector3 (coefficient, 0, 0)), out hit, range, layerMask);
 	}
 	public void checkHit() {
-		if(Physics.Raycast (new Ray(transform.position, new Vector3 (1, 0, 0)),out hit,range,layerMask)){
+		int coefficient = 1;
+		if (gameObject.tag == "Minion") coefficient = -1;
+
+		if(Physics.Raycast (new Ray(transform.position, new Vector3 (coefficient, 0, 0)),out hit,range,layerMask)){
 			GameObject target = hit.collider.gameObject;
 			if (Mathf.Abs(target.transform.position.x - transform.position.x) >= 4*MIN_RANGE) {
+				Debug.Log ("EnnemyShot");
 				Shoot();
 			}
 			else {
 				YunittoWiggle yuni = (YunittoWiggle)target.transform.parent.gameObject.GetComponent<YunittoWiggle>();
-				Debug.Log (yuni);
 				if (yuni != null) yuni.Hp -= atk;
 			}
 		}
@@ -489,7 +492,6 @@ public class YunittoWiggle : MonoBehaviour {
 		// Méthodes
 		public override void Update() {
 			if (!_yunitto.IsInCooldown) {
-				Debug.Log ("cd?");
 				// S'il n'y a plus de menace, on revient en mode march
 				if (!_yunitto.CheckThreat()) {
 					_yunitto._state = new EnemyMarchState(_yunitto);
