@@ -55,7 +55,7 @@ public class YunittoWiggle : MonoBehaviour {
 	public float wiggleSpeed = 1F;
 	public float leashLength = 10F;
 	public float jumpChance = 0.005F;
-	public float jumpHeight = 3F;
+	public float jumpHeight = 5F;
 	public float jumpVar = 1.5F;
 	public float gravity = 0.3F;
 
@@ -94,8 +94,21 @@ public class YunittoWiggle : MonoBehaviour {
 				unitRange = yunittoEnemy.Range;
 				break;
 		}
-
 		_body = transform.FindChild("Sphere001");
+		switch(name) { // Set de LayerMask
+		case "P1Army(Clone)": 
+			layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 8) | (1 << 9) | (1 << 10)); //Si c'est le J1 , On remarque les collisions avec le j2
+			break;
+		case "P2Army(Clone)":
+			layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 8) | (1 << 9) | (1 << 11));
+			break;
+		case "P1Minions(Clone)":
+			layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 8) | (1 << 10) | (1 << 11)); // <-- LAYERS a IGNORER !
+			break;
+		case "P2Minions(Clone)":
+			layerMask = ~( (1 << 0) |(1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 9) | (1 << 10) | (1 << 11));
+			break;
+		}
 	}
 
 	void Update () {
@@ -318,9 +331,9 @@ public class YunittoWiggle : MonoBehaviour {
 		if (Physics.Raycast (new Ray(transform.position, new Vector3 (1, 0, 0)),out hit,range,layerMask)) 
 		{
 			
-			if(Mathf.Abs(hit.collider.transform.position.x - transform.position.x) < 2*MIN_RANGE)
+			if(Mathf.Abs(hit.collider.transform.position.x - transform.position.x) < 4*MIN_RANGE)
 			{
-				YunittoWiggle yuni = (YunittoWiggle)hit.collider.gameObject.GetComponent<YunittoWiggle> ();
+				YunittoWiggle yuni = (YunittoWiggle)hit.collider.gameObject.transform.parent.gameObject.GetComponent<YunittoWiggle> ();
 				if(yuni != null) yuni.Hp -= atk;
 				//projectileManager.CreateProjectile(1,atk,transform.position,_player.name=="P1");
 			}
@@ -399,7 +412,7 @@ public class YunittoWiggle : MonoBehaviour {
 				}
 				
 				else {
-					if(Mathf.Abs(_yunitto.hit.collider.transform.position.x - _yunitto.transform.position.x) > 2*_yunitto.MIN_RANGE) {
+					if(Mathf.Abs(_yunitto.hit.collider.transform.position.x - _yunitto.transform.position.x) > 4*_yunitto.MIN_RANGE) {
 						// Changer l'animation
 						if (_yunitto.animation.clip.name != "Sk_Yunito_Rob_attR") {
 							_yunitto.animation.Play ("Sk_Yunito_Rob_attR");
@@ -470,7 +483,7 @@ public class YunittoWiggle : MonoBehaviour {
 				}
 
 				else {
-					if(Mathf.Abs(_yunitto.hit.collider.transform.position.x - _yunitto.transform.position.x) > 2*_yunitto.MIN_RANGE)
+					if(Mathf.Abs(_yunitto.hit.collider.transform.position.x - _yunitto.transform.position.x) > 4*_yunitto.MIN_RANGE)
 						_yunitto.Shoot();
 					else
 						_yunitto.HitMelee(_yunitto.hit.collider.gameObject);
