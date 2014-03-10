@@ -45,6 +45,7 @@ public class ProjectileCollision : MonoBehaviour {
 	void Update () {
 		ySpeed = shoot_Projectile._yspeed;
 		angle = (Mathf.Atan(ySpeed / xSpeed))*(360.0f/(2.0f*Mathf.PI)) ; //Calcul de l'angle en radian et conversion en degré
+		angle += 90;
 		if (angle < 0) 	 angle+=360;
 		transform.eulerAngles = new Vector3(0.0f, 0.0f, angle);
 

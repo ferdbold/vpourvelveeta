@@ -16,6 +16,8 @@ public class Player : MonoBehaviour {
 	public string craftAtkInput;
 	public string craftRangeInput;
 	public string JumpInput;
+	private float attackMeter;
+	public float MAX_attackMeter = 25f;
 	
 	// Attributs
 	private Transform _bunch;
@@ -34,11 +36,16 @@ public class Player : MonoBehaviour {
 	public Player OtherPlayer {
 		get{ return otherPlayer;}
 	}
+	public float AttackMeter {
+		get{ return attackMeter;}
+		set{ attackMeter = value;}
+	}
 
 	// Méthodes
 	void Awake() {
 		_bunch = transform.Find("Bunch");
 		_enemyBunch = transform.Find("Enemies");
+		attackMeter = 0;
 
 	}
 
@@ -116,8 +123,13 @@ public class Player : MonoBehaviour {
 		// Méthodes
 		public override void Update() {
 			_player._bunchBehaviour.Move();
+			_player.AttackMeter -= 30f * Time.deltaTime;
+			if(_player.AttackMeter <= 0f) _player.AttackMeter = 0f;
+
 
 			if(Input.GetButtonDown (_player.attackInput)){
+				_player.AttackMeter += 10f;
+				if(_player.AttackMeter >= _player.MAX_attackMeter) _player.AttackMeter = _player.MAX_attackMeter;
 				YunittoWiggle[] units = (YunittoWiggle[])_player._bunch.GetComponentsInChildren<YunittoWiggle>();
 				foreach (YunittoWiggle unit in units) {
 					unit.AttackPlayer();
@@ -145,6 +157,7 @@ public class Player : MonoBehaviour {
 
 		// Méthodes
 		public override void Update() {
+			_player.AttackMeter = 0;
 			if(Input.GetButtonDown(_player.craftInput)) {
 				_player._craftingBehaviour.QuitCrafting();
 				_player._state = new BattleState(_player);

@@ -200,7 +200,7 @@ public class YunittoWiggle : MonoBehaviour {
 		return Physics.Raycast (new Ray(transform.position, new Vector3 (coefficient, 0, 0)), out hit, range, layerMask);
 	}
 	public void checkHit() {
-		Debug.Log ("CHECKHIT" + gameObject.tag);
+
 		int coefficient = 1;
 		if (gameObject.tag == "Minion") coefficient = -1;
 		Debug.DrawRay (transform.position, new Vector3 (coefficient * range, 0, 0),Color.red);
