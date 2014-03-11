@@ -247,6 +247,7 @@ public class YunittoWiggle : MonoBehaviour {
 	}
 
 	int setUnitType(float H,float A,float R){ //Vérifie quel valeur est la plus grande parmis hp, Atk et range et renvoit la bon type
+		//Type d'unité (1:HP, 2:ATK, 3:Range, 4:Balanced, 5:Weak)
 		if (H + A + R < weakThreshold) return 5; //Si les stats de l'unité sont trop faible (le joueur a manqué le CRAFT)
 		if (H > A) {
 			if (H > R) return 1;
@@ -255,6 +256,14 @@ public class YunittoWiggle : MonoBehaviour {
 		else if (A > H) {
 			if (A > R) return 2;
 			else if (A < R) return 3;
+		}
+		else if (A > R) {
+			if (A > H) return 2;
+			else if (A < H) return 1;
+		}
+		else if (R > A) {
+			if (R > H) return 3;
+			else if (R < H) return 1;
 		}
 		return 4;
 	}

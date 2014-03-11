@@ -50,8 +50,8 @@ public class ProjectileCollision : MonoBehaviour {
 		transform.eulerAngles = new Vector3(0.0f, 0.0f, angle);
 
 
-		Debug.DrawRay (transform.position,transform.right*direction*range,Color.cyan);
-		if (Physics.Raycast (new Ray (transform.position, transform.right*direction), out hit, range, layerMask)) {
+		Debug.DrawRay (transform.position,-transform.up*direction*range,Color.cyan);
+		if (Physics.Raycast (new Ray (transform.position, -transform.up*direction), out hit, range, layerMask)) {
 			target = hit.collider.gameObject;
 
 			if(target.name == "Base"){
