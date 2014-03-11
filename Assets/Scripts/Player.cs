@@ -91,7 +91,7 @@ public class Player : MonoBehaviour {
 		yunitto.SetStats(hp, atk, range);
 		GameObject unitEmphasisInstance = (GameObject)Instantiate(unitEmphasis, yuni.transform.position, yuni.transform.rotation);
 		unitEmphasisInstance.transform.Rotate (new Vector3 (0, 90, 0)); //Rotate le sprite de 90 degree sinon il est invisible vu de la camera
-		unitEmphasisInstance.transform.Translate (new Vector3 (0f, 0.50f, 0f)); //centre l'anneau sur le model (d'ou le 0.50f)
+		unitEmphasisInstance.transform.Translate (new Vector3 (0f, 0.50f, -0.5f)); //centre l'anneau sur le model (d'ou le 0.50f)
 		unitEmphasisInstance.transform.parent = yuni.transform;
 	}
 	// Accesseurs

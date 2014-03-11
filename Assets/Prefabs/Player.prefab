@@ -317,8 +317,10 @@ MonoBehaviour:
   craftAtkInput: P1CraftAtk
   craftRangeInput: P1CraftRange
   JumpInput: P1Jump
+  MAX_attackMeter: 25
   unitsGood: {fileID: 100000, guid: f79a14f42d8a240399ea0076ee0efdbe, type: 2}
   unitsBad: {fileID: 100000, guid: 2d7f7b34ca3a447fa96b9513dac60c3d, type: 2}
+  unitEmphasis: {fileID: 100000, guid: b5f05c5d0fe149e4785cde63003c95b8, type: 2}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -353,6 +355,7 @@ MonoBehaviour:
   p_sphere: {fileID: 100000, guid: 3d73a8cdd5f414989bc6b441b0670ceb, type: 2}
   p_anneau: {fileID: 100000, guid: 79c3c52fc6a8d45c39c6a137ea5a7a98, type: 2}
   Message1: {fileID: 0}
+  Message2: {fileID: 0}
   NodeNumberMax: 3
   NodeNumberMin: 8
   Latency: .25
