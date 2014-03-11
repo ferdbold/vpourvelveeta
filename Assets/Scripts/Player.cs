@@ -30,6 +30,7 @@ public class Player : MonoBehaviour {
 
 	public GameObject unitsGood;
 	public GameObject unitsBad;
+	public GameObject unitEmphasis;
 
 	private GameObject otherPlayerObj;
 	private Player otherPlayer;
@@ -88,6 +89,10 @@ public class Player : MonoBehaviour {
 		YunittoWiggle yunitto = (YunittoWiggle)yuni.GetComponent<YunittoWiggle>();
 		yunitto.Start();
 		yunitto.SetStats(hp, atk, range);
+		GameObject unitEmphasisInstance = (GameObject)Instantiate(unitEmphasis, yuni.transform.position, yuni.transform.rotation);
+		unitEmphasisInstance.transform.Rotate (new Vector3 (0, 90, 0)); //Rotate le sprite de 90 degree sinon il est invisible vu de la camera
+		unitEmphasisInstance.transform.Translate (new Vector3 (0f, 0.50f, 0f)); //centre l'anneau sur le model (d'ou le 0.50f)
+		unitEmphasisInstance.transform.parent = yuni.transform;
 	}
 	// Accesseurs
 	public Transform Bunch {

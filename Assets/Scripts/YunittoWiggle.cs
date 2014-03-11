@@ -207,7 +207,6 @@ public class YunittoWiggle : MonoBehaviour {
 		if(Physics.Raycast (new Ray(transform.position, new Vector3 (coefficient, 0, 0)),out hit,(1.1f*range),layerMask)){
 			GameObject target = hit.collider.gameObject;
 			if (Mathf.Abs(target.transform.position.x - transform.position.x) >= 4*MIN_RANGE) {
-				Debug.Log ("EnnemyShot");
 				Shoot();
 				cooldown = 0;
 			}
@@ -481,7 +480,6 @@ public class YunittoWiggle : MonoBehaviour {
 
 			if (!_yunitto.IsInCooldown) {
 				// S'il y a une menace, on passe en mode attaque
-				Debug.Log (_yunitto.CheckThreat());
 
 				if (_yunitto.CheckThreat()) {
 					_yunitto._state = new EnemyAttackState(_yunitto);
