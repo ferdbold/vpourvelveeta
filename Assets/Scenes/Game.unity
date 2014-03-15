@@ -2808,6 +2808,10 @@ Prefab:
       propertyPath: Message2
       value: 
       objectReference: {fileID: 100000, guid: 6763b12f1646a794f95910408f75af60, type: 2}
+    - target: {fileID: 11400004, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: CraftingUI
+      value: 
+      objectReference: {fileID: 100000, guid: 6f6113e6abf4b074e97a58e7a7dea464, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 20724569d52a942238e146e4e21d5626, type: 2}
   m_RootGameObject: {fileID: 1866417861}
@@ -7765,6 +7769,10 @@ Prefab:
       propertyPath: Message2
       value: 
       objectReference: {fileID: 100000, guid: 6763b12f1646a794f95910408f75af60, type: 2}
+    - target: {fileID: 11400004, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: CraftingUI
+      value: 
+      objectReference: {fileID: 100000, guid: 6f6113e6abf4b074e97a58e7a7dea464, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 20724569d52a942238e146e4e21d5626, type: 2}
   m_RootGameObject: {fileID: 160677729}
@@ -16650,6 +16658,7 @@ MonoBehaviour:
   p_anneau: {fileID: 100000, guid: 79c3c52fc6a8d45c39c6a137ea5a7a98, type: 2}
   Message1: {fileID: 100000, guid: 898081ed631b587498961504ce9fb558, type: 2}
   Message2: {fileID: 100000, guid: 6763b12f1646a794f95910408f75af60, type: 2}
+  CraftingUI: {fileID: 100000, guid: 6f6113e6abf4b074e97a58e7a7dea464, type: 2}
   NodeNumberMax: 3
   NodeNumberMin: 8
   Latency: .25
@@ -17239,6 +17248,7 @@ MonoBehaviour:
   p_anneau: {fileID: 100000, guid: 79c3c52fc6a8d45c39c6a137ea5a7a98, type: 2}
   Message1: {fileID: 100000, guid: 898081ed631b587498961504ce9fb558, type: 2}
   Message2: {fileID: 100000, guid: 6763b12f1646a794f95910408f75af60, type: 2}
+  CraftingUI: {fileID: 100000, guid: 6f6113e6abf4b074e97a58e7a7dea464, type: 2}
   NodeNumberMax: 3
   NodeNumberMin: 8
   Latency: .25

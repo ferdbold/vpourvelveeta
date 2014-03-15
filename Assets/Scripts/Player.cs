@@ -158,6 +158,7 @@ public class Player : MonoBehaviour {
 		// Constructeurs
 		public CraftingState(Player player) : base(player) {
 			_player._craftingBehaviour.BeginCrafting();
+			_player._craftingBehaviour.BeginCraftingSession();
 		}
 
 		// Méthodes
@@ -165,6 +166,7 @@ public class Player : MonoBehaviour {
 			_player.AttackMeter = 0;
 			if(Input.GetButtonDown(_player.craftInput)) {
 				_player._craftingBehaviour.QuitCrafting();
+				_player._craftingBehaviour.EndCraftingSession();
 				_player._state = new BattleState(_player);
 			}
 		}

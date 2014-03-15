@@ -25,6 +25,8 @@ public class Crafting : MonoBehaviour {
 	public GameObject p_anneau;
 	public GameObject Message1;
 	public GameObject Message2;
+	public GameObject CraftingUI;
+	private GameObject CraftUI;
 
 	public int NodeNumberMax = 3;
 	public int NodeNumberMin = 8;
@@ -35,6 +37,7 @@ public class Crafting : MonoBehaviour {
 		_player = (Player)transform.parent.GetComponent<Player>();
 		_gameManager = (GameManager)transform.parent.parent.GetComponent<GameManager>();
 		_isCrafting = false;
+
 
 		Spheres = new GameObject[0];
 		Anneaux = new GameObject[0];
@@ -70,6 +73,17 @@ public class Crafting : MonoBehaviour {
 	/// <summary>
 	/// Démarre une session de crafting.
 	/// </summary>
+	public void BeginCraftingSession (){
+		//CRafting UI
+		CraftUI = (GameObject)Instantiate(CraftingUI,transform.position,transform.rotation);
+
+	}
+	public void EndCraftingSession (){
+		//CRafting UI
+		GameObject.Destroy (CraftUI);
+		
+	}
+
 	public void BeginCrafting() {
 		// Déterminer le nombre de ticks et le tempo
 		SetNodeNumber();
