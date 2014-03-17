@@ -320,7 +320,11 @@ MonoBehaviour:
   MAX_attackMeter: 25
   unitsGood: {fileID: 100000, guid: f79a14f42d8a240399ea0076ee0efdbe, type: 2}
   unitsBad: {fileID: 100000, guid: 2d7f7b34ca3a447fa96b9513dac60c3d, type: 2}
-  unitEmphasis: {fileID: 100000, guid: b5f05c5d0fe149e4785cde63003c95b8, type: 2}
+  unitEmphasisBlack: {fileID: 100000, guid: b5f05c5d0fe149e4785cde63003c95b8, type: 2}
+  unitEmphasisWhite: {fileID: 100000, guid: fed9ae3aad12f574bb736d7973e42988, type: 2}
+  unitEmphasisBlue: {fileID: 100000, guid: 01e5c705f628f364997b326d726c50b1, type: 2}
+  unitEmphasisRed: {fileID: 100000, guid: 20633b8c5f5cc064b82e4c5b18de67aa, type: 2}
+  unitEmphasisYellow: {fileID: 100000, guid: 96dcff2a8b131f543a4ba4f7835f860d, type: 2}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -356,6 +360,7 @@ MonoBehaviour:
   p_anneau: {fileID: 100000, guid: 79c3c52fc6a8d45c39c6a137ea5a7a98, type: 2}
   Message1: {fileID: 0}
   Message2: {fileID: 0}
+  CraftingUI: {fileID: 0}
   NodeNumberMax: 3
   NodeNumberMin: 8
   Latency: .25

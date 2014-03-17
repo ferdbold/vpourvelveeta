@@ -30,7 +30,11 @@ public class Player : MonoBehaviour {
 
 	public GameObject unitsGood;
 	public GameObject unitsBad;
-	public GameObject unitEmphasis;
+	public GameObject unitEmphasisBlack;
+	public GameObject unitEmphasisWhite;
+	public GameObject unitEmphasisBlue;
+	public GameObject unitEmphasisRed;
+	public GameObject unitEmphasisYellow;
 
 	private GameObject otherPlayerObj;
 	private Player otherPlayer;
@@ -85,11 +89,28 @@ public class Player : MonoBehaviour {
 	public void CreateYunitto(float hp = 0.2f, float atk = 0.4f, float range = 0.4f) {
 		GameObject yuni = (GameObject)Instantiate(unitsGood, new Vector3(-10, transform.position.y, transform.position.z), Quaternion.Euler (0, 90, 0));
 		yuni.transform.parent = _bunch;
-		
 		YunittoWiggle yunitto = (YunittoWiggle)yuni.GetComponent<YunittoWiggle>();
 		yunitto.Start();
 		yunitto.SetStats(hp, atk, range);
-		GameObject unitEmphasisInstance = (GameObject)Instantiate(unitEmphasis, yuni.transform.position, yuni.transform.rotation);
+		GameObject unitEmphasisInstance;
+		unitEmphasisInstance = (GameObject)Instantiate(unitEmphasisBlack, yuni.transform.position, yuni.transform.rotation);
+		switch(yunitto.unitType) {
+		case 1: 
+			unitEmphasisInstance = (GameObject)Instantiate(unitEmphasisYellow, yuni.transform.position, yuni.transform.rotation);
+			break;
+		case 2:
+			unitEmphasisInstance = (GameObject)Instantiate(unitEmphasisRed, yuni.transform.position, yuni.transform.rotation);
+			break;
+		case 3:
+			unitEmphasisInstance = (GameObject)Instantiate(unitEmphasisBlue, yuni.transform.position, yuni.transform.rotation);
+			break;
+		case 4:
+			unitEmphasisInstance = (GameObject)Instantiate(unitEmphasisWhite, yuni.transform.position, yuni.transform.rotation);
+			break;
+		case 5:
+			unitEmphasisInstance = (GameObject)Instantiate(unitEmphasisBlack, yuni.transform.position, yuni.transform.rotation);
+			break;
+		}
 		unitEmphasisInstance.transform.Rotate (new Vector3 (0, 90, 0)); //Rotate le sprite de 90 degree sinon il est invisible vu de la camera
 		unitEmphasisInstance.transform.Translate (new Vector3 (0f, 0.50f, -0.5f)); //centre l'anneau sur le model (d'ou le 0.50f)
 		unitEmphasisInstance.transform.parent = yuni.transform;

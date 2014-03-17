@@ -30,7 +30,7 @@ public class YunittoWiggle : MonoBehaviour {
 	private float atk; // attaque de l'unité
 	private float range; //Portée de tir de l'unité 
 	private float cooldown; //Peut selement attaquer si cette valeur est zero et moins.
-	private int unitType; //Type d'unité (1:HP, 2:ATK, 3:Range, 4:Balanced, 5:Weak)
+	public int unitType; //Type d'unité (1:HP, 2:ATK, 3:Range, 4:Balanced, 5:Weak)
 	private bool isGood; // Est-ce que l'unité appartient a la faction du haut(good) ou du bas(bad)
 	
 	private float weakThreshold; //Si les stats combinées d'un unité est inférieur au threshold, elle est faible.
