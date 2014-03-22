@@ -20,7 +20,7 @@ public class Player : MonoBehaviour {
 	
 	// Attributs
 	private float attackMeter;
-	private float craftingTransitionTime = 10f;
+	private float craftingTransitionTime = 0.8f;
 	private Transform _bunch;
 	private Transform _enemyBunch;
 	private Transform _crafting;
@@ -31,7 +31,11 @@ public class Player : MonoBehaviour {
 
 	public GameObject unitsGood;
 	public GameObject unitsBad;
-	public GameObject unitEmphasis;
+	public GameObject unitEmphasisYellow;
+	public GameObject unitEmphasisRed;
+	public GameObject unitEmphasisBlue;
+	public GameObject unitEmphasisWhite;
+	public GameObject unitEmphasisBlack;
 
 	private GameObject otherPlayerObj;
 	private Player otherPlayer;
@@ -90,12 +94,28 @@ public class Player : MonoBehaviour {
 
 	public void CreateYunitto(float hp = 0.2f, float atk = 0.4f, float range = 0.4f) {
 		GameObject yuni = (GameObject)Instantiate(unitsGood, new Vector3(-10, transform.position.y, transform.position.z), Quaternion.Euler (0, 90, 0));
+		GameObject unitEmphasisInstance;
 		yuni.transform.parent = _bunch;
-		
 		YunittoWiggle yunitto = (YunittoWiggle)yuni.GetComponent<YunittoWiggle>();
 		yunitto.Start();
 		yunitto.SetStats(hp, atk, range);
-		GameObject unitEmphasisInstance = (GameObject)Instantiate(unitEmphasis, yuni.transform.position, yuni.transform.rotation);
+		switch(yunitto.unitType) {
+		case 1 : 
+			unitEmphasisInstance = (GameObject)Instantiate(unitEmphasisYellow, yuni.transform.position, yuni.transform.rotation);
+			break;
+		case 2 : 			
+			unitEmphasisInstance = (GameObject)Instantiate(unitEmphasisRed, yuni.transform.position, yuni.transform.rotation);
+			break;
+		case 3 : 			
+			unitEmphasisInstance = (GameObject)Instantiate(unitEmphasisBlue, yuni.transform.position, yuni.transform.rotation);
+			break;
+		case 4 : 			
+			unitEmphasisInstance = (GameObject)Instantiate(unitEmphasisWhite, yuni.transform.position, yuni.transform.rotation);
+			break;
+		default : 			
+			unitEmphasisInstance = (GameObject)Instantiate(unitEmphasisBlack, yuni.transform.position, yuni.transform.rotation);
+			break;
+		}
 		unitEmphasisInstance.transform.Rotate (new Vector3 (0, 90, 0)); //Rotate le sprite de 90 degree sinon il est invisible vu de la camera
 		unitEmphasisInstance.transform.Translate (new Vector3 (0f, 0.50f, -0.5f)); //centre l'anneau sur le model (d'ou le 0.50f)
 		unitEmphasisInstance.transform.parent = yuni.transform;
@@ -126,7 +146,7 @@ public class Player : MonoBehaviour {
 		// Méthodes
 		public abstract void Update();
 	}
-
+	
 	public class BattleState : PlayerState {
 		// Constructeurs
 		public BattleState(Player player) : base(player) {}
@@ -164,7 +184,9 @@ public class Player : MonoBehaviour {
 		float timer;
 		//Constructeurs
 		public CraftingStateBegin(Player player) : base(player) {
+			_player._craftingBehaviour.BeginCraftingSession();
 			timer = 0f;
+			_player.AttackMeter = 0;
 		}
 		// Méthodes
 		public override void Update() {
@@ -178,12 +200,14 @@ public class Player : MonoBehaviour {
 		float timer;
 		//Constructeurs
 		public CraftingStateStop(Player player) : base(player) {
+			_player._craftingBehaviour.EndCraftingAnimationStart();
 			timer = 0f;
 		}
 		// Méthodes
 		public override void Update() {
-			timer += 1*Time.deltaTime;
+			timer += 1 * Time.deltaTime;
 			if(timer >= _player.CraftingTransitionTime) {
+				_player._craftingBehaviour.EndCraftingSession();
 				_player._state = new BattleState(_player);
 			}
 		}
@@ -195,16 +219,13 @@ public class Player : MonoBehaviour {
 	public class CraftingState : PlayerState {
 		// Constructeurs
 		public CraftingState(Player player) : base(player) {
-			_player._craftingBehaviour.BeginCraftingSession();
 			_player._craftingBehaviour.BeginCrafting();
 		}
 
 		// Méthodes
 		public override void Update() {
-			_player.AttackMeter = 0;
 			if(Input.GetButtonDown(_player.craftInput)) {
 				_player._craftingBehaviour.QuitCrafting();
-				_player._craftingBehaviour.EndCraftingSession();
 				_player._state = new CraftingStateStop(_player);
 			}
 		}

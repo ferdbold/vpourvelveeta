@@ -19,6 +19,7 @@ public class Crafting : MonoBehaviour {
 	private int Failure;
 	private GameObject[] Spheres;
 	private GameObject[] Anneaux;
+	private float animationDistanceUI = 25f;
 
 	// Public attributes
 	public GameObject p_sphere;
@@ -74,14 +75,24 @@ public class Crafting : MonoBehaviour {
 	/// Démarre une session de crafting.
 	/// </summary>
 	public void BeginCraftingSession (){
-		//CRafting UI
+		//Create UI, start it's entering animation. Crafting itself not yet started.
 		CraftUI = (GameObject)Instantiate(CraftingUI,transform.position,transform.rotation);
+		CraftUI.transform.Translate( new Vector3(-animationDistanceUI,0,0.5f));
+		CraftUIAnim craftUIAnim = (CraftUIAnim)CraftUI.GetComponent<CraftUIAnim>();
+		craftUIAnim.opening = true;
+		craftUIAnim.AnimationDistanceUI = animationDistanceUI;
+		craftUIAnim.AnimationTime = _player.CraftingTransitionTime;
 
 	}
 	public void EndCraftingSession (){
-		//CRafting UI
+		//Remove UI
 		GameObject.Destroy (CraftUI);
 		
+	}
+	public void EndCraftingAnimationStart(){
+		//Starts the removal of crafting UI, crafting over, but not yet in Battle.
+		CraftUIAnim craftUIAnim = (CraftUIAnim)CraftUI.GetComponent<CraftUIAnim>();
+		craftUIAnim.closing = true;
 	}
 
 	public void BeginCrafting() {
