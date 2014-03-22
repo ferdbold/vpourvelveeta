@@ -49,8 +49,8 @@ Halo:
   m_Enabled: 1
   m_Color:
     serializedVersion: 2
-    rgba: 4278255611
-  m_Size: 1.5
+    rgba: 4281466876
+  m_Size: 1.29999995
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
