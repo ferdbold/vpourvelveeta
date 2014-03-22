@@ -1054,11 +1054,7 @@ MonoBehaviour:
   MAX_attackMeter: 25
   unitsGood: {fileID: 100046, guid: 52589a9e7507e4fa1aafdce170c14af8, type: 2}
   unitsBad: {fileID: 100046, guid: 3e27d3d5dbc3a435d997f2dd6850546d, type: 2}
-  unitEmphasisBlack: {fileID: 100000, guid: b5f05c5d0fe149e4785cde63003c95b8, type: 2}
-  unitEmphasisWhite: {fileID: 100000, guid: fed9ae3aad12f574bb736d7973e42988, type: 2}
-  unitEmphasisBlue: {fileID: 100000, guid: 01e5c705f628f364997b326d726c50b1, type: 2}
-  unitEmphasisRed: {fileID: 100000, guid: 20633b8c5f5cc064b82e4c5b18de67aa, type: 2}
-  unitEmphasisYellow: {fileID: 100000, guid: 96dcff2a8b131f543a4ba4f7835f860d, type: 2}
+  unitEmphasis: {fileID: 0}
 --- !u!1 &161824609
 GameObject:
   m_ObjectHideFlags: 0
@@ -14852,11 +14848,7 @@ MonoBehaviour:
   MAX_attackMeter: 25
   unitsGood: {fileID: 100046, guid: ec957b62479d4479fb5878653d0a3938, type: 2}
   unitsBad: {fileID: 100046, guid: 775fbdc3b2e634debad9ca4803524eb7, type: 2}
-  unitEmphasisBlack: {fileID: 100000, guid: b5f05c5d0fe149e4785cde63003c95b8, type: 2}
-  unitEmphasisWhite: {fileID: 100000, guid: fed9ae3aad12f574bb736d7973e42988, type: 2}
-  unitEmphasisBlue: {fileID: 100000, guid: 01e5c705f628f364997b326d726c50b1, type: 2}
-  unitEmphasisRed: {fileID: 100000, guid: 20633b8c5f5cc064b82e4c5b18de67aa, type: 2}
-  unitEmphasisYellow: {fileID: 100000, guid: 96dcff2a8b131f543a4ba4f7835f860d, type: 2}
+  unitEmphasis: {fileID: 0}
 --- !u!1001 &1876025676
 Prefab:
   m_ObjectHideFlags: 0

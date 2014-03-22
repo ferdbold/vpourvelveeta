@@ -1,4 +1,4 @@
-﻿/// <summary>
+/// <summary>
 /// Player.cs
 /// Gère l'objet joueur (encapsule toute la zone de jeu d'un joueur)
 /// </summary>
@@ -16,10 +16,11 @@ public class Player : MonoBehaviour {
 	public string craftAtkInput;
 	public string craftRangeInput;
 	public string JumpInput;
-	private float attackMeter;
 	public float MAX_attackMeter = 25f;
 	
 	// Attributs
+	private float attackMeter;
+	private float craftingTransitionTime = 10f;
 	private Transform _bunch;
 	private Transform _enemyBunch;
 	private Transform _crafting;
@@ -30,20 +31,21 @@ public class Player : MonoBehaviour {
 
 	public GameObject unitsGood;
 	public GameObject unitsBad;
-	public GameObject unitEmphasisBlack;
-	public GameObject unitEmphasisWhite;
-	public GameObject unitEmphasisBlue;
-	public GameObject unitEmphasisRed;
-	public GameObject unitEmphasisYellow;
+	public GameObject unitEmphasis;
 
 	private GameObject otherPlayerObj;
 	private Player otherPlayer;
+	// GETS/SETS
 	public Player OtherPlayer {
 		get{ return otherPlayer;}
 	}
 	public float AttackMeter {
 		get{ return attackMeter;}
 		set{ attackMeter = value;}
+	}
+	public float CraftingTransitionTime {
+		get{ return craftingTransitionTime;}
+		set{ craftingTransitionTime = value;}
 	}
 
 	// Méthodes
@@ -89,28 +91,11 @@ public class Player : MonoBehaviour {
 	public void CreateYunitto(float hp = 0.2f, float atk = 0.4f, float range = 0.4f) {
 		GameObject yuni = (GameObject)Instantiate(unitsGood, new Vector3(-10, transform.position.y, transform.position.z), Quaternion.Euler (0, 90, 0));
 		yuni.transform.parent = _bunch;
+		
 		YunittoWiggle yunitto = (YunittoWiggle)yuni.GetComponent<YunittoWiggle>();
 		yunitto.Start();
 		yunitto.SetStats(hp, atk, range);
-		GameObject unitEmphasisInstance;
-		unitEmphasisInstance = (GameObject)Instantiate(unitEmphasisBlack, yuni.transform.position, yuni.transform.rotation);
-		switch(yunitto.unitType) {
-		case 1: 
-			unitEmphasisInstance = (GameObject)Instantiate(unitEmphasisYellow, yuni.transform.position, yuni.transform.rotation);
-			break;
-		case 2:
-			unitEmphasisInstance = (GameObject)Instantiate(unitEmphasisRed, yuni.transform.position, yuni.transform.rotation);
-			break;
-		case 3:
-			unitEmphasisInstance = (GameObject)Instantiate(unitEmphasisBlue, yuni.transform.position, yuni.transform.rotation);
-			break;
-		case 4:
-			unitEmphasisInstance = (GameObject)Instantiate(unitEmphasisWhite, yuni.transform.position, yuni.transform.rotation);
-			break;
-		case 5:
-			unitEmphasisInstance = (GameObject)Instantiate(unitEmphasisBlack, yuni.transform.position, yuni.transform.rotation);
-			break;
-		}
+		GameObject unitEmphasisInstance = (GameObject)Instantiate(unitEmphasis, yuni.transform.position, yuni.transform.rotation);
 		unitEmphasisInstance.transform.Rotate (new Vector3 (0, 90, 0)); //Rotate le sprite de 90 degree sinon il est invisible vu de la camera
 		unitEmphasisInstance.transform.Translate (new Vector3 (0f, 0.50f, -0.5f)); //centre l'anneau sur le model (d'ou le 0.50f)
 		unitEmphasisInstance.transform.parent = yuni.transform;
@@ -163,7 +148,7 @@ public class Player : MonoBehaviour {
 			
 			}
 			if(Input.GetButtonDown (_player.craftInput)) {
-				_player._state = new CraftingState(_player);
+				_player._state = new CraftingStateBegin(_player);
 			}
 			if(Input.GetButtonDown (_player.JumpInput)) {
 				Debug.Log("Jumped");
@@ -175,11 +160,43 @@ public class Player : MonoBehaviour {
 		}
 	}
 
+	public class CraftingStateBegin : PlayerState {
+		float timer;
+		//Constructeurs
+		public CraftingStateBegin(Player player) : base(player) {
+			timer = 0f;
+		}
+		// Méthodes
+		public override void Update() {
+			timer += (1 * Time.deltaTime);
+			if(timer >= _player.CraftingTransitionTime) {
+				_player._state = new CraftingState(_player);
+			}
+		}
+	}
+	public class CraftingStateStop : PlayerState {
+		float timer;
+		//Constructeurs
+		public CraftingStateStop(Player player) : base(player) {
+			timer = 0f;
+		}
+		// Méthodes
+		public override void Update() {
+			timer += 1*Time.deltaTime;
+			if(timer >= _player.CraftingTransitionTime) {
+				_player._state = new BattleState(_player);
+			}
+		}
+	}
+
+
+
+
 	public class CraftingState : PlayerState {
 		// Constructeurs
 		public CraftingState(Player player) : base(player) {
-			_player._craftingBehaviour.BeginCrafting();
 			_player._craftingBehaviour.BeginCraftingSession();
+			_player._craftingBehaviour.BeginCrafting();
 		}
 
 		// Méthodes
@@ -188,7 +205,7 @@ public class Player : MonoBehaviour {
 			if(Input.GetButtonDown(_player.craftInput)) {
 				_player._craftingBehaviour.QuitCrafting();
 				_player._craftingBehaviour.EndCraftingSession();
-				_player._state = new BattleState(_player);
+				_player._state = new CraftingStateStop(_player);
 			}
 		}
 	}
