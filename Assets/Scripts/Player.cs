@@ -17,10 +17,14 @@ public class Player : MonoBehaviour {
 	public string craftRangeInput;
 	public string JumpInput;
 	public float MAX_attackMeter = 25f;
+	public int numberOfAllies = 0;
+	public int numberOfEnemies = 0;
 	
 	// Attributs
+	private float ScreenFlashCountdown = 0f;
+	private float ScreenFlashCooldown = 4f;
 	private float attackMeter;
-	private float craftingTransitionTime = 0.8f;
+	private float craftingTransitionTime = 0.6f;
 	private Transform _bunch;
 	private Transform _enemyBunch;
 	private Transform _crafting;
@@ -36,6 +40,7 @@ public class Player : MonoBehaviour {
 	public GameObject unitEmphasisBlue;
 	public GameObject unitEmphasisWhite;
 	public GameObject unitEmphasisBlack;
+	public GameObject ScreenFlashTexture;
 
 	private GameObject otherPlayerObj;
 	private Player otherPlayer;
@@ -56,6 +61,8 @@ public class Player : MonoBehaviour {
 	void Awake() {
 		_bunch = transform.Find("Bunch");
 		_enemyBunch = transform.Find("Enemies");
+		ScreenFlashTexture = (GameObject.Find("Flashtext"));
+
 		attackMeter = 0;
 
 	}
@@ -81,6 +88,33 @@ public class Player : MonoBehaviour {
 
 	void Update() {
 		_state.Update();
+		//Make screen flash red if player is about to die
+		ScreenFlashCountdown += Time.deltaTime;
+		if(ScreenFlashCountdown > ScreenFlashCooldown) {
+			if(2*numberOfAllies < numberOfEnemies){
+				StartCoroutine(FlashScreen(ScreenFlashTexture));
+				ScreenFlashCountdown = 0;
+			}
+		}
+	}
+
+	//Fade and FlashScreen functions
+	private IEnumerator Fade (float start, float end, float length, GameObject currentObject) { // Start Transparency, End Transparency, Lenght of Fading, Object to Fade
+		//if (currentObject.guiTexture.color.a == start){
+			Color col = currentObject.guiTexture.color;
+			for (float i = 0.0f; i < 1.0f; i += Time.deltaTime*(1f/length)) { //for length of fade
+				col.a = (float)Mathf.Lerp(start, end, i); //lerp transparency
+				currentObject.guiTexture.color = col;
+				yield return null;
+				col.a = 0;
+				currentObject.guiTexture.color = col; // end lerp
+			} 	
+		//}	
+	}
+	public IEnumerator FlashScreen(GameObject ScreenFlashTexture){
+		StartCoroutine(Fade (0f, 0.5f, 2.0f, ScreenFlashTexture)); //Make flash appear
+		yield return new WaitForSeconds(2f); // Wait x sec
+		StartCoroutine(Fade (0.5f, 0f, 2.0f, ScreenFlashTexture)); //Make flash dissapear
 	}
 
 	public void CreateEnemyYunitto(float hp = 0.2f, float atk = 0.4f, float range = 0.4f) {
@@ -90,6 +124,8 @@ public class Player : MonoBehaviour {
 		YunittoWiggle yunitto = (YunittoWiggle)yuni.GetComponent<YunittoWiggle>();
 		yunitto.Start();
 		yunitto.SetStats(hp, atk, range);
+
+		numberOfEnemies++;
 	}
 
 	public void CreateYunitto(float hp = 0.2f, float atk = 0.4f, float range = 0.4f) {
@@ -119,6 +155,8 @@ public class Player : MonoBehaviour {
 		unitEmphasisInstance.transform.Rotate (new Vector3 (0, 90, 0)); //Rotate le sprite de 90 degree sinon il est invisible vu de la camera
 		unitEmphasisInstance.transform.Translate (new Vector3 (0f, 0.50f, -0.5f)); //centre l'anneau sur le model (d'ou le 0.50f)
 		unitEmphasisInstance.transform.parent = yuni.transform;
+
+		numberOfAllies++;
 	}
 	// Accesseurs
 	public Transform Bunch {

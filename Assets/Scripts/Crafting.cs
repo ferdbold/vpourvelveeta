@@ -19,7 +19,7 @@ public class Crafting : MonoBehaviour {
 	private int Failure;
 	private GameObject[] Spheres;
 	private GameObject[] Anneaux;
-	private float animationDistanceUI = 25f;
+	private float animationDistanceUI = 20f;
 
 	// Public attributes
 	public GameObject p_sphere;

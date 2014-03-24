@@ -10,7 +10,7 @@ public class YunittoWiggle : MonoBehaviour {
 	
 	// Constantes
 	private int DEATH_ANIM_LENGTH = 20;
-	const int MAX_RANGE = 4;
+	const int MAX_RANGE = 3;
 	private float MIN_RANGE = 0.5f;
 	const int BASE_ATK = 1;
 	const int BASE_HP = 10;

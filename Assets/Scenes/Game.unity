@@ -1031,6 +1031,7 @@ Transform:
   - {fileID: 172195082}
   - {fileID: 1824185175}
   - {fileID: 1637916054}
+  - {fileID: 294719342}
   m_Father: {fileID: 1498246548}
 --- !u!114 &160677731
 MonoBehaviour:
@@ -1052,6 +1053,8 @@ MonoBehaviour:
   craftRangeInput: P2CraftRange
   JumpInput: P2Jump
   MAX_attackMeter: 25
+  numberOfAllies: 0
+  numberOfEnemies: 0
   unitsGood: {fileID: 100046, guid: 52589a9e7507e4fa1aafdce170c14af8, type: 2}
   unitsBad: {fileID: 100046, guid: 3e27d3d5dbc3a435d997f2dd6850546d, type: 2}
   unitEmphasisYellow: {fileID: 100000, guid: 96dcff2a8b131f543a4ba4f7835f860d, type: 2}
@@ -1059,6 +1062,7 @@ MonoBehaviour:
   unitEmphasisBlue: {fileID: 100000, guid: 01e5c705f628f364997b326d726c50b1, type: 2}
   unitEmphasisWhite: {fileID: 100000, guid: fed9ae3aad12f574bb736d7973e42988, type: 2}
   unitEmphasisBlack: {fileID: 100000, guid: b5f05c5d0fe149e4785cde63003c95b8, type: 2}
+  ScreenFlashTexture: {fileID: 0}
 --- !u!1 &161824609
 GameObject:
   m_ObjectHideFlags: 0
@@ -1803,6 +1807,52 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 1
+--- !u!1 &294719341
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 294719342}
+  - 131: {fileID: 294719343}
+  m_Layer: 0
+  m_Name: Flashtext
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &294719342
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 294719341}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .5, y: 5.01999998, z: 0}
+  m_LocalScale: {x: 1, y: .5, z: 1}
+  m_Children: []
+  m_Father: {fileID: 160677730}
+--- !u!131 &294719343
+GUITexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 294719341}
+  m_Enabled: 1
+  m_Texture: {fileID: 2800000, guid: 1c77746931d430f4d8a502e2793008db, type: 3}
+  m_Color: {r: .5, g: .5, b: .5, a: 0}
+  m_PixelInset:
+    serializedVersion: 2
+    x: -64
+    y: -29
+    width: 128
+    height: 58
+  m_LeftBorder: 0
+  m_RightBorder: 0
+  m_TopBorder: 0
+  m_BottomBorder: 0
 --- !u!1001 &301652387
 Prefab:
   m_ObjectHideFlags: 0
@@ -2948,6 +2998,10 @@ Prefab:
       propertyPath: unitEmphasis
       value: 
       objectReference: {fileID: 100000, guid: b5f05c5d0fe149e4785cde63003c95b8, type: 2}
+    - target: {fileID: 11400000, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: ScreenFlashTexture
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 20724569d52a942238e146e4e21d5626, type: 2}
   m_RootGameObject: {fileID: 1866417861}
@@ -3863,6 +3917,52 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 279347255}
+--- !u!1 &675095156
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 675095157}
+  - 131: {fileID: 675095158}
+  m_Layer: 0
+  m_Name: Flashtext
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &675095157
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 675095156}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .5, y: .75, z: 0}
+  m_LocalScale: {x: 1, y: .5, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1866417862}
+--- !u!131 &675095158
+GUITexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 675095156}
+  m_Enabled: 1
+  m_Texture: {fileID: 2800000, guid: 1c77746931d430f4d8a502e2793008db, type: 3}
+  m_Color: {r: .5, g: .5, b: .5, a: 0}
+  m_PixelInset:
+    serializedVersion: 2
+    x: -64
+    y: -29
+    width: 128
+    height: 58
+  m_LeftBorder: 0
+  m_RightBorder: 0
+  m_TopBorder: 0
+  m_BottomBorder: 0
 --- !u!1 &686490013
 GameObject:
   m_ObjectHideFlags: 0
@@ -7917,6 +8017,10 @@ Prefab:
       propertyPath: unitEmphasis
       value: 
       objectReference: {fileID: 100000, guid: b5f05c5d0fe149e4785cde63003c95b8, type: 2}
+    - target: {fileID: 11400000, guid: 20724569d52a942238e146e4e21d5626, type: 2}
+      propertyPath: ScreenFlashTexture
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 20724569d52a942238e146e4e21d5626, type: 2}
   m_RootGameObject: {fileID: 160677729}
@@ -14837,6 +14941,7 @@ Transform:
   - {fileID: 1305763055}
   - {fileID: 902254109}
   - {fileID: 1189930633}
+  - {fileID: 675095157}
   m_Father: {fileID: 1498246548}
 --- !u!114 &1866417863
 MonoBehaviour:
@@ -14858,6 +14963,8 @@ MonoBehaviour:
   craftRangeInput: P1CraftRange
   JumpInput: P1Jump
   MAX_attackMeter: 25
+  numberOfAllies: 0
+  numberOfEnemies: 0
   unitsGood: {fileID: 100046, guid: ec957b62479d4479fb5878653d0a3938, type: 2}
   unitsBad: {fileID: 100046, guid: 775fbdc3b2e634debad9ca4803524eb7, type: 2}
   unitEmphasisYellow: {fileID: 100000, guid: 96dcff2a8b131f543a4ba4f7835f860d, type: 2}
@@ -14865,6 +14972,7 @@ MonoBehaviour:
   unitEmphasisBlue: {fileID: 100000, guid: 01e5c705f628f364997b326d726c50b1, type: 2}
   unitEmphasisWhite: {fileID: 100000, guid: fed9ae3aad12f574bb736d7973e42988, type: 2}
   unitEmphasisBlack: {fileID: 100000, guid: b5f05c5d0fe149e4785cde63003c95b8, type: 2}
+  ScreenFlashTexture: {fileID: 0}
 --- !u!1001 &1876025676
 Prefab:
   m_ObjectHideFlags: 0
